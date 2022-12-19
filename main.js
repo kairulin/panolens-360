@@ -118,6 +118,7 @@ bikeInfo.position.set(5100, -1500, 5500);
 bikeInfo.addHoverText("自行車資訊");
 bikeInfo.addEventListener("click", function () {
   infoClick(".bike-info", 0);
+  bikeInfo.focus();
 });
 
 motorInfo = new PANOLENS.Infospot(350);
@@ -125,6 +126,7 @@ motorInfo.position.set(5200, -1500, 2900);
 motorInfo.addHoverText("電動汽車馬達資訊");
 motorInfo.addEventListener("click", function () {
   infoClick(".motor-info", 1);
+  motorInfo.focus();
 });
 
 ledInfo = new PANOLENS.Infospot(350);
@@ -132,6 +134,7 @@ ledInfo.position.set(5300, -1500, 100);
 ledInfo.addHoverText("LDE車燈應用資訊");
 ledInfo.addEventListener("click", function () {
   infoClick(".led-info", 2);
+  ledInfo.focus();
 });
 
 medicalInfo = new PANOLENS.Infospot(350);
@@ -139,6 +142,7 @@ medicalInfo.position.set(5400, -1500, -2500);
 medicalInfo.addHoverText("醫療接著膠材資訊");
 medicalInfo.addEventListener("click", function () {
   infoClick(".medical-info", 3);
+  medicalInfo.focus();
 });
 
 tireInfo = new PANOLENS.Infospot(350);
@@ -146,6 +150,7 @@ tireInfo.position.set(5500, -1500, -5000);
 tireInfo.addHoverText("胎壓偵測系統資訊");
 tireInfo.addEventListener("click", function () {
   infoClick(".tire-info", 4);
+  tireInfo.focus();
 });
 
 miniLedInfo = new PANOLENS.Infospot(350);
@@ -153,6 +158,7 @@ miniLedInfo.position.set(-5500, -1500, -5550);
 miniLedInfo.addHoverText("MINI LED資訊");
 miniLedInfo.addEventListener("click", function () {
   infoClick(".miniled-info", 5);
+  miniLedInfo.focus();
 });
 
 electricInfo = new PANOLENS.Infospot(350);
@@ -160,6 +166,7 @@ electricInfo.position.set(-5600, -1500, -3050);
 electricInfo.addHoverText("電桿應用資訊");
 electricInfo.addEventListener("click", function () {
   infoClick(".bielectricke-info", 6);
+  electricInfo.focus();
 });
 
 speakerInfo = new PANOLENS.Infospot(350);
@@ -167,6 +174,7 @@ speakerInfo.position.set(-5700, -1500, -500);
 speakerInfo.addHoverText("微型揚聲器(聲學產業)資訊");
 speakerInfo.addEventListener("click", function () {
   infoClick(".speaker-info", 7);
+  speakerInfo.focus();
 });
 
 lensInfo = new PANOLENS.Infospot(350);
@@ -174,6 +182,7 @@ lensInfo.position.set(-5800, -1500, 2000);
 lensInfo.addHoverText("光學鏡頭資訊");
 lensInfo.addEventListener("click", function () {
   infoClick(".lens-info", 8);
+  lensInfo.focus();
 });
 
 communicationInfo = new PANOLENS.Infospot(350);
@@ -181,6 +190,7 @@ communicationInfo.position.set(-5900, -1500, 4550);
 communicationInfo.addHoverText("5G-光通訊-光通訊資訊");
 communicationInfo.addEventListener("click", function () {
   infoClick(".communication-info", 9);
+  communicationInfo.focus();
 });
 
 // 改變場景
@@ -306,7 +316,8 @@ porchImage.addEventListener("enter-fade-start", function () {
 });
 
 meetingImage.addEventListener("enter-fade-start", function () {
-  viewer.tweenControlCenter(lookAtPositions[3], 0);});
+  viewer.tweenControlCenter(lookAtPositions[3], 0);
+});
 
 // function textVisible() {
 //   let items = [
