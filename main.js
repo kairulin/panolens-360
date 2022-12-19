@@ -165,7 +165,7 @@ electricInfo = new PANOLENS.Infospot(350);
 electricInfo.position.set(-5600, -1500, -3050);
 electricInfo.addHoverText("電桿應用資訊");
 electricInfo.addEventListener("click", function () {
-  infoClick(".bielectricke-info", 6);
+  infoClick(".electric-info", 6);
   electricInfo.focus();
 });
 
