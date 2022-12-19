@@ -108,3 +108,33 @@ body,p {
   position: relative;
   color: white;
 }
+/* 左上 */
+.guide-box {
+  width: 212px;
+  height: 212px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+.guide-box > .logo {
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.819);
+}
+.guide-box > button {
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background: rgba(255, 255, 255, 0.819);
+}
+.guide-box > button:hover {
+  background: red;
+}
+
+.meeting-room {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}

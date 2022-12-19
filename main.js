@@ -83,6 +83,7 @@ function infoClick(item, index) {
       break;
   }
 }
+//場景
 const doorImage = new PANOLENS.ImagePanorama("images/door.jpg");
 const administrativeImage = new PANOLENS.ImagePanorama(
   "images/administrative.jpg"
@@ -98,6 +99,7 @@ const viewer = new PANOLENS.Viewer({
   controlBar: false,
 });
 
+//會議室資訊
 var bikeInfo,
   motorInfo,
   ledInfo,
@@ -181,6 +183,24 @@ communicationInfo.addEventListener("click", function () {
   infoClick(".communication-info", 9);
 });
 
+// 改變場景
+function changeFunction(img) {
+  switch (img) {
+    case "administrative":
+      viewer.setPanorama(administrativeImage);
+      break;
+    case "porch":
+      viewer.setPanorama(porchImage);
+      break;
+    case "meeting":
+      viewer.setPanorama(meetingImage);
+      break;
+    default:
+      viewer.setPanorama(doorImage);
+      break;
+  }
+}
+
 //door
 doorToAdministrativeArrow = new PANOLENS.Infospot(
   500,
@@ -189,7 +209,7 @@ doorToAdministrativeArrow = new PANOLENS.Infospot(
 doorToAdministrativeArrow.position.set(7000, -1500, 500);
 doorToAdministrativeArrow.addHoverText("大門");
 doorToAdministrativeArrow.addEventListener("click", function () {
-  viewer.setPanorama(administrativeImage);
+  changeFunction("administrative");
 });
 
 doorImage.add(doorToAdministrativeArrow);
@@ -202,7 +222,7 @@ administrativeToProchArrow = new PANOLENS.Infospot(
 administrativeToProchArrow.position.set(-800, -1500, 3500);
 administrativeToProchArrow.addHoverText("行政大樓");
 administrativeToProchArrow.addEventListener("click", function () {
-  viewer.setPanorama(porchImage);
+  changeFunction("porch");
 });
 administrativeToDoorArrow = new PANOLENS.Infospot(
   300,
@@ -211,7 +231,7 @@ administrativeToDoorArrow = new PANOLENS.Infospot(
 administrativeToDoorArrow.position.set(7000, -500, 0);
 administrativeToDoorArrow.addHoverText("入口");
 administrativeToDoorArrow.addEventListener("click", function () {
-  viewer.setPanorama(doorImage);
+  changeFunction("door");
 });
 
 administrativeImage.add(administrativeToProchArrow, administrativeToDoorArrow);
@@ -224,7 +244,7 @@ prochToMeetingArrow = new PANOLENS.Infospot(
 prochToMeetingArrow.position.set(-300, -1200, 3500);
 prochToMeetingArrow.addHoverText("會議室");
 prochToMeetingArrow.addEventListener("click", function () {
-  viewer.setPanorama(meetingImage);
+  changeFunction("meeting");
 });
 
 prochToAdministrativeArrow = new PANOLENS.Infospot(
@@ -234,7 +254,7 @@ prochToAdministrativeArrow = new PANOLENS.Infospot(
 prochToAdministrativeArrow.position.set(2500, -1500, -1500);
 prochToAdministrativeArrow.addHoverText("大門");
 prochToAdministrativeArrow.addEventListener("click", function () {
-  viewer.setPanorama(administrativeImage);
+  changeFunction("administrative");
 });
 
 porchImage.add(prochToAdministrativeArrow, prochToMeetingArrow);
@@ -247,7 +267,7 @@ meetingToProchArrow = new PANOLENS.Infospot(
 meetingToProchArrow.position.set(-5000, -1500, 7500);
 meetingToProchArrow.addHoverText("行政大樓");
 meetingToProchArrow.addEventListener("click", function () {
-  viewer.setPanorama(porchmage);
+  changeFunction("porch");
 });
 
 meetingImage.add(
@@ -286,5 +306,26 @@ porchImage.addEventListener("enter-fade-start", function () {
 });
 
 meetingImage.addEventListener("enter-fade-start", function () {
-  viewer.tweenControlCenter(lookAtPositions[3], 0);
-});
+  viewer.tweenControlCenter(lookAtPositions[3], 0);});
+
+// function textVisible() {
+//   let items = [
+//     doorToAdministrativeArrow,
+//     administrativeToProchArrow,
+//     administrativeToDoorArrow,
+//     prochToMeetingArrow,
+//     prochToAdministrativeArrow,
+//     meetingToProchArrow,
+//     bikeInfo,
+//     motorInfo,
+//     ledInfo,
+//     medicalInfo,
+//     tireInfo,
+//     miniLedInfo,
+//     electricInfo,
+//     speakerInfo,
+//     lensInfo,
+//     communicationInfo,
+//   ];
+//   items.forEach(item=>item.setText(""))
+// }
