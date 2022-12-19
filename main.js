@@ -310,7 +310,7 @@ prochToMeetingArrow = new PANOLENS.Infospot(
   300,
   "./images/prochToMeetingArrow.png"
 );
-prochToMeetingArrow.position.set(-300, -1200, 3500);
+prochToMeetingArrow.position.set(-1150, -1200, 3500);
 prochToMeetingArrow.addHoverText("會議室");
 prochToMeetingArrow.addEventListener("click", function () {
   changeFunction("meeting");
