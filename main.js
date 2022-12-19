@@ -194,7 +194,19 @@ communicationInfo.addEventListener("click", function () {
 });
 
 // 改變場景
-function changeFunction(img) {
+function changeFunction(img, product) {
+  startClose(
+    bikeMenu,
+    motorMenu,
+    ledMenu,
+    medicalMenu,
+    tireMenu,
+    miniledMenu,
+    electricMenu,
+    speakerMenu,
+    lensMenu,
+    communicationMenu
+  );
   switch (img) {
     case "administrative":
       viewer.setPanorama(administrativeImage);
@@ -204,6 +216,53 @@ function changeFunction(img) {
       break;
     case "meeting":
       viewer.setPanorama(meetingImage);
+      setTimeout(focusItem, 500);
+      function focusItem() {
+        switch (product) {
+          case "bike":
+            infoClick(".bike-info", 0);
+            bikeInfo.focus();
+            break;
+          case "motor":
+            infoClick(".motor-info", 1);
+            motorInfo.focus();
+            break;
+          case "led":
+            infoClick(".led-info", 2);
+            ledInfo.focus();
+            break;
+          case "medical":
+            infoClick(".medical-info", 3);
+            medicalInfo.focus();
+            break;
+          case "tire":
+            infoClick(".tire-info", 4);
+            tireInfo.focus();
+            break;
+          case "miniled":
+            infoClick(".miniled-info", 5);
+            miniLedInfo.focus();
+            break;
+          case "electric":
+            infoClick(".electric-info", 6);
+            electricInfo.focus();
+            break;
+          case "speaker":
+            infoClick(".speaker-info", 7);
+            speakerInfo.focus();
+            break;
+          case "lens":
+            infoClick(".lens-info", 8);
+            lensInfo.focus();
+            break;
+          case "communication":
+            infoClick(".communication-info", 9);
+            communicationInfo.focus();
+            break;
+          default:
+            break;
+        }
+      }
       break;
     default:
       viewer.setPanorama(doorImage);
