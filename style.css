@@ -78,9 +78,9 @@ p {
   margin-bottom: 12px;
   font-family: "Noto Sans TC";
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 18px;
-  line-height: 150%;  
+  line-height: 150%;
 }
 .info > span {
   display: flex;
@@ -128,18 +128,27 @@ p {
 .close-btn > span {
   position: relative;
   color: white;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
 }
+.active {
+  position: fixed;
+  z-index: 999;
+}
+
 /* 左上 */
 .guide-box {
   width: 212px;
   height: 212px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
+  top: 100px;
+  left: 24px;
   display: flex;
   flex-direction: column;
 }
+
 .guide-box > .logo {
   padding: 5px;
   background: rgba(255, 255, 255, 0.819);
@@ -150,6 +159,7 @@ p {
   text-align: left;
   border: none;
   background: rgba(255, 255, 255, 0.819);
+  cursor: pointer;
 }
 .guide-box > button:hover {
   background: #2d318b;
@@ -177,6 +187,7 @@ p {
   background: rgba(255, 255, 255, 0.819);
   border: none;
   padding: 10px;
+  cursor: pointer;
 }
 .meeting-info:hover {
   display: flex;
@@ -184,4 +195,36 @@ p {
 .meeting-info > button:hover {
   background: #2d318b;
   color: white;
+}
+
+.menu-box {
+  /* width: 251px; */
+  width: 125.5px;
+
+  height: 72px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 998;
+  background: #a5a5a5;
+  user-select: none;
+}
+.menu-box > .menu {
+  position: relative;
+  z-index: 999;
+  color: white;
+  width: 112px;
+  height: 60px;
+  background: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-left: 6px;
+  cursor: pointer;
+  padding-right: 3px;
+}
+.menu-icon {
+  font-size: 45px;
 }

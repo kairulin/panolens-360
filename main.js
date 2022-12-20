@@ -399,3 +399,9 @@ meetingImage.addEventListener("enter-fade-start", function () {
 //   ];
 //   items.forEach(item=>item.setText(""))
 // }
+
+var menuBtn = document.querySelector(".menu")
+var infoMenu = document.querySelector(".guide-box")
+menuBtn.addEventListener("click",function(){
+  infoMenu.classList.toggle("active")
+})
