@@ -13,7 +13,6 @@ p {
 .main-container .image-container {
   /* flex: 1; */
   height: 100%;
-
   position: fixed;
   width: 100%;
 }
@@ -33,6 +32,10 @@ p {
   pointer-events: none;
 }
 
+.active-menu{
+  display: flex !important;
+}
+
 .bike-menu,
 .motor-menu,
 .led-menu,
@@ -45,7 +48,7 @@ p {
 .communication-menu {
   position: fixed !important;
   z-index: 999;
-  display: flex;
+  display: none;
   flex-direction: column;
   left: 1200px;
   top: 50px;
@@ -134,18 +137,19 @@ p {
   font-size: 16px;
   line-height: 150%;
 }
-.active {
-  position: fixed;
-  z-index: 999;
+.active {  
+  display: flex !important;
 }
 
 /* 左上 */
 .guide-box {
+  position: fixed;
+  z-index: 999;
   width: 212px;
   height: 212px;
   top: 100px;
   left: 24px;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
