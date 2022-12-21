@@ -1,88 +1,3 @@
-//資訊
-var bikeMenu = document.querySelector(".bike-menu");
-var motorMenu = document.querySelector(".motor-menu");
-var ledMenu = document.querySelector(".led-menu");
-var medicalMenu = document.querySelector(".medical-menu");
-var tireMenu = document.querySelector(".tire-menu");
-var miniledMenu = document.querySelector(".miniled-menu");
-var electricMenu = document.querySelector(".electric-menu");
-var speakerMenu = document.querySelector(".speaker-menu");
-var lensMenu = document.querySelector(".lens-menu");
-var communicationMenu = document.querySelector(".communication-menu");
-//  一開始把所有資訊關閉
-function startClose(...props) {
-  props.map((item) => (item.style.display = "none"));
-}
-startClose(
-  bikeMenu,
-  motorMenu,
-  ledMenu,
-  medicalMenu,
-  tireMenu,
-  miniledMenu,
-  electricMenu,
-  speakerMenu,
-  lensMenu,
-  communicationMenu
-);
-//關閉資訊
-function closeFunction(selectData) {
-  selectData.style.display = "none";
-}
-//開啟資訊
-function infoClick(item, index) {
-  function menu(openMenu, doms) {
-    openMenu.style.display = "flex";
-    doms.map((dom) => (dom.style.display = "none"));
-  }
-  let doms = [
-    bikeMenu,
-    motorMenu,
-    ledMenu,
-    medicalMenu,
-    tireMenu,
-    miniledMenu,
-    electricMenu,
-    speakerMenu,
-    lensMenu,
-    communicationMenu,
-  ];
-  let nowDom = doms.splice(index, 1)[0];
-  switch (item) {
-    case ".bike-info":
-      menu(nowDom, doms);
-      break;
-    case ".motor-info":
-      menu(nowDom, doms);
-      break;
-    case ".led-info":
-      menu(nowDom, doms);
-      break;
-    case ".medical-info":
-      menu(nowDom, doms);
-      break;
-    case ".tire-info":
-      menu(nowDom, doms);
-      break;
-    case ".miniled-info":
-      menu(nowDom, doms);
-      break;
-    case ".electric-info":
-      menu(nowDom, doms);
-      break;
-    case ".speaker-info":
-      menu(nowDom, doms);
-      break;
-    case ".lens-info":
-      menu(nowDom, doms);
-      break;
-    case ".communication-info":
-      menu(nowDom, doms);
-      break;
-    default:
-      break;
-  }
-}
 //場景
 const doorImage = new PANOLENS.ImagePanorama("images/door.jpg");
 const administrativeImage = new PANOLENS.ImagePanorama(
@@ -117,7 +32,7 @@ var bikeInfo,
 bikeInfo.position.set(5100, -1500, 5500);
 bikeInfo.addHoverText("自行車資訊");
 bikeInfo.addEventListener("click", function () {
-  infoClick(".bike-info", 0);
+  btnFunction(1,false);
   bikeInfo.focus();
 });
 
@@ -125,7 +40,7 @@ motorInfo = new PANOLENS.Infospot(350);
 motorInfo.position.set(5200, -1500, 2900);
 motorInfo.addHoverText("電動汽車馬達資訊");
 motorInfo.addEventListener("click", function () {
-  infoClick(".motor-info", 1);
+  btnFunction(2,false);
   motorInfo.focus();
 });
 
@@ -133,7 +48,7 @@ ledInfo = new PANOLENS.Infospot(350);
 ledInfo.position.set(5300, -1500, 100);
 ledInfo.addHoverText("LDE車燈應用資訊");
 ledInfo.addEventListener("click", function () {
-  infoClick(".led-info", 2);
+  btnFunction(3,false);
   ledInfo.focus();
 });
 
@@ -141,7 +56,7 @@ medicalInfo = new PANOLENS.Infospot(350);
 medicalInfo.position.set(5400, -1500, -2500);
 medicalInfo.addHoverText("醫療接著膠材資訊");
 medicalInfo.addEventListener("click", function () {
-  infoClick(".medical-info", 3);
+  btnFunction(4,false);
   medicalInfo.focus();
 });
 
@@ -149,7 +64,7 @@ tireInfo = new PANOLENS.Infospot(350);
 tireInfo.position.set(5500, -1500, -5000);
 tireInfo.addHoverText("胎壓偵測系統資訊");
 tireInfo.addEventListener("click", function () {
-  infoClick(".tire-info", 4);
+  btnFunction(5,false);
   tireInfo.focus();
 });
 
@@ -157,7 +72,7 @@ miniLedInfo = new PANOLENS.Infospot(350);
 miniLedInfo.position.set(-5500, -1500, -5550);
 miniLedInfo.addHoverText("MINI LED資訊");
 miniLedInfo.addEventListener("click", function () {
-  infoClick(".miniled-info", 5);
+  btnFunction(6,false);
   miniLedInfo.focus();
 });
 
@@ -165,7 +80,7 @@ electricInfo = new PANOLENS.Infospot(350);
 electricInfo.position.set(-5600, -1500, -3050);
 electricInfo.addHoverText("電桿應用資訊");
 electricInfo.addEventListener("click", function () {
-  infoClick(".electric-info", 6);
+  btnFunction(7,false);
   electricInfo.focus();
 });
 
@@ -173,7 +88,7 @@ speakerInfo = new PANOLENS.Infospot(350);
 speakerInfo.position.set(-5700, -1500, -500);
 speakerInfo.addHoverText("微型揚聲器(聲學產業)資訊");
 speakerInfo.addEventListener("click", function () {
-  infoClick(".speaker-info", 7);
+  btnFunction(8,false);
   speakerInfo.focus();
 });
 
@@ -181,7 +96,7 @@ lensInfo = new PANOLENS.Infospot(350);
 lensInfo.position.set(-5800, -1500, 2000);
 lensInfo.addHoverText("光學鏡頭資訊");
 lensInfo.addEventListener("click", function () {
-  infoClick(".lens-info", 8);
+  btnFunction(9,false);
   lensInfo.focus();
 });
 
@@ -189,24 +104,12 @@ communicationInfo = new PANOLENS.Infospot(350);
 communicationInfo.position.set(-5900, -1500, 4550);
 communicationInfo.addHoverText("5G-光通訊-光通訊資訊");
 communicationInfo.addEventListener("click", function () {
-  infoClick(".communication-info", 9);
+  btnFunction(10,false);
   communicationInfo.focus();
 });
 
 // 改變場景
-function changeFunction(img, product) {
-  startClose(
-    bikeMenu,
-    motorMenu,
-    ledMenu,
-    medicalMenu,
-    tireMenu,
-    miniledMenu,
-    electricMenu,
-    speakerMenu,
-    lensMenu,
-    communicationMenu
-  );
+function changeFunction(img, product) {  
   switch (img) {
     case "administrative":
       viewer.setPanorama(administrativeImage);
@@ -216,47 +119,47 @@ function changeFunction(img, product) {
       break;
     case "meeting":
       viewer.setPanorama(meetingImage);
-      setTimeout(focusItem, 500);
+      setTimeout(focusItem, 100);
       function focusItem() {
         switch (product) {
           case "bike":
-            infoClick(".bike-info", 0);
+            btnFunction(1,false);
             bikeInfo.focus();
             break;
           case "motor":
-            infoClick(".motor-info", 1);
+            btnFunction(2,false);
             motorInfo.focus();
             break;
           case "led":
-            infoClick(".led-info", 2);
+            btnFunction(3,false);
             ledInfo.focus();
             break;
           case "medical":
-            infoClick(".medical-info", 3);
+            btnFunction(4,false);
             medicalInfo.focus();
             break;
           case "tire":
-            infoClick(".tire-info", 4);
+            btnFunction(5,false);
             tireInfo.focus();
             break;
           case "miniled":
-            infoClick(".miniled-info", 5);
+            btnFunction(6,false);
             miniLedInfo.focus();
             break;
           case "electric":
-            infoClick(".electric-info", 6);
+            btnFunction(7,false);
             electricInfo.focus();
             break;
           case "speaker":
-            infoClick(".speaker-info", 7);
+            btnFunction(8,false);
             speakerInfo.focus();
             break;
           case "lens":
-            infoClick(".lens-info", 8);
+            btnFunction(9,false);
             lensInfo.focus();
             break;
           case "communication":
-            infoClick(".communication-info", 9);
+            btnFunction(10,false);
             communicationInfo.focus();
             break;
           default:
@@ -378,30 +281,8 @@ meetingImage.addEventListener("enter-fade-start", function () {
   viewer.tweenControlCenter(lookAtPositions[3], 0);
 });
 
-// function textVisible() {
-//   let items = [
-//     doorToAdministrativeArrow,
-//     administrativeToProchArrow,
-//     administrativeToDoorArrow,
-//     prochToMeetingArrow,
-//     prochToAdministrativeArrow,
-//     meetingToProchArrow,
-//     bikeInfo,
-//     motorInfo,
-//     ledInfo,
-//     medicalInfo,
-//     tireInfo,
-//     miniLedInfo,
-//     electricInfo,
-//     speakerInfo,
-//     lensInfo,
-//     communicationInfo,
-//   ];
-//   items.forEach(item=>item.setText(""))
-// }
-
-var menuBtn = document.querySelector(".menu")
-var infoMenu = document.querySelector(".guide-box")
-menuBtn.addEventListener("click",function(){
-  infoMenu.classList.toggle("active")
-})
+var menuBtn = document.querySelector(".menu");
+var infoMenu = document.querySelector(".guide-box");
+menuBtn.addEventListener("click", function () {
+  infoMenu.classList.toggle("active");
+});
