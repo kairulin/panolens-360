@@ -1,12 +1,14 @@
 function btnFunction(selectDataId, btn) {
   if (!btn) {
-    let openDom = document.querySelector(".active-menu");   
-    if(openDom !== null){
-        openDom.classList.toggle("active-menu");
+    let openDom = document.querySelector(".active-menu");
+    if (openDom !== null) {
+      openDom.classList.toggle("active-menu");
     }
   }
-  let getDom = document.getElementById(selectDataId);
-  getDom.classList.toggle("active-menu");
+  if (selectDataId !== -1) {
+    let getDom = document.getElementById(selectDataId);
+    getDom.classList.toggle("active-menu");
+  }
 }
 fetch("meetingInfo.json")
   .then(function (response) {

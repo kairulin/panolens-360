@@ -32,7 +32,7 @@ var bikeInfo,
 bikeInfo.position.set(5100, -1500, 5500);
 bikeInfo.addHoverText("自行車資訊");
 bikeInfo.addEventListener("click", function () {
-  btnFunction(1,false);
+  btnFunction(1, false);
   bikeInfo.focus();
 });
 
@@ -40,7 +40,7 @@ motorInfo = new PANOLENS.Infospot(350);
 motorInfo.position.set(5200, -1500, 2900);
 motorInfo.addHoverText("電動汽車馬達資訊");
 motorInfo.addEventListener("click", function () {
-  btnFunction(2,false);
+  btnFunction(2, false);
   motorInfo.focus();
 });
 
@@ -48,7 +48,7 @@ ledInfo = new PANOLENS.Infospot(350);
 ledInfo.position.set(5300, -1500, 100);
 ledInfo.addHoverText("LDE車燈應用資訊");
 ledInfo.addEventListener("click", function () {
-  btnFunction(3,false);
+  btnFunction(3, false);
   ledInfo.focus();
 });
 
@@ -56,7 +56,7 @@ medicalInfo = new PANOLENS.Infospot(350);
 medicalInfo.position.set(5400, -1500, -2500);
 medicalInfo.addHoverText("醫療接著膠材資訊");
 medicalInfo.addEventListener("click", function () {
-  btnFunction(4,false);
+  btnFunction(4, false);
   medicalInfo.focus();
 });
 
@@ -64,7 +64,7 @@ tireInfo = new PANOLENS.Infospot(350);
 tireInfo.position.set(5500, -1500, -5000);
 tireInfo.addHoverText("胎壓偵測系統資訊");
 tireInfo.addEventListener("click", function () {
-  btnFunction(5,false);
+  btnFunction(5, false);
   tireInfo.focus();
 });
 
@@ -72,7 +72,7 @@ miniLedInfo = new PANOLENS.Infospot(350);
 miniLedInfo.position.set(-5500, -1500, -5550);
 miniLedInfo.addHoverText("MINI LED資訊");
 miniLedInfo.addEventListener("click", function () {
-  btnFunction(6,false);
+  btnFunction(6, false);
   miniLedInfo.focus();
 });
 
@@ -80,7 +80,7 @@ electricInfo = new PANOLENS.Infospot(350);
 electricInfo.position.set(-5600, -1500, -3050);
 electricInfo.addHoverText("電桿應用資訊");
 electricInfo.addEventListener("click", function () {
-  btnFunction(7,false);
+  btnFunction(7, false);
   electricInfo.focus();
 });
 
@@ -88,7 +88,7 @@ speakerInfo = new PANOLENS.Infospot(350);
 speakerInfo.position.set(-5700, -1500, -500);
 speakerInfo.addHoverText("微型揚聲器(聲學產業)資訊");
 speakerInfo.addEventListener("click", function () {
-  btnFunction(8,false);
+  btnFunction(8, false);
   speakerInfo.focus();
 });
 
@@ -96,7 +96,7 @@ lensInfo = new PANOLENS.Infospot(350);
 lensInfo.position.set(-5800, -1500, 2000);
 lensInfo.addHoverText("光學鏡頭資訊");
 lensInfo.addEventListener("click", function () {
-  btnFunction(9,false);
+  btnFunction(9, false);
   lensInfo.focus();
 });
 
@@ -104,17 +104,19 @@ communicationInfo = new PANOLENS.Infospot(350);
 communicationInfo.position.set(-5900, -1500, 4550);
 communicationInfo.addHoverText("5G-光通訊-光通訊資訊");
 communicationInfo.addEventListener("click", function () {
-  btnFunction(10,false);
+  btnFunction(10, false);
   communicationInfo.focus();
 });
 
 // 改變場景
-function changeFunction(img, product) {  
+function changeFunction(img, product) {
   switch (img) {
     case "administrative":
+      btnFunction(-1, false);
       viewer.setPanorama(administrativeImage);
       break;
     case "porch":
+      btnFunction(-1, false);
       viewer.setPanorama(porchImage);
       break;
     case "meeting":
@@ -123,43 +125,43 @@ function changeFunction(img, product) {
       function focusItem() {
         switch (product) {
           case "bike":
-            btnFunction(1,false);
+            btnFunction(1, false);
             bikeInfo.focus();
             break;
           case "motor":
-            btnFunction(2,false);
+            btnFunction(2, false);
             motorInfo.focus();
             break;
           case "led":
-            btnFunction(3,false);
+            btnFunction(3, false);
             ledInfo.focus();
             break;
           case "medical":
-            btnFunction(4,false);
+            btnFunction(4, false);
             medicalInfo.focus();
             break;
           case "tire":
-            btnFunction(5,false);
+            btnFunction(5, false);
             tireInfo.focus();
             break;
           case "miniled":
-            btnFunction(6,false);
+            btnFunction(6, false);
             miniLedInfo.focus();
             break;
           case "electric":
-            btnFunction(7,false);
+            btnFunction(7, false);
             electricInfo.focus();
             break;
           case "speaker":
-            btnFunction(8,false);
+            btnFunction(8, false);
             speakerInfo.focus();
             break;
           case "lens":
-            btnFunction(9,false);
+            btnFunction(9, false);
             lensInfo.focus();
             break;
           case "communication":
-            btnFunction(10,false);
+            btnFunction(10, false);
             communicationInfo.focus();
             break;
           default:
@@ -168,6 +170,7 @@ function changeFunction(img, product) {
       }
       break;
     default:
+      btnFunction(-1, false);
       viewer.setPanorama(doorImage);
       break;
   }
