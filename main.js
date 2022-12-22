@@ -285,7 +285,20 @@ meetingImage.addEventListener("enter-fade-start", function () {
 });
 
 var menuBtn = document.querySelector(".menu");
+var mapBtn = document.querySelector(".map");
+
+var mapMenu = document.querySelector(".map-box");
 var infoMenu = document.querySelector(".guide-box");
 menuBtn.addEventListener("click", function () {
   infoMenu.classList.toggle("active");
+  if (mapMenu.className.indexOf("active") !== -1) {
+    mapMenu.classList.toggle("active");
+  }
+});
+
+mapBtn.addEventListener("click", function () {
+  mapMenu.classList.toggle("active");
+  if (infoMenu.className.indexOf("active") !== -1) {
+    infoMenu.classList.toggle("active");
+  }
 });
