@@ -32,11 +32,11 @@ p {
   pointer-events: none;
 }
 
-.active-menu{
+.active-menu {
   display: flex !important;
 }
-
-.meeting-menu{
+/* 會議室資訊 */
+.meeting-menu {
   position: fixed !important;
   z-index: 999;
   display: none;
@@ -49,8 +49,8 @@ p {
   padding: 20px;
 }
 
-.more-img > img{
-  height: 200px !important;  
+.more-img > img {
+  height: 200px !important;
 }
 
 .info {
@@ -95,6 +95,7 @@ p {
   margin-left: 36px;
   margin-right: 36px;
 }
+/* 按鈕 */
 .close-btn {
   border: none;
   background: #2d318b;
@@ -123,11 +124,11 @@ p {
   font-size: 16px;
   line-height: 150%;
 }
-.active {  
+.active {
   display: flex !important;
 }
 
-/* 左上 */
+/* 左上快速導覽 */
 .guide-box {
   position: fixed;
   z-index: 999;
@@ -156,6 +157,7 @@ p {
   color: white;
 }
 
+/* 快速導覽-會議室詳細 */
 .meeting-room {
   display: flex;
   width: 100%;
@@ -187,9 +189,11 @@ p {
   color: white;
 }
 
+/* 左上選單 */
 .menu-box {
-  /* width: 251px; */
-  width: 125.5px;
+  display: flex;
+  width: 251px;
+  /* width: 125.5px; */
 
   height: 72px;
   position: absolute;
@@ -199,7 +203,7 @@ p {
   background: #a5a5a5;
   user-select: none;
 }
-.menu-box > .menu {
+.menu-box > .menu,.map {
   position: relative;
   z-index: 999;
   color: white;
@@ -215,6 +219,19 @@ p {
   cursor: pointer;
   padding-right: 3px;
 }
-.menu-icon {
+.menu-icon,.map-icon {
   font-size: 45px;
+}
+
+/* 地圖 */
+.map-box {
+  position: fixed;
+  display: none;
+  z-index: 999;
+  top: 100px;
+  left: 24px;
+}
+.map-box > img{
+  width: 440px;
+  height: 733px;
 }
