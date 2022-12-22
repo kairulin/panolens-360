@@ -20,8 +20,7 @@ fetch("meetingInfo.json")
     infos.map(
       (dom, index) =>
         (out += `
-        <div class="${dom.class_name}" id="${index + 1}">
-
+        <div class="meeting-menu ${dom.more_img ? "more-img" : ""}" id="${index + 1}">
             <img src="${dom.image_one}" alt=""></img>
             <img src="${dom.image_two}" alt=""></img>
 

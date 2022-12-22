@@ -36,16 +36,7 @@ p {
   display: flex !important;
 }
 
-.bike-menu,
-.motor-menu,
-.led-menu,
-.medical-menu,
-.tire-menu,
-.miniled-menu,
-.electric-menu,
-.speaker-menu,
-.lens-menu,
-.communication-menu {
+.meeting-menu{
   position: fixed !important;
   z-index: 999;
   display: none;
@@ -57,14 +48,9 @@ p {
   height: 750px;
   padding: 20px;
 }
-.medical-menu > img {
-  height: 200px !important;
-}
-.tire-menu > img {
-  height: 200px !important;
-}
-.lens-menu > img {
-  height: 200px !important;
+
+.more-img > img{
+  height: 200px !important;  
 }
 
 .info {

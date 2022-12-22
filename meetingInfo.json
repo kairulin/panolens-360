@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "class_name":"bike-menu",
+    "more_img":false,
     "image_one": "images/meetingInfo/bike.png",
     "image_two":"",
     "title": "產品介紹 自行車",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "class_name":"motor-menu",
+    "more_img":false,
     "image_one": "images/meetingInfo/motor.png",
     "image_two":"",
     "title": "產品介紹 電動汽車馬達",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "class_name":"led-menu",
+    "more_img":false,
     "image_one": "images/meetingInfo/led.png",
     "image_two":"",
     "title": "產品介紹 LDE車燈應用",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "class_name":"medical-menu",
+    "more_img":true,
     "image_one": "images/meetingInfo/medical1.png",
     "image_two": "images/meetingInfo/medical2.png",
     "title": "產品介紹 醫療接著膠材",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "class_name":"tire-menu",
+    "more_img":true,
     "image_one": "images/meetingInfo/tire1.png",
     "image_two": "images/meetingInfo/tire2.png",
     "title": "產品介紹 胎壓偵測系統",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "class_name":"miniled-menu",
+    "more_img":false,
     "image_one": "images/meetingInfo/miniled.png",
     "image_two": "",
     "title": "產品介紹 MiniLED",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "class_name":"electric-menu",
+    "more_img":false,
     "image_one": "images/meetingInfo/electric.png",
     "image_two": "",
     "title": "產品介紹 電桿應用",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "class_name":"speaker-menu",
+    "more_img":false,
     "image_one": "images/meetingInfo/speaker.png",
     "image_two": "",
     "title": "產品介紹 耐高溫、耐候佳、耐落摔、抗震動",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "class_name":"lens-menu",
+    "more_img":true,
     "image_one": "images/meetingInfo/lens1.png",
     "image_two": "images/meetingInfo/lens2.png",
     "title": "產品介紹 光學鏡頭接著密封膠",
@@ -82,7 +82,7 @@
   },
   {
     "id": 10,
-    "class_name":"communication-menu",
+    "more_img":false,
     "image_one": "images/meetingInfo/communication.png",
     "image_two": "",
     "title": "產品介紹 光通訊-5G戰場，由我主宰",
