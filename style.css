@@ -203,7 +203,7 @@ p {
   background: #a5a5a5;
   user-select: none;
 }
-.menu-box > .menu,.map {
+.menu-box > .menu {
   position: relative;
   z-index: 999;
   color: white;
@@ -224,12 +224,29 @@ p {
 }
 
 /* 地圖 */
+.menu-box > .map{
+  position: relative;
+  z-index: 999;
+  color: white;
+  width: 112px;
+  height: 60px;
+  background: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-left: 6px;
+  cursor: pointer;
+
+}
 .map-box {
   position: fixed;
   display: none;
   z-index: 999;
   top: 100px;
   left: 24px;
+  padding-right: 0px ;
 }
 .map-box > img{
   width: 440px;
