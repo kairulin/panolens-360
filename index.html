@@ -18,11 +18,11 @@
   <body>
     <div class="main-container">
       <div class="menu-box">
-        <div class="menu">
+        <div class="menu-box__menu">
           <i class="bx bx-menu menu-icon"></i>
           <h2>選單</h2>
         </div>
-        <div class="map">
+        <div class="menu-box__map">
           <i class="bx bx-menu map-icon"></i>
           <h2>地圖</h2>
         </div>
@@ -32,11 +32,11 @@
         <button id="button-door" onclick="changeFunction('door')">入口</button>
         <button
           id="button-administrative"
-          onclick="changeFunction('administrative')"
+          onclick="changeFunction('aisle2')"
         >
           大門
         </button>
-        <button id="button-doporchor" onclick="changeFunction('porch')">
+        <button id="button-administrative" onclick="changeFunction('administrative')">
           行政大樓
         </button>
         <button
@@ -79,6 +79,9 @@
             產品介紹 光通訊-5G戰場
           </button>
         </div>
+        <button id="button-development" onclick="changeFunction('development')">
+          行政大樓
+        </button>
       </div>
       <div class="map-box">
         <img class="map" src="./images/map.png" />

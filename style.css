@@ -171,9 +171,11 @@ p {
 .meeting-info {
   display: none;
   flex-direction: column;
-  position: relative;
+  position: absolute;
+  width: 212px;
+  height: 370px;
   left: 212px;
-  top: -37px;
+  top: 164.67px;
 }
 .meeting-info > button {
   background: rgba(255, 255, 255, 0.819);
@@ -203,7 +205,7 @@ p {
   background: #a5a5a5;
   user-select: none;
 }
-.menu-box > .menu {
+.menu-box > .menu-box__menu {
   position: relative;
   z-index: 999;
   color: white;
@@ -224,7 +226,7 @@ p {
 }
 
 /* 地圖 */
-.menu-box > .map{
+.menu-box > .menu-box__map{
   position: relative;
   z-index: 999;
   color: white;
