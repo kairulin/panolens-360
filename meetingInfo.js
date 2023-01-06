@@ -15,7 +15,6 @@ fetch("meetingInfo.json")
     return response.json();
   })
   .then(function (infos) {
-    console.log('infos',infos);
     let placeData = document.querySelector(".info-container");
     let out = "";
     infos.map(

@@ -67,8 +67,9 @@ var bikeInfo,
   communicationInfo,
   porchArrow1,
   porchArrow2,
-  meetingArrow,
-  bikeInfo = new PANOLENS.Infospot(350);
+  meetingArrow;
+  
+bikeInfo = new PANOLENS.Infospot(350);
 bikeInfo.position.set(-5100, -1500, -3800);
 bikeInfo.addHoverText("自行車資訊");
 bikeInfo.addEventListener("click", function () {
@@ -147,141 +148,59 @@ communicationInfo.addEventListener("click", function () {
   btnFunction(10, false);
   communicationInfo.focus();
 });
+//大展示間1資訊
+TopInfo = new PANOLENS.Infospot(350);
+TopInfo.position.set(-5500, 1000, 0);
+TopInfo.addHoverText("光電類");
 
-// 改變場景
-function changeFunction(img, product) {
-  switch (img) {
-    case "aisle1":
-      btnFunction(-1, false);
-      viewer.setPanorama(aisle1Image);
-      break;
-    case "aisle2":
-      btnFunction(-1, false);
-      viewer.setPanorama(aisle2Image);
-      break;
-    case "aisle3":
-      btnFunction(-1, false);
-      viewer.setPanorama(aisle3Image);
-      break;
-    case "aisle4":
-      btnFunction(-1, false);
-      viewer.setPanorama(aisle4Image);
-      break;
-    case "aisle5":
-      btnFunction(-1, false);
-      viewer.setPanorama(aisle5Image);
-      break;
-    case "aisle6":
-      btnFunction(-1, false);
-      viewer.setPanorama(aisle6Image);
-      break;
-    case "aisle7":
-      btnFunction(-1, false);
-      viewer.setPanorama(aisle7Image);
-      break;
-    case "development":
-      btnFunction(-1, false);
-      viewer.setPanorama(developmentImage);
-      break;
-    case "showRoom":
-      btnFunction(-1, false);
-      viewer.setPanorama(showRoomImage);
-      break;
-    case "bshowRoom1":
-      btnFunction(-1, false);
-      viewer.setPanorama(bShowRoom1Image);
-      break;
-    case "bshowRoom2":
-      btnFunction(-1, false);
-      viewer.setPanorama(bShowRoom2Image);
-      break;
-    case "bshowRoom3":
-      btnFunction(-1, false);
-      viewer.setPanorama(bShowRoom3Image);
-      break;
-    case "bshowRoom4":
-      btnFunction(-1, false);
-      viewer.setPanorama(bShowRoom4Image);
-      break;
-    case "bshowRoom5":
-      btnFunction(-1, false);
-      viewer.setPanorama(bShowRoom5Image);
-      break;
-    case "bshowRoom6":
-      btnFunction(-1, false);
-      viewer.setPanorama(bShowRoom6Image);
-      break;
-    case "bshowRoom7":
-      btnFunction(-1, false);
-      viewer.setPanorama(bShowRoom7Image);
-      break;
-    case "administrativePorch":
-      btnFunction(-1, false);
-      viewer.setPanorama(administrativePorchImage);
-      break;
-    case "administrative":
-      btnFunction(-1, false);
-      viewer.setPanorama(administrativeImage);
-      break;
-    case "meeting":
-      viewer.setPanorama(meetingImage);
-      setTimeout(focusItem, 100);
-      function focusItem() {
-        switch (product) {
-          case "bike":
-            btnFunction(1, false);
-            bikeInfo.focus();
-            break;
-          case "motor":
-            btnFunction(2, false);
-            motorInfo.focus();
-            break;
-          case "led":
-            btnFunction(3, false);
-            ledInfo.focus();
-            break;
-          case "medical":
-            btnFunction(4, false);
-            medicalInfo.focus();
-            break;
-          case "tire":
-            btnFunction(5, false);
-            tireInfo.focus();
-            break;
-          case "miniled":
-            btnFunction(6, false);
-            miniLedInfo.focus();
-            break;
-          case "electric":
-            btnFunction(7, false);
-            electricInfo.focus();
-            break;
-          case "speaker":
-            btnFunction(8, false);
-            speakerInfo.focus();
-            break;
-          case "lens":
-            btnFunction(9, false);
-            lensInfo.focus();
-            break;
-          case "communication":
-            btnFunction(10, false);
-            communicationInfo.focus();
-            break;
-          default:
-            break;
-        }
-      }
-      break;
-    default:
-      btnFunction(-1, false);
-      viewer.setPanorama(doorImage);
-      break;
-  }
-}
+MidInfo = new PANOLENS.Infospot(350);
+MidInfo.position.set(-5500, -3000, 0);
+MidInfo.addHoverText("光電產業");
 
+ledTopInfo = new PANOLENS.Infospot(350);
+ledTopInfo.position.set(-5500, 1000, 0);
+ledTopInfo.addHoverText("光電類");
+ledbacklightInfo = new PANOLENS.Infospot(350);
+ledbacklightInfo.position.set(-5500, -5200, 0);
+ledbacklightInfo.addHoverText("LCD 背光");
+ITOInfo = new PANOLENS.Infospot(350);
+ITOInfo.position.set(-5500, -3000, -1300);
+ITOInfo.addHoverText("ITO");
 let lookCheck = true;
+// 大展示間2資訊
+ledHeadLightsInfo = new PANOLENS.Infospot(350);
+ledHeadLightsInfo.position.set(3300, -400, 4000);
+ledHeadLightsInfo.addHoverText("LED車燈灌注密封應用");
 
+showRoom2Info2 = new PANOLENS.Infospot(350);
+showRoom2Info2.position.set(3300, -1500, -1500);
+showRoom2Info2.addHoverText("5");
+
+showRoom2Info3 = new PANOLENS.Infospot(350);
+showRoom2Info3.position.set(1050, -1500, -5250);
+showRoom2Info3.addHoverText("6");
+// vibratorInfo = new PANOLENS.Infospot(350);
+// vibratorInfo.position.set(3300, -1500, -1500);
+// vibratorInfo.addHoverText("超音波震動器應用");
+
+// microMotorInfo = new PANOLENS.Infospot(350);
+// microMotorInfo.position.set(3100, -1600, -2300);
+// microMotorInfo.addHoverText("微型馬達接著應用");
+// 大展示間3資訊
+showRomm3Info1 = new PANOLENS.Infospot(350);
+showRomm3Info1.position.set(2500, -1300, -2800);
+showRomm3Info1.addHoverText("7");
+
+showRomm3Info2 = new PANOLENS.Infospot(350);
+showRomm3Info2.position.set(3000, -1300, 500);
+showRomm3Info2.addHoverText("8");
+// solarEnergyInfo = new PANOLENS.Infospot(350);
+// solarEnergyInfo.position.set(-3300, -900, 2800);
+// solarEnergyInfo.addHoverText("太陽能電池模組防水密封應用");
+
+// fuelCellInfo = new PANOLENS.Infospot(350);
+// fuelCellInfo.position.set(-4200, -900, -500);
+// fuelCellInfo.addHoverText("燃料電池密封應用");
 //door
 doorToAdministrativeArrow = new PANOLENS.Infospot(
   500,
@@ -367,7 +286,7 @@ aisle3ToAisle4 = new PANOLENS.Infospot(
   300,
   "./images/aisle3/aisle3-aisle4.png"
 );
-aisle3ToAisle4.position.set(00, -500, -5000);
+aisle3ToAisle4.position.set(0, -500, -5000);
 // aisle3ToAisle4.addHoverText("走道4");
 aisle3ToAisle4.addEventListener("click", function () {
   lookCheck = true;
@@ -535,6 +454,10 @@ bShowRoom1ToBShowRoom2.addEventListener("click", function () {
   lookCheck = true;
   changeFunction("bshowRoom2");
 });
+console.log(
+  "bShowRoom1ToBShowRoom2",
+  Object.values(bShowRoom1ToBShowRoom2.position).toString()
+);
 // 大展示間1往大展示間7
 bShowRoom1ToBShowRoom7 = new PANOLENS.Infospot(
   300,
@@ -782,7 +705,27 @@ meetingImage.add(
   communicationInfo,
   meetingToAdministrative
 );
-
+// ledTopInfo,
+//   ledbacklightInfo,
+//   ITOInfo
+bShowRoom1Image.add(
+  TopInfo,
+  MidInfo
+)
+// vibratorInfo,
+// microMotorInfo
+bShowRoom2Image.add(
+  ledHeadLightsInfo,
+  showRoom2Info2,
+  showRoom2Info3
+)
+// solarEnergyInfo,
+// fuelCellInfo
+bShowRoom3Image.add(
+  showRomm3Info1,
+  showRomm3Info2
+ 
+)
 viewer.add(
   doorImage,
   aisle1Image,
@@ -806,40 +749,188 @@ viewer.add(
   meetingImage
 );
 var lookAtPositions = [
-  new THREE.Vector3(-7000, -1500, 500), //door
-  new THREE.Vector3(-5000, -500, -100), //asile2
+  new THREE.Vector3(
+    doorToAdministrativeArrow.position.x,
+    doorToAdministrativeArrow.position.y,
+    doorToAdministrativeArrow.position.z
+  ), //door
+  new THREE.Vector3(
+    aisle2ToAdministrativePorch.position.x,
+    aisle2ToAdministrativePorch.position.y,
+    aisle2ToAdministrativePorch.position.z
+  ), //asile2
   new THREE.Vector3(7000, -1500, 300), //administrative_porch
   new THREE.Vector3(-5000, -1500, 3500), //administrative
   new THREE.Vector3(5500, -1500, -8500), //meeting
-  [new THREE.Vector3(-300, -500, -5000), new THREE.Vector3(-300, -500, 5000)], //asile3
-  [new THREE.Vector3(-300, -500, -5000), new THREE.Vector3(-300, -500, 5000)], //asile4
-  [new THREE.Vector3(-300, -500, 5000), new THREE.Vector3(-300, -500, -5000)], //asile5
-  [new THREE.Vector3(300, -500, 5000), new THREE.Vector3(-300, -500, -5000)], //asile6
-  [new THREE.Vector3(-300, -1500, -5000), new THREE.Vector3(-5000, -500, -300)], //asile7
-  [new THREE.Vector3(-5000, -500, -300), new THREE.Vector3(300, -500, 5000)], //development
-  [new THREE.Vector3(-5000, -1500, -100), new THREE.Vector3(3500, -800, 100)], //asile1
+  [
+    new THREE.Vector3(
+      aisle3ToAisle4.position.x,
+      aisle3ToAisle4.position.y,
+      aisle3ToAisle4.position.z
+    ),
+    new THREE.Vector3(
+      aisle3ToAisle2.position.x,
+      aisle3ToAisle2.position.y,
+      aisle3ToAisle2.position.z
+    ),
+  ], //asile3
+  [
+    new THREE.Vector3(
+      aisle4ToAisle5.position.x,
+      aisle4ToAisle5.position.y,
+      aisle4ToAisle5.position.z
+    ),
+    new THREE.Vector3(
+      aisle4ToAisle3.position.x,
+      aisle4ToAisle3.position.y,
+      aisle4ToAisle3.position.z
+    ),
+  ], //asile4
+  [
+    new THREE.Vector3(
+      aisle5ToAisle6.position.x,
+      aisle5ToAisle6.position.y,
+      aisle5ToAisle6.position.z
+    ),
+    new THREE.Vector3(
+      aisle5ToAisle4.position.x,
+      aisle5ToAisle4.position.y,
+      aisle5ToAisle4.position.z
+    ),
+  ], //asile5
+  [
+    new THREE.Vector3(
+      aisle6ToAisle7.position.x,
+      aisle6ToAisle7.position.y,
+      aisle6ToAisle7.position.z
+    ),
+    new THREE.Vector3(
+      aisle6ToAisle5.position.x,
+      aisle6ToAisle5.position.y,
+      aisle6ToAisle5.position.z
+    ),
+  ], //asile6
+  [
+    new THREE.Vector3(
+      aisle7ToDevelopment.position.x,
+      aisle7ToDevelopment.position.y,
+      aisle7ToDevelopment.position.z
+    ),
+    new THREE.Vector3(
+      aisle7ToAisle6.position.x,
+      aisle7ToAisle6.position.y,
+      aisle7ToAisle6.position.z
+    ),
+  ], //asile7
+  [
+    new THREE.Vector3(-5000, -500, -300),
+    new THREE.Vector3(
+      developmentToAisle7.position.x,
+      developmentToAisle7.position.y,
+      developmentToAisle7.position.z
+    ),
+  ], //development
+  [
+    new THREE.Vector3(
+      aisle1ToAisle2.position.x,
+      aisle1ToAisle2.position.y,
+      aisle1ToAisle2.position.z
+    ),
+    new THREE.Vector3(
+      aisle1ToDoor.position.x,
+      aisle1ToDoor.position.y,
+      aisle1ToDoor.position.z
+    ),
+  ], //asile1
   new THREE.Vector3(800, -1000, 4000), //show_room
 ];
 var lookAtShowRoom = [
-  [new THREE.Vector3(800, -1000, 4000), new THREE.Vector3(-1000, -1000, -4000)], //b_show_room1
   [
-    new THREE.Vector3(-2200, -1000, -4000),
-    new THREE.Vector3(-1800, -1000, 1500),
+    new THREE.Vector3(
+      bShowRoom1ToBShowRoom2.position.x,
+      bShowRoom1ToBShowRoom2.position.y,
+      bShowRoom1ToBShowRoom2.position.z
+    ),
+    new THREE.Vector3(
+      bShowRoom1ToDevelopment.position.x,
+      bShowRoom1ToDevelopment.position.y,
+      bShowRoom1ToDevelopment.position.z
+    ),
+  ], //b_show_room1
+  [
+    new THREE.Vector3(
+      bShowRoom2ToBShowRoom3.position.x,
+      bShowRoom2ToBShowRoom3.position.y,
+      bShowRoom2ToBShowRoom3.position.z
+    ),
+    new THREE.Vector3(
+      bShowRoom2ToBShowRoom1.position.x,
+      bShowRoom2ToBShowRoom1.position.y,
+      bShowRoom2ToBShowRoom1.position.z
+    ),
   ], //b_show_room2
   [
-    new THREE.Vector3(1800, -1000, 4000),
-    new THREE.Vector3(-1800, -1000, -4000),
+    new THREE.Vector3(
+      bShowRoom3ToBShowRoom4.position.x,
+      bShowRoom3ToBShowRoom4.position.y,
+      bShowRoom3ToBShowRoom4.position.z
+    ),
+    new THREE.Vector3(
+      bShowRoom3ToBShowRoom2.position.x,
+      bShowRoom3ToBShowRoom2.position.y,
+      bShowRoom3ToBShowRoom2.position.z
+    ),
   ], //b_show_room3
-  [new THREE.Vector3(0, -1000, 4000), new THREE.Vector3(0, -1000, -4000)], //b_show_room4
-  [new THREE.Vector3(3000, -2000, 4000), new THREE.Vector3(4000, -2000, -4000)], //b_show_room5
   [
-    new THREE.Vector3(-1000, -2000, -4000),
-    new THREE.Vector3(-5000, -1000, 2000),
+    new THREE.Vector3(
+      bShowRoom4ToBShowRoom5.position.x,
+      bShowRoom4ToBShowRoom5.position.y,
+      bShowRoom4ToBShowRoom5.position.z
+    ),
+    new THREE.Vector3(
+      bShowRoom4ToBShowRoom3.position.x,
+      bShowRoom4ToBShowRoom3.position.y,
+      bShowRoom4ToBShowRoom3.position.z
+    ),
+  ], //b_show_room4
+  [
+    new THREE.Vector3(
+      bShowRoom5ToBShowRoom6.position.x,
+      bShowRoom5ToBShowRoom6.position.y,
+      bShowRoom5ToBShowRoom6.position.z
+    ),
+    new THREE.Vector3(
+      bShowRoom5ToBShowRoom4.position.x,
+      bShowRoom5ToBShowRoom4.position.y,
+      bShowRoom5ToBShowRoom4.position.z
+    ),
+  ], //b_show_room5
+  [
+    new THREE.Vector3(
+      bShowRoom6ToBShowRoom7.position.x,
+      bShowRoom6ToBShowRoom7.position.y,
+      bShowRoom6ToBShowRoom7.position.z
+    ),
+    new THREE.Vector3(
+      bShowRoom6ToBShowRoom5.position.x,
+      bShowRoom6ToBShowRoom5.position.y,
+      bShowRoom6ToBShowRoom5.position.z
+    ),
   ], //b_show_room6
-  [new THREE.Vector3(0, -2000, 4000), new THREE.Vector3(0, -2000, -4000)], //b_show_room7
+  [
+    new THREE.Vector3(
+      bShowRoom7ToBShowRoom1.position.x,
+      bShowRoom7ToBShowRoom1.position.y,
+      bShowRoom7ToBShowRoom1.position.z
+    ),
+    new THREE.Vector3(
+      bShowRoom7ToBShowRoom6.position.x,
+      bShowRoom7ToBShowRoom6.position.y,
+      bShowRoom7ToBShowRoom6.position.z
+    ),
+  ], //b_show_room7
 ];
 function focusBShowRoom(key, index) {
-  console.log("key", key);
   switch (key) {
     case true:
       viewer.tweenControlCenter(lookAtShowRoom[index][0], 0);
