@@ -68,7 +68,7 @@ var bikeInfo,
   porchArrow1,
   porchArrow2,
   meetingArrow;
-  
+
 bikeInfo = new PANOLENS.Infospot(350);
 bikeInfo.position.set(-5100, -1500, -3800);
 bikeInfo.addHoverText("自行車資訊");
@@ -152,48 +152,121 @@ communicationInfo.addEventListener("click", function () {
 TopInfo = new PANOLENS.Infospot(350);
 TopInfo.position.set(-5500, 1000, 0);
 TopInfo.addHoverText("光電類");
+TopInfo.addEventListener("click", function () {
+  btnFunction("show1", false);
+  TopInfo.focus();
+});
 
 MidInfo = new PANOLENS.Infospot(350);
 MidInfo.position.set(-5500, -3000, 0);
 MidInfo.addHoverText("光電產業");
-
-ledTopInfo = new PANOLENS.Infospot(350);
-ledTopInfo.position.set(-5500, 1000, 0);
-ledTopInfo.addHoverText("光電類");
-ledbacklightInfo = new PANOLENS.Infospot(350);
-ledbacklightInfo.position.set(-5500, -5200, 0);
-ledbacklightInfo.addHoverText("LCD 背光");
-ITOInfo = new PANOLENS.Infospot(350);
-ITOInfo.position.set(-5500, -3000, -1300);
-ITOInfo.addHoverText("ITO");
+MidInfo.addEventListener("click", function () {
+  btnFunction("show2", false);
+  MidInfo.focus();
+});
 let lookCheck = true;
 // 大展示間2資訊
-ledHeadLightsInfo = new PANOLENS.Infospot(350);
-ledHeadLightsInfo.position.set(3300, -400, 4000);
-ledHeadLightsInfo.addHoverText("LED車燈灌注密封應用");
+showRoom2Info1 = new PANOLENS.Infospot(350);
+showRoom2Info1.position.set(3300, -400, 4000);
+showRoom2Info1.addHoverText("LED車燈灌注密封應用");
+showRoom2Info1.addEventListener("click", function () {
+  btnFunction("show4", false);
+  showRoom2Info1.focus();
+});
 
 showRoom2Info2 = new PANOLENS.Infospot(350);
 showRoom2Info2.position.set(3300, -1500, -1500);
 showRoom2Info2.addHoverText("5");
+showRoom2Info2.addEventListener("click", function () {
+  btnFunction("show5", false);
+  showRoom2Info2.focus();
+});
 
 showRoom2Info3 = new PANOLENS.Infospot(350);
 showRoom2Info3.position.set(1050, -1500, -5250);
 showRoom2Info3.addHoverText("6");
-// vibratorInfo = new PANOLENS.Infospot(350);
-// vibratorInfo.position.set(3300, -1500, -1500);
-// vibratorInfo.addHoverText("超音波震動器應用");
+showRoom2Info3.addEventListener("click", function () {
+  btnFunction("show6", false);
+  showRoom2Info3.focus();
+});
 
-// microMotorInfo = new PANOLENS.Infospot(350);
-// microMotorInfo.position.set(3100, -1600, -2300);
-// microMotorInfo.addHoverText("微型馬達接著應用");
 // 大展示間3資訊
-showRomm3Info1 = new PANOLENS.Infospot(350);
-showRomm3Info1.position.set(2500, -1300, -2800);
-showRomm3Info1.addHoverText("7");
+showRoom3Info1 = new PANOLENS.Infospot(350);
+showRoom3Info1.position.set(2500, -1300, -2800);
+showRoom3Info1.addHoverText("7");
+showRoom3Info1.addEventListener("click", function () {
+  btnFunction("show7", false);
+  showRoom3Info1.focus();
+});
 
-showRomm3Info2 = new PANOLENS.Infospot(350);
-showRomm3Info2.position.set(3000, -1300, 500);
-showRomm3Info2.addHoverText("8");
+showRoom3Info2 = new PANOLENS.Infospot(350);
+showRoom3Info2.position.set(3000, -1300, 500);
+showRoom3Info2.addHoverText("8");
+showRoom3Info2.addEventListener("click", function () {
+  btnFunction("show8", false);
+  showRoom3Info2.focus();
+});
+
+// 大展示間4資訊
+showRoom4Info1 = new PANOLENS.Infospot(350);
+showRoom4Info1.position.set(-3500, -1300, -1500);
+showRoom4Info1.addHoverText("10");
+showRoom4Info1.addEventListener("click", function () {
+  btnFunction("show10", false);
+  showRoom4Info1.focus();
+});
+
+showRoom4Info2 = new PANOLENS.Infospot(350);
+showRoom4Info2.position.set(-4000, -1300, 3500);
+showRoom4Info2.addHoverText("11");
+showRoom4Info2.addEventListener("click", function () {
+  btnFunction("show11", false);
+  showRoom4Info2.focus();
+});
+
+// 大展示間5資訊
+showRoom5Info1 = new PANOLENS.Infospot(350);
+showRoom5Info1.position.set(-3500, -1000, -2500);
+showRoom5Info1.addHoverText("12");
+showRoom5Info1.addEventListener("click", function () {
+  btnFunction("show12", false);
+  showRoom5Info1.focus();
+});
+
+// 大展示間6資訊
+showRoom6Info1 = new PANOLENS.Infospot(350);
+showRoom6Info1.position.set(2000, -1000, 2500);
+showRoom6Info1.addHoverText("14");
+showRoom6Info1.addEventListener("click", function () {
+  btnFunction("show14", false);
+  showRoom6Info1.focus();
+});
+
+showRoom6Info2 = new PANOLENS.Infospot(350);
+showRoom6Info2.position.set(3000, -1000, -1500);
+showRoom6Info2.addHoverText("15");
+showRoom6Info2.addEventListener("click", function () {
+  btnFunction("show15", false);
+  showRoom6Info2.focus();
+});
+
+showRoom6Info3 = new PANOLENS.Infospot(350);
+showRoom6Info3.position.set(-3000, -1000, -1500);
+showRoom6Info3.addHoverText("17");
+showRoom6Info3.addEventListener("click", function () {
+  btnFunction("show17", false);
+  showRoom6Info3.focus();
+});
+
+// 大展示間7資訊
+showRoom7Info1 = new PANOLENS.Infospot(350);
+showRoom7Info1.position.set(-2000, -1000, -500);
+showRoom7Info1.addHoverText("18");
+showRoom7Info1.addEventListener("click", function () {
+  btnFunction("show18", false);
+  showRoom7Info1.focus();
+});
+
 // solarEnergyInfo = new PANOLENS.Infospot(350);
 // solarEnergyInfo.position.set(-3300, -900, 2800);
 // solarEnergyInfo.addHoverText("太陽能電池模組防水密封應用");
@@ -705,27 +778,15 @@ meetingImage.add(
   communicationInfo,
   meetingToAdministrative
 );
-// ledTopInfo,
-//   ledbacklightInfo,
-//   ITOInfo
-bShowRoom1Image.add(
-  TopInfo,
-  MidInfo
-)
-// vibratorInfo,
-// microMotorInfo
-bShowRoom2Image.add(
-  ledHeadLightsInfo,
-  showRoom2Info2,
-  showRoom2Info3
-)
-// solarEnergyInfo,
-// fuelCellInfo
-bShowRoom3Image.add(
-  showRomm3Info1,
-  showRomm3Info2
- 
-)
+
+bShowRoom1Image.add(TopInfo, MidInfo);
+bShowRoom2Image.add(showRoom2Info1, showRoom2Info2, showRoom2Info3);
+bShowRoom3Image.add(showRoom3Info1, showRoom3Info2);
+bShowRoom4Image.add(showRoom4Info1, showRoom4Info2);
+bShowRoom5Image.add(showRoom5Info1);
+bShowRoom6Image.add(showRoom6Info1, showRoom6Info2, showRoom6Info3);
+bShowRoom7Image.add(showRoom7Info1);
+
 viewer.add(
   doorImage,
   aisle1Image,

@@ -30,13 +30,13 @@
       <div class="guide-box">
         <img class="logo" src="./images/logo.png" />
         <button id="button-door" onclick="changeFunction('door')">入口</button>
-        <button
-          id="button-administrative"
-          onclick="changeFunction('aisle2')"
-        >
+        <button id="button-administrative" onclick="changeFunction('aisle2')">
           大門
         </button>
-        <button id="button-administrative" onclick="changeFunction('administrative')">
+        <button
+          id="button-administrative"
+          onclick="changeFunction('administrative')"
+        >
           行政大樓
         </button>
         <button
@@ -82,16 +82,556 @@
         <button id="button-development" onclick="changeFunction('development')">
           行政大樓
         </button>
-        <button id="button-b_show_room" onclick="changeFunction('bshowRoom3')">
+        <button id="button-b_show_room" onclick="changeFunction('bshowRoom1')">
           大展示間
         </button>
       </div>
       <div class="map-box">
         <img class="map" src="./images/map.png" />
       </div>
-      
-      <div class="info-container"></div>
 
+      <div class="info-container"></div>
+      
+      <div class="roominfo-container">
+        <div class="showroom-menu" id="show1">
+          <img src="./images/b_show_room/info/ledTopInfo.png" alt="" />
+          <div class="info">
+            <div class="title">發光二極體LED晶粒封裝的應用</div>
+            <p>
+              此產業是綠色產業的重要項目之一，藍寶石長晶切割成晶粒後，我們從固晶開始導入應用，主要鎖定Hybrid的環氧矽產品，配合不同的固化製程參數，推出一系列的產品來因應市場需求。
+              在藍光的晶粒上灌注混入螢光粉的環氧樹脂，LED產品以杯狀的結構呈現，就可以變成白光LED燈珠，這裡使用的環氧樹脂都是抗黃變的高等級樹脂，可以抵抗嚴格的環境測試及老化測試。
+              <br />•LED固晶系列 <br />•白光膠系列
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show1',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+        <div class="showroom-menu" id="show2">
+          <div class="info">
+            <img src="./images/b_show_room/info/ITOInfo.png" alt="" />
+            <div class="title">玻璃ITO 線路</div>
+            <p>
+              COG(Chip-On-Glass)玻璃覆晶結合技術，是一種將IC與基板相互連接的先進封裝技術，利用覆晶技術將長有金凸塊的
+              IC 晶片，以異方性導電膠 ACF 為中間介面，接合在 LCD 的 ITO
+              端。這一種結構應用於液晶顯示器上時，由於基板是玻璃，故被稱為COG。<br /><br />
+              早期都用溶劑型的膠材披覆在COG的ITO線路上來保護ITO線路，但是溶劑型的膠材有揮發性、重工性以及成本的問題，所以目前皆改用重工性佳的光硬化樹脂，快速固化方式來提高生產速率。永寬化學目前的相關產品有下列兩種：FR238-4與FR252-6
+              ，歡迎相關的領域參考試用
+            </p>
+
+            <div class="title">UV可剝膠的應用</div>
+            <img src="./images/b_show_room/info/UVInfo.png" alt="" />
+            <p>
+              一般塑膠片材通常使用保護膜，防止表面被刮傷，使用前才撕掉
+              (圖1)。有些應用要特殊形狀的暫時保護，裁切特定形狀的保護膜再定位、貼合非常麻煩，所以網印型的UV可剝膠就此誕生。圖2是將可剝膠網印硬化後再電鍍，得到特殊的紋路。圖3將保護膠剝除，露出原來白色的底層和電鍍所得的紋路。有韌性、好離型且無須裁切是網印UV可剝膠的特性。圖4是加工後的成品。圖5,6顯示評估可剝膠需要的剝離力。研發的重點在於特定的粘度下，剝除時膠體不能斷裂，剝離的力量越小越好。這些特性有時候互相衝突，要做很多實驗來選擇原料才行
+            </p>
+
+            <div class="title">液晶顯示器封裝遮光應用</div>
+            <img src="./images/b_show_room/info/TVInfo.png" alt="" />
+            <p>
+              此產業一直在光電行業都佔有很大的市場份額，人類間資訊傳播使用視覺的模式一直都是最重要的，所以永寬也專注於此產業的應用，從面板封裝的減薄製程用膠，然後用ACF上軟排線後的COG批覆可以返工的光硬化壓克力膠，TAB製程後的軟排線背面與玻璃L型線性補強用光硬化樹脂，可以有透明及藍色或是任何可以辨識的顏色都可以供應，甚至還推出最新型的可以變色的光硬化樹脂。最後是LCD面板的端面上膠來遮光的效果。
+              <br />• 減薄製程保護UV膠 <br />• COG上ITO線路批覆UV膠 <br />•
+              TAB後FPC補強UV膠或是改性矽膠 <br />•
+              面板端面遮光兼三次物理強化UV膠
+            </p>
+
+            <div class="title">LCD 背光</div>
+            <img src="./images/b_show_room/info/ledbacklightInfo.png" alt="" />
+            <p>
+              擴散膜(Diffuser
+              Film)為LCD背光模組零件，將導光板的光線擴散，使線光源或點光源分佈成均勻的面光源(圖1)
+              。擴散膜是利用加了珠子(Beads)的溶劑型UV膠(AG膠)，塗佈在塑膠膜上面所製成的。客戶使用上常見的問題如下：1.
+              放置過久時
+              (6個月以上)，Beads有凝集的疑慮，建議強力攪拌一小時，再次充份的分散達到均勻分散的效果。2.
+              利用混合溶劑來改善片材塗佈時的表面缺陷，如黑白紋及流平問題(圖2)。3.
+              加工及分裝需要不停攪拌，防止UV膠裡的Beads沉降，否則會造成霧度不均勻，批次間有差異。4.
+              片材儲存於濕度偏高的環境可能造成表面發霉。塗佈時無法立即看出這個現象，但是經過一段時間後，霉菌死亡會變黑色微小的棉絮狀，影響到產品品質(圖3)。AG塗佈細節很多，只要持續溝通、探討，一定能使技術不斷的提升。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show2',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+      <div class="showroom-menu" id="show4">
+          <div class="info">
+            <div class="title">LED車燈灌注密封應用</div>
+            <img src="./images/b_show_room/info/ledheadlightsInfo.png" alt="" />
+            <p>
+              LED應用在汽機車產業的巴士，卡車，專業車上的照明模組，因為是戶外應用所以特別需要做防水的封裝，永寬使用環氧樹脂來成功替代使用已久的有機矽膠密封，進而達到更好的接著性耐候性，同時不會有傷害塑膠燈殻的顧慮。
+              永寬的環氧灌注產品可以有以下的特點：
+              <br />•對於塑膠燈殻的各種材質都不會有腐蝕脆化的現象。
+              <br />•灌注後各種正負電極的電線材質都可以有效的支撐
+              <br />•不會在環境測試後有龜裂，裂縫，腐蝕所造成的漏水的問題。
+              <br />•對於LED的電路控制板不會有任何的影響，且可以有很高的絕緣特性，穩定度很高，絕對沒有漏電的問題。
+              <br />•永寬的此系列環氧產品都有抗黃化•抗龜裂•抗腐蝕的，高絕緣的特性。
+              <br />•可以搭配各類的膠水來靈活應用。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show4',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show5">
+          <div class="info">
+            <div class="title">微電機重電機導熱灌注及接著結構膠</div>
+            <p>
+              入電機產業的應用領域，這是一個電能與機械能轉換的機構體行業，小到從你每天拿的手機裡的震動馬達，中型的是進到你家裡的果汁機，變頻洗衣機，再大到工廠的大型機械或是超大型的建築土木機械，都有電機產品的身影。此產業對於灌注及接著膠材的要求可綜觀的提出幾點：
+              <br />• 絕緣性好，耐高電壓，沒有離子漂移的潛在現象。 <br />
+              •耐高溫在80 ~150°C長時間，短時間可以達到300~350°C。 <br />•
+              通過各種戶外環境的模擬老化測試，有高低溫衝擊及循環，高溫高濕長時間置放，甚至更嚴格的在以上老化條件下以動態開機狀態來進行測試等等。
+            </p>
+
+            <div class="title">超音波震動器應用</div>
+            <img src="./images/b_show_room/info/vibratorInfo.png" alt="" />
+            <p>
+              此產品使用於日常生活及工業應用的時間也很久了，高頻的震盪頭是整台機器的核心，而震頭的接合就是膠材的應用，此材料必須要耐震盪，耐高溫，好操作，沒有毒性等等，且需要常温固化，因為沒有這樣大的烘箱可以加熱固化。所以是一種特別的應用。
+            </p>
+
+            <div class="title">微型馬達接著應用</div>
+            <img src="./images/b_show_room/info/motorInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/motorInfo2.png" alt="" />
+            <p>
+              永寬著重於磁鐵與馬達主體的接著，產品導向結構性的永久黏接的配方設計，主要是環氧類型為主，有單組份及雙組份的產品搭配使用，其中的引線或是電源線的補強保護，可以有高性能的光硬化樹脂來對應，且此光硬化樹脂符合UL94V-0的防火等級認證。
+              <br />• 高導磁材料與馬達主體的黏接應用~環氣樹脂應用。 <br />•
+              絕緣導線繞線後的線頭固定〜光硬化樹脂。 <br />•
+              電樞電刷區的焊點保護〜快速硬化的環氧樹脂。
+            </p>
+
+            <div class="title">散熱風扇接著補強應用</div>
+            <img src="./images/b_show_room/info/coolingfanInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/coolingfanInfo2.png" alt="" />
+            <p>
+              散熱風扇的關鍵技術在於高轉數時的噪音值越低越好，也在於耐候性，耐用性的品質總體表現，此產業已經發展了相當久的時間。
+              永寬在此行業有成功的應用可以分享：
+              <br />•
+              點膠於風扇主體支柱後再將定子壓入達到接著及降低高速旋轉時震動噪音的效果。
+              <br />•
+              正負極電線的固定，可使用UL94V-0的光硬化樹脂或是雙組份五分鐘快速定位的環氧樹脂。
+            </p>
+
+            <div class="title">深水馬達灌注應用</div>
+            <img src="./images/b_show_room/info/deepwaterInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/deepwaterInfo2.png" alt="" />
+            <p>
+              此行業的結構是在灌注領域難度較高的，因為灌注的深度相對是較深的，灌注後消泡不易，且膠材固化時反應發熱量不能太大，對於固化後的膠水物性要求要具有一定的導熱性，耐長時間運作後的高溫，絕緣系數要很高，抗龜裂性佳且低溫下運轉不脆裂等等。
+              永寬突破了以上的很多矛盾物性要求標準，推出可以滿足手工攪拌及自動攪拌製程的要求，且產品規格符合UL94V-0等級要求，推出幾款性價比高的灌注導熱產品。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show5',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show6">
+          <div class="info">
+            <div class="title">綠色能源產業防水密封膠</div>
+            <p>
+              綠色能源產業在近期的發展已經日趨成熟，最具有代表性的產業就是太陽能晶片模組化的發電裝置，還有燃料電池的快速發展演進，當然還有佈滿整個台灣西部海岸線的風力發電風車，也看在世界各地積極發展的離岸風力發電系統，這是人類可以在地球上存活更久的希望產業。此產業一直無法與經濟的好壞脫離關係，每次的金融危機就讓大家忘記綠色產業的普及化是不能停滯的，因為暖化的延續是不會因此而暫停，天災也不會因此而減少發生。而各國政府常常因為經濟的衰退影響，第一個刪減掉的預算就是綠色產業的發展補助款項。我們只有一個地球，這答案是肯定的，你可以有另一個解答嗎？
+            </p>
+
+            <div class="title">太陽能電池模組防水密封應用</div>
+            <img src="./images/b_show_room/info/solarEnergyInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/solarEnergyInfo2.png" alt="" />
+            <p>
+              此產業最重要的關鍵指標就是從成本最低的薄膜電池，單晶矽電池，多晶矽電池，CIGS引擎追日系統，到現在的石墨稀電池的發電效率，各國家的日照時間與投資效益，也關係著產業的未來發展。永寬期待綠色能源產業的發展，可以更快速更具有經濟效益。
+              <br />•
+              原有太陽能晶片切割的前製程需求用膠，多是購買進口的膠材，單價高交期長。
+              <br />•
+              永寬投入半年時間開發出雙組份五分鐘表乾，六小時固化達到切割製程需要的接著強度，後續利用弱鹼液解離的環氧樹脂，正式導入台灣某大廠交貨運行至今。
+              <br />•
+              至於太陽能應用端的模組工廠的組裝防水應用，大片的模組都是EPA層壓的封裝製程，永寬產品是鎖定長寬300
+              X
+              300mm以下的模組，串線焊接後組裝於電路板再進行表面樹脂灌封，來達到保護晶片及防水防塵的功效，並提供表面不沾塵的表面噴塗塗料，此產品也同樣可以適用於SMT貼裝後的晶片噴塗保護用。
+            </p>
+
+            <div class="title">燃料電池密封應用</div>
+            <img src="./images/b_show_room/info/fuelCellInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/fuelCellInfo2.png" alt="" />
+            <p>
+              此產業的應用在於安全性要求較高所導致的總成本拉高，且燃料站少且填充不方便，所以發展的速度一直不如預期。永寬專注研發封裝氣密的產品，可以有多種產品類別可以同樣適用在氫氣電池，甲醇電池等等的發電模組封裝上。
+              永寬產品有三類：
+              <br>一.	光硬化成型後條狀密封型樹脂，具有UL94V-0規格認證的HD1232UL系列，FB001
+              系列，FK1000系列
+              <br>二. 改性矽膠條狀密封型樹脂，具有UL94V-0規格認證的FS168系列
+              <br>三. 雙組份的軟質環氧樹脂。具有UL94V-0規格認證的JD716AB系列
+              <br>四. 加熱固化型有機矽膠，具有高回彈強度，且耐高溫150°C長時間不脆化
+            </p>
+
+            <div class="title">家庭備用電池模組封裝應用</div>
+            <img src="./images/b_show_room/info/spareBattery1.png" alt="" />
+            <img src="./images/b_show_room/info/spareBattery2.png" alt="" />
+            <p>
+              此產業的應用同樣要求防火認證的配方，因為居家安全非常的重視防火功能。永寬特別設計出透明且韌性高，且可以灌注對於不鏽鋼主體的鋰電池有很好的接著效果。然後具有易消泡，流動性佳，抗跌落抗震動性佳的雙組份環氧樹脂產品，來滿足此產業的特殊需求。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show6',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show7">
+          <div class="info">
+            <div class="title">光電-鏡頭</div>
+            <img src="./images/b_show_room/info/lens1.png" alt="" />
+            <p>
+              「光電」就定義而言，是一門探討「光
+              (light/photo)與「電」（electrons)相互影響的效應，以及這些效應的應用領域。光電領域是一門橫跨物理、光學、電子、化學、材料等領域的研究。
+              此產業所需要的接著封裝材料需要有特別的物性：
+              <br />1. 適合光學用的透明度。 <br />2.
+              固化時低收縮，固化後低熱膨。 <br />3.
+              適合精細的點膠要求，因為光學物件都很微小。 <br />4.
+              材料的包裝要求潔淨度很高，且不能有任何微小氣泡。 <br />5.
+              固化後膠體抗黃變性佳。 <br />6. 封裝後低揮發性，穩定度高。
+              <br />7.
+              耐環境老化性佳，產品大多是手持式裝置，所以也同步要求要通過抗跌落測試，滾筒循環滾動測試。
+              <br />8. 對於一些穩定性高的特別材料的接著性能要很好，例如LCP, PA,
+              PC(GF)、鍍鎳、 鍍鉻、陽極金屬等等。
+              <br />永寬積極開發高效能膠材來對應各種產品的應用
+              <br />此光學鏡頭模組的應用越來越廣泛，從單純的相機
+              >手機>視訊裝置>倒車顯示器
+              >行車記錄器>安全監視系統>人體内視鏡>穿戴通訊影像裝置>未來無限可能，這是一個充滿創意與想像高度發展應用的產業，所以積極開發此產業各種裝置應用的高效能接著封裝材料是永寬重大的使命。
+              滿足大量生產需求接著劑 Adhesives for mass production
+              此光學感測裝置都是線性的結構，將每一顆感光元件緊密排列成一條線於電路板上，這些元件都是利用膠材來接著固定批覆，大多是快速固化的材料，這樣才能滿足大量生產的需求。
+            </p>
+
+            <div class="title">感光鼓接著密封膠應用</div>
+            <img
+              src="./images/b_show_room/info/photosensitiveInfo.png"
+              alt=""
+            />
+            <p>
+              影響掃描裝置的主要核心部件是感光鼓，感光模組的應用從A.固晶
+              B.打金線C.批覆防水膠層 D. LED光源條固定E.導光透鏡與主體接著
+              F.最後防塵玻璃接著後完成。
+              這產業的應用，永寬已經穩定交貨超過八年之久，目前客戶的滿意度相當高。
+              <br />•PC、LCP、PA等材質的鏡頭座與FR4、BT、 FPC電路板接著。
+              <br />•鏡頭鎖入鏡頭座先多點位點膠，在調焦後照UV光固定，要求低收縮的可返工的光硬化型膠材。
+              <br />•AA、AF、OIS等模組製程，將鏡頭套入無螺牙鏡座、VCM音圈馬達內，點膠後再次調焦後啟動光照射固定，主要是光固化後熱固化型膠材。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show7',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show8">
+          <div class="info">
+            <div class="title">光電-鏡頭</div>
+            <img src="./images/b_show_room/info/lens2.png" alt="" />
+            <div class="title">光學感測模組接著固定膠應用</div>
+            <img
+              src="./images/b_show_room/info/opticalSensingInfo1.png"
+              alt=""
+            />
+            <img
+            src="./images/b_show_room/info/opticalSensingInfo2.png"
+            alt=""
+          />
+            <p>
+              光學鏡頭段：玻璃鏡片與鏡座主體接著
+              光學感測模組段：COB製程，AA製程
+              <br>•光感測晶片接著於FR4、BT、FPC等材質的電路板用膠。
+              <br>•於光學感光晶片四周點上無揮發沾塵用不乾膠，來吸附因為後段組裝時的粉塵。
+              <br>•IR濾光鏡片或是濾藍光鏡片與PC、LCP、PA 等材質的鏡頭座接著、永寬有光硬化型壓克力樹脂、低溫熱固型環氧樹脂、光硬化及低溫熱固型樹脂。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show8',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show10">
+          <div class="info">
+            <div class="title">IMD</div>
+            <p>
+              一般射出塑件的顏色圖案，通常是採用噴塗或局部印刷的方式，例如手機外殼、筆記型電腦外殼、汽車內部的裝飾面版以及塑膠製品標誌，應用非常廣泛。但在外部噴塗或印刷的方式，有著許多製程上的繁複性與侷限性。IMD技術可以突破傳統塑膠射出所不能做到的設計，尤其是多種色彩的產品上，不需要再經過繁複拆解、噴塗上色、組裝的繁複步驟。
+              目前IMD技術大致可以簡化類分為兩大類：(IMR
+              /IMF)，其中IMR已屬成熟製程，而IMF目前不良率仍然很高、但為目前發展的主流趨勢。今年3月上海的研討會中，與會者所關注的焦點，大多是如何提高IMF技術層級的相關問題。
+            </p>
+            <img src="./images/b_show_room/info/IMDInfo.png" alt="" />
+            <div class="title">一、IMR：In Mold Roller</div>
+            <p>
+              將圖案印刷在薄膜上，通過送膜機將膜片送入模具內進行注塑，射出注塑後有圖案的油墨層與薄膜分離，油墨層留在塑件上而得到表面有裝飾圖案的塑件。優點：1.
+              良率高，約在85%以上。2.
+              自動化程度高、產能高、適合大量生產。缺點：1.
+              膠片製作時間長、且有最低訂單量限制，無法因應小批量靈活應用。2.
+              模具開發難度高、單價高。3. 印刷層暴露在表面，容易刮傷。
+            </p>
+            <img src="./images/b_show_room/info/IMRInfo.png" alt="" />
+            <div class="title">目前永寬化學針對IMD技術的相關產品研發方向</div>
+            <p>
+              “防沖墨保護膠：在射出塑料的過程中，塑料的高溫與高壓容易造成印刷好的油墨被沖失，導致成品的不良。此狀況可以從改善射出模具設計著手，減輕出料時的壓力、或是上多層油墨降低沖墨造成的影響。如果可以採用UV膠在油墨層先作一層保護，在塑料射出時，保護油墨不被沖失，將可更為簡便並可降低成本地達到效果。2、塑料射出接著劑：針對使用者所使用的油墨廠牌及射出塑料（例如PC、ABS、PMMA等），研發能有效幫助油墨與射出料貼合的接著劑。3、UV油墨：現階段大部分使用者皆使用溶劑型油墨，雖然價格較低，但氣味重、等候乾燥的時間長，UV型油墨將可以更符合環保、並大幅度縮短製程時間，此為目前油墨的發展方向。4、客製化研發：針對客戶所面臨油墨的層與層附著問題做客製化研發，目前已有很多成功案例”-
+              研發工程師 林妙玲小姐
+            </p>
+
+            <div class="title">3D玻璃內飾紋路膠開發</div>
+            <img src="./images/b_show_room/info/3DInfo.png" alt="" />
+            <p>
+              隨著市場發展，手機保護套從IMD塑膠背板演變到鋁鎂合金的金屬質感，進一步採用強化玻璃，營造半透明及手握的觸感。玻璃裝飾亦隨著玻璃薄型化開發，成為3C產品的趨勢。原來可以用2D玻璃貼OCA膠來做紋路，但是手機組件壓到背蓋時，紋路就會受影響；另外，3D玻璃貼OCA膠的技術尚待突破，軟黏的OCA膠也難切斷，所以現在都用可固化的玻璃膠來做紋路。
+              要克服紋路複製在3D玻璃上，首先需要1.可延伸的母膜片；2.玻璃膠對母膜片不侵蝕，高溫後還可離型；3.母膜片及玻璃膠需耐高溫
+              (130℃ x 3分鐘)
+              的拉伸溫度。延伸母膜片材會考慮PC或APET。UV玻璃膠既要能夠延伸，又要高溫可密著，不被侵蝕又可離型，有許多矛盾的要求存在。玻璃膠一般採用單官能單體，要克服它們在高溫揮發性高的缺點。我們將原料放在130℃x20分鐘烘烤，評估重量損失率，找到適合的配方，解決延伸、離型問題。轉印後密著5B，可達到客戶要求。
+            </p>
+
+            <div class="title">防霧膜</div>
+            <img src="./images/b_show_room/info/AntiFogInfo1.png" alt="" />
+            <div class="title">防霧護目鏡及防霧面</div>
+            <p>
+              永寬開發防霧膜已有多年，致力於開發防霧膠材的應用。實際進行產品測試，分別將試片覆蓋於80℃熱水燒杯上，十秒至十五分鐘表面無起霧；模擬使用者以酒精擦拭之耐酒精測試，以磨耗試驗機荷重200g，在防霧片材上滴入酒精，並運用無塵布擦拭百次後，仍擁有傑出防霧效果(圖1-3)。此款膠材應用於面罩(圖4)及護目鏡(圖5)的優點：1.
+              防霧性佳；2. 良好的耐酒精擦拭性能，經過酒精消毒仍可重複使用；3.
+              高透清晰可防止液體噴濺；4.
+              採用全UV無溶劑型環保製程，經過紫外線機台照射後具有殺菌作用；5.
+              產品通過CE、FDA、SGS、EN166、ANSI
+              Z87.1…等認證。長效型防霧護目鏡能夠通過高溫高濕85℃/85%RH達500小時，耐低溫-40℃大於250小時，耐磨耗5000次以上
+            </p>
+            <img src="./images/b_show_room/info/AntiFogInfo2.png" alt="" />
+            <p>
+              防霧膜是利用親水性的配方，來達到防霧的效
+              果。圖1-3是防霧膜用蒸臉器噴出的蒸氣做測試。上方有防霧處理的區域，在測試初期蒸氣都會被親水性的配方吸收，所以不會形成小水滴凝結在膜片上面(圖1)。隨著時間的增加，水分超過膜片上塗料所能吸收的範圍，開始形成很厚的水膜和很大的水珠(圖2-3)。
+              防霧膜在溫度85℃/濕度85%的環境下放置1000小時，仍有很好的防霧效果(圖4，杯子底部為高溫熱水)；但是不斷吸附蒸氣到達飽和以後，蒸氣會凝結成水滴(圖5)，最後變成很厚的水膜，水珠滴下來(圖6)。實驗說明防霧膜還是有其適用範圍，在一般應用都有很好的效果。若以高溫的蒸氣超過塗料吸水的極限，這個時候水珠在表面凝結，就變成正常的物理現象了。
+            </p>
+            <img src="./images/b_show_room/info/AntiFogInfo3.png" alt="" />
+            <p>
+              無溶劑UV型防霧塗料通常以PET作為基材。PET材質較硬脆、低韌性，一般應用於防霧需求的平面產品，例如：浴鏡、護目鏡、儀器設備面板…等。本公司新開發的防霧膜以PC作為基材。PC材質具有可延伸、耐熱、耐衝擊、易加工的特性，可應用於曲面的鏡片，例如：運動眼鏡、焊接面具、雪鏡、太陽眼鏡、安全帽鏡片…等
+              (圖1)。為讓防霧塗層具備耐高溫、可加工、接著良好的性質，因此我們開發出一款PC防霧膜專用的primer
+              處理劑
+              (圖2)。一般防霧膜經過120℃/120min高溫長時間的環境下，百格測試為0~1B
+              (圖3)；塗布PC防霧膜專用的primer，經過相同的條件測試後，百格測試為5B且不影響防霧功能
+              (圖4)。這個primer為溶劑型UV膠，塗佈於PC基材上與防霧塗料有良好的接著，並且具耐高溫的特點。使用此primer的GF165防霧膜，已通過嚴格的後加工製程條件，長時間暴露於高溫後仍保持防霧塗層的完整性
+              (圖5)
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show10',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show11">
+          <div class="info">
+            <div class="title">玻璃工藝品接著應用</div>
+            <img src="./images/b_show_room/info/glassProducts1.png" alt="" />
+            <img src="./images/b_show_room/info/glassProducts2.png" alt="" />
+            <p>
+              此行業的代表就是水晶飾品及世界最大的遊樂園的紀念品，還有歐美各地的精緻玻璃杯，紅酒杯，香檳杯等等的各世界品牌的代工廠商。
+              從OEM原廠指定膠材到ODM可以自己決定使用的膠材，永寬努力做到後者的優良供應商，也隨著產業的西進，供應鏈也延伸到大陸，繼續用高品質的膠材讓大中國區的玻璃藝品廠，都可以穩定的往更高端的設計應用發展，共創雙贏的成長局面。
+              永寬的產品特點闡述如下：
+              <br />•
+              耐水性特佳，可以在戶外環境下十年不脫膠，耐黃變性佳，使用QUV機台50mw/cm2
+              紫外光X 50C環境溫度 X 240hr後的黃變值變異量僅增加兩個黃化值指標。
+              <br />•
+              接著力絕佳，黏接強度初期可以達到玻璃材破，環境模擬老化測試1000hr後僅僅衰減20%。
+            </p>
+            <div class="title">玻璃傢俱接著應用</div>
+            <img src="./images/b_show_room/info/glassFurniture1.png" alt="" />
+            <img src="./images/b_show_room/info/glassFurniture2.png" alt="" />
+            <p>
+              此行業引領設計創新及工藝技術領先所代表國家就是義大利米蘭，然而亞洲諸多國家就是此產業代工的世界工廠，因此膠材可以達到標準可以就地採購，關鍵在於可信賴度，因為兩種材料要有絕佳的接合強度，是有相當的技術難度要克服。再加上創新設計時考慮的結構型受力狀態，對於膠材的要求就更是非常的高難度。
+              永寬的產品已經在此行業有數十年以上的應用量產實績，所以進軍歐美的高階市場信心十足。
+              永寬的產品具備特色有：
+              <br />•
+              對於金屬的材質可以適用的有鋁材，不鏽鋼材，銅材，陽極鋁，電鍍鐵等等。
+              <br />•
+              對於各種程度強化的玻璃基材，都可以達到整塊挖起的材破的接著強度。
+              <br />•
+              耐久性及耐候性絕佳，置放戶外時間再久，經過風吹日曬雨淋五年後，一樣不會在接著邊緣處有起泡脫落或是裂紋的現象發生。
+            </p>
+            <div class="title">塑膠工藝品接著應用</div>
+            <img
+              src="./images/b_show_room/info/plasticCraftsInfo1.png"
+              alt=""
+            />
+            <img
+              src="./images/b_show_room/info/plasticCraftsInfo2.png"
+              alt=""
+            />
+            <p>
+              此產業鏈的應用相當的廣泛，因為現在全世界的化工產業尤其是塑膠行業的蓬勃發展，塑膠製品的創新研發也大舉的進步，彩色彩繪複層結構的產品推陳出新，永寬順應客戶的需求，積極配合開發新類型產品來因應各種創新的應用，目前有抗UV黃化的，有抗藍光的，各種彩色素材的相互接著應用的，各種機能型運動穿戴產品因應而生。
+              有些塑膠的顏色是紅色的，甚至是深褐色的，這樣會過濾掉紫外光的能量，然而永寬的產品可以克服此現象的影響，膠水依然可以完整固化達到預定的接著強度。
+              <br />•
+              塑膠產品黏接後的強度適中，在可以達到材破的標準下，不會有腐蝕塑料的現象，也不會讓塑料有日漸裂化的問題。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show11',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show12">
+          <div class="info">
+            <div class="title">複合式木地板填孔應用</div>
+            <img src="./images/b_show_room/info/woodenInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/woodenInfo2.png" alt="" />
+            <p>
+              此產品是有善於地球環境的設計，因為複合木質地板建材，可以有效利用資源有限的木材，也可以因為複合設計後滿足原木材質具有的強度要求標準。所以這樣即使是有瑕疵的板材有可以複合層壓後，再來使用樹脂來填補瑕疵孔洞，配合精準色彩調配的設計，可以達到美學的建築要求。永寬在這樣的綠色產業上當然不能缺席，所以配合外銷大廠全方位的膠材研發，色彩設計，工藝合適性改善，進而全面量產供貨，且持續在未來的產品合作研發新項目。
+            </p>            
+          </div>
+          <button class="close-btn" onclick="btnFunction('show12',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show14">
+          <div class="info">
+            <div class="title">UV接著劑荷重實驗</div>
+            <p>
+              光硬化樹脂接著劑具有高強度、高韌性的特性，能夠通過多種環境加速實驗，特別適合金屬與玻璃間的接著
+            </p>
+            <img src="./images/b_show_room/info/UVInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/UVInfo2.png" alt="" />                  
+          </div>
+          <button class="close-btn" onclick="btnFunction('show14',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show15">
+          <div class="info">
+            <div class="title">電子產品防水接頭密封應用</div>
+            <img src="./images/b_show_room/info/waterproofInfo.png" alt="" />
+            <p>
+              此產業是一個很成熟的產業，主要應用於智慧型手持式裝置。例如物流行業的掃碼機，大眾交通工具的掃碼裝置，工業車間的掃碼裝置，家電電器的水洗裝置的連接訊號線，以及戶外的電源設備等的產業應用。
+              對於產品的要求就是固化要快，防水要好，一定條件下可以返工，永寬早在2004年就專注為此行業的領頭客戶，開發出一系列的產品來滿足客戶的需求。
+              永寬產品的特點有：
+              <br />• 作業性佳、容易攪拌消泡，灌注作業時間搭配合適。 <br />•
+              透明、黒色、抗垂流性佳。 <br />•
+              滿足部分產品防火等級UL94V-0的要求。 <br />•
+              產品固化後耐候性佳，抗高低溫沖擊測試不龜裂。 <br />•
+              跌落測試後，高低溫循環老化後，一樣可以通過高壓l0kg以上的水壓測試不漏水。
+            </p>
+            <div class="title">繼電器及微型開關產業應用</div>
+            <img src="./images/b_show_room/info/relayInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/relayInfo2.png" alt="" />
+            <p>
+              此產業幾乎已經都集中在亞洲區的大陸工廠生產，對於高階應用的材料需求仍然都是仰賴歐美日國家的灌注材料，所以我們鎖定高階層的應用，定位在汽車、醫療能源等產業是可以接受品質高、價格合理的灌注材料的市場。
+              永寬產品的特點就是：
+              <br />• 產品的黏度穩定，可以讓客戶產量的參數穩定。 <br />•
+              可低溫固化80°C的特性，耐候性依然良好。 <br />•
+              因為低溫固化時可以得到較小的收縮應力。 <br />•
+              固化後膠體的物理特性良好，熱膨小，吸水率低，絕緣性好。
+            </p>
+
+            <div class="title">信號連接用排線補強應用</div>
+            <img src="./images/b_show_room/info/signalInfo.png" alt="" />
+            <p>
+              此產業的用途非常廣泛，幾乎各行業都會有排線來連接零組件間的訊號傳遞，或是傳輸電力等等，產品的結構大多是兩端子中間用傳導線材延伸長度，兩端都是焊接的製程，所以焊接點都不能承受插拔式的往復拉扯力，因此都需要用膠材來作為焊接後的補強，在線材端子點上膠補強固化來抵擋使用時的反覆拉扯力，維持排線的良好性能。
+              永寬產品特點有：
+              <br />• 點膠作業性特好，抗垂流性佳。 <br />•
+              對於難接著的線材如PE、Teflon、PVC、PP 等的材質有良好接著效果。
+              <br />• 抗彎折性能佳、耐老化性佳，可以通過嚴格的環境老化測試
+            </p>
+
+            <div class="title">微型變壓器封裝應用</div>
+            <img
+              src="./images/b_show_room/info/microtransformerInfo.png"
+              alt=""
+            />
+            <p>
+              此產業產品應用於電腦類型的產業的要求較低，市場的膠材供應商大多可以用低的價格穩定供應，永寬主要是著重於汽機車產業，交通航空醫療等產業的高階品質要求的變壓器應用，所以使用的都是歐美日的大廠原物料來做配方。
+              永寬的核心研發技術，開發出高Tg，低熱膨，低收縮，導熱佳，耐高溫等特性的結構性的單組份，雙組份環氧樹脂產品，特別是韌性高具有耐嚴苛的冷熱沖擊的測試需求的客戶。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show15',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show17">
+          <div class="info">
+            <img src="./images/b_show_room/info/carMotor.png" alt="" />            
+            <div class="title">無刷馬達產業，線圈防腐蝕絕緣灌注封裝</div>
+            <p>
+              產品特色:
+              <br />1.
+              產品的作業性佳，容易混膠消泡，灌注後滲透性強且氣泡容易上浮破泡
+              <br />2. 符合業界的防火等級UL94V-0的規格，且符合環保法規 <br />3.
+              雙液型環氧樹脂，配合低溫烘烤熟化製程，可以讓膠體達到更佳的反應程度，絕緣等級相對較高
+              <br />產品型號: JE136AB系列、JD796AB系列
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show17',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+
+        <div class="showroom-menu" id="show18">
+          <div class="info">
+            <div class="title">電路版</div>
+            <p>
+              印刷電路板（Printed Circuit
+              Board：PCB）是組裝電子零組件所使用的基底板材，以銅箔基板、硬質印刷電路板、軟性印刷電路板及IC載板為主要產品，又稱「電子工業之母」，是電子產品不可或缺的基礎零件。
+              基材普遍是以基板的絕緣、材料成分或耐燃特性作分類，常見的原料為電木板、玻璃纖維，以及各式的塑膠板。PCB基板的製造商，普遍會以一種玻璃纖維不織物料以及環氧樹脂樹脂組成的絕緣預浸漬材料（Prepreg），再以和銅箔壓製成銅箔基板備用。
+            </p>
+            <div class="title">零件暫時固定SMT紅膠應用</div>
+            <img src="./images/b_show_room/info/SMTInfo.png" alt="" />
+            <p>
+              此種紅膠產品的應用已經不只有雙面板製程用於SMT元件的暫時固定，可以配合自動插件型電子元件混插SMT型態電子元件的錫爐焊接溫度，因為此產品固化速度相當快，所以就可以引用到晶片的角落補強等應用，永寬將此產品改進到可以快速點膠，快速固化。
+            </p>
+
+            <div class="title">晶片底部填充補強應用</div>
+            <img src="./images/b_show_room/info/waferBottomInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/waferBottomInfo2.png" alt="" />
+            <p>
+              將系統晶片焊接於電路板後，用單組份環氧樹脂來透過精密點膠在流到晶片下面，在進行烘烤固化後，來達到補強晶片的效果。此種工法的優點是強度最好，穩定性最高，但是需要較昂貴的點膠設備，還有較長的製程時間。
+              永寬目前主打幾款的底填材料：
+              <br />• 低溫80°C X 30min固化的可以返工的產品，JC823系列。 <br />•
+              中溫120°C X 10min快速固化，Tg點在90
+              ~100°C可靠度高的JC738、JD831系列產品 <br />• 高温150°C X
+              60~120min固化，Tg點在100
+              ~150°C符合汽車及航太規範，且可靠度高的JD100, JD370系列產品。
+            </p>
+
+            <div class="title">晶片保密防拆解應用</div>
+            <img src="./images/b_show_room/info/chipSecrecyInfo.png" alt="" />
+            <p>
+              永寬在這樣的應用有非常成功的產品，使用於家用電視機上盒的主機板內的功能系統晶片，需要加密保護來防止客戶篡改程式。
+              永寬的產品可以在完全固化後，承受250
+              ~270C高溫的熱烘槍直到板子已經翹曲膠材還未有整塊掉落的現象，只是用尖銳的器具可以稍稍做到粉末小塊狀的拆解，完全可以在晶片被破壞失去功能前達到保密的效果。
+            </p>
+
+            <div class="title">晶片角落補強應用</div>
+            <img src="./images/b_show_room/info/waferCornerInfo.png" alt="" />
+            <p>
+              在可攜式產品應用上，落摔測試的要求越來越高，所以只要是多個進出接點的晶片或是小間距的晶片，都需要在晶片的四周來進行補強，讓整體的結構可以抵抗1.5~1.8M高度的落摔測試，目前都可以通過高達數百次的跌落測試要求。
+              永寬的產品主要特點是：
+              <br />•
+              固化温度在80°C的低溫只要5~10min就可以固化，可以避免PCB板子因為高溫製程的翹曲。
+              <br />• 高溫製程快速固化150°C X 60~90sec <br />•
+              樹脂進行増韌處理，可以抵抗跌落及沖擊的能力特別好
+            </p>
+
+            <div class="title">晶片COB封裝應用</div>
+            <img src="./images/b_show_room/info/COBInfo1.png" alt="" />
+            <img src="./images/b_show_room/info/COBInfo2.png" alt="" />
+            <p>
+              此應用在產業界已經相當成熟，永寬也成功打入印表機領導品牌的控制板的COB封裝應用，使用至今已經超過十年的時間，是很穩定的產品。
+              在Dam &
+              Fill應用上，永寬也突破大面積液態封裝樹脂的翹曲現象，目前可以做到60mm
+              X 60mm的0.3mm的PCB薄板全面覆蓋烘烤，對角翹曲度低於0.1mm。
+            </p>
+            <img
+              src="./images/b_show_room/info/heatConductionInfo.png"
+              alt=""
+            />
+
+            <div class="title">晶片導熱接著應用</div>
+            <p>
+              現今的系統晶片的功能越強大，相對的熱量產生就越高，尤其是5G的相關產品線，此時絕佳熱傳導的材料，就可以起到將晶片的熱能帶到散熱鰭片，再結合風扇散熱的功能。
+              永寬因此開發三種產品線：
+              <br />•
+              耐高溫200°C不乾涸的導熱膏，導熱系數有1.5W，3.2W等產品，性價比高，且可以有
+              300ml膠管裝的自動化點膠的包裝，來配合產品量產需求。 <br />•
+              不含矽油的導熱膏，導熱係數有1.5W等的產品，適合有敏感接點的裝置
+              <br />• 配合迴焊爐就可以固化的高導熱的，2.2 W, 3.2
+              W的有接著功能的導熱膠，可以使用點膠製程，也可以適用鋼板刷膠製程。
+            </p>
+          </div>
+          <button class="close-btn" onclick="btnFunction('show18',true)">
+            <span>關閉</span>
+          </button>
+        </div>
+      </div>
 
       <div class="image-container"></div>
     </div>
@@ -107,6 +647,5 @@
     <script src="main.js"></script>
     <script src="meetingInfo.js"></script>
     <script src="changeImage.js"></script>
-
   </body>
 </html>

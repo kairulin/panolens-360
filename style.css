@@ -35,6 +35,21 @@ p {
 .active-menu {
   display: flex !important;
 }
+/* 展示間資訊 */
+.showroom-menu {
+  position: fixed !important;
+  z-index: 999;
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  left: 1200px;
+  top: 50px;
+  background: white;
+  width: 490px;
+  height: 750px;
+  padding: 20px;
+}
+
 /* 會議室資訊 */
 .meeting-menu {
   position: fixed !important;
