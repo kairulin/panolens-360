@@ -56,14 +56,18 @@ p {
   z-index: 999;
   display: none;
   flex-direction: column;
-  left: 1200px;
+  left: calc(100% - 40%);   
   top: 50px;
   background: white;
   width: 490px;
   height: 750px;
   padding: 20px;
 }
-
+@media screen and (max-width: 1200px) {
+  .meeting-menu {   
+    left: calc(100% - 50%);   
+  }
+}
 .more-img > img {
   height: 200px !important;
 }
@@ -236,12 +240,13 @@ p {
   cursor: pointer;
   padding-right: 3px;
 }
-.menu-icon,.map-icon {
+.menu-icon,
+.map-icon {
   font-size: 45px;
 }
 
 /* 地圖 */
-.menu-box > .menu-box__map{
+.menu-box > .menu-box__map {
   position: relative;
   z-index: 999;
   color: white;
@@ -255,7 +260,6 @@ p {
   margin-top: 6px;
   margin-left: 6px;
   cursor: pointer;
-
 }
 .map-box {
   position: fixed;
@@ -263,9 +267,9 @@ p {
   z-index: 999;
   top: 100px;
   left: 24px;
-  padding-right: 0px ;
+  padding-right: 0px;
 }
-.map-box > img{
+.map-box > img {
   width: 440px;
   height: 733px;
 }
