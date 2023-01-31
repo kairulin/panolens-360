@@ -280,7 +280,7 @@ showRoom7Info1.addEventListener("click", function () {
 //door
 doorToAdministrativeArrow = new PANOLENS.Infospot(
   800,
-  "./images/doorToAdministrativeArrow.png"
+  PANOLENS.DataImage.MoveArrow
 );
 doorToAdministrativeArrow.position.set(-7000, -1500, 500);
 // doorToAdministrativeArrow.addHoverText("大門");
@@ -294,7 +294,7 @@ doorImage.add(doorToAdministrativeArrow);
 // 走道1往走道2
 aisle1ToAisle2 = new PANOLENS.Infospot(
   800,
-  "./images/aisle1/aisle1-aisle2.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle1ToAisle2.position.set(-5000, -1500, -100);
 // aisle1ToAisle2.addHoverText("行政大樓前");
@@ -303,7 +303,7 @@ aisle1ToAisle2.addEventListener("click", function () {
   changeFunction("aisle2");
 });
 // 走道1往門口
-aisle1ToDoor = new PANOLENS.Infospot(300, "./images/aisle1/aisle1-door.png");
+aisle1ToDoor = new PANOLENS.Infospot(300, PANOLENS.DataImage.MoveArrow);
 aisle1ToDoor.position.set(3500, -800, 100);
 // aisle1ToDoor.addHoverText("大門");
 aisle1ToDoor.addEventListener("click", function () {
@@ -315,7 +315,7 @@ aisle1Image.add(aisle1ToDoor, aisle1ToAisle2);
 // 走道2往行政大樓門口
 aisle2ToAdministrativePorch = new PANOLENS.Infospot(
   800,
-  "./images/aisle2/aisle2-administrative_porch.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle2ToAdministrativePorch.position.set(-5000, -00, -100);
 // aisle2ToAdministrativePorch.addHoverText("行政大樓門口");
@@ -326,7 +326,7 @@ aisle2ToAdministrativePorch.addEventListener("click", function () {
 // 走道2往走道1
 aisle2ToAisle1 = new PANOLENS.Infospot(
   800,
-  "./images/aisle2/aisle2-aisle1.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle2ToAisle1.position.set(1000, -500, 5000);
 // aisle2ToAisle1.addHoverText("入口");
@@ -337,7 +337,7 @@ aisle2ToAisle1.addEventListener("click", function () {
 // 走道2往走道3
 aisle2ToAisle3 = new PANOLENS.Infospot(
   800,
-  "./images/aisle2/aisle2-aisle3.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle2ToAisle3.position.set(200, -500, -5000);
 // aisle2ToAisle3.addHoverText("走道3");
@@ -350,7 +350,7 @@ aisle2Image.add(aisle2ToAdministrativePorch, aisle2ToAisle1, aisle2ToAisle3);
 // 走道3往走道2
 aisle3ToAisle2 = new PANOLENS.Infospot(
   800,
-  "./images/aisle3/aisle3-aisle2.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle3ToAisle2.position.set(100, -500, 5000);
 // aisle3ToAisle2.addHoverText("走道2");
@@ -361,7 +361,7 @@ aisle3ToAisle2.addEventListener("click", function () {
 // 走道3往走道4
 aisle3ToAisle4 = new PANOLENS.Infospot(
   800,
-  "./images/aisle3/aisle3-aisle4.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle3ToAisle4.position.set(0, -500, -5000);
 // aisle3ToAisle4.addHoverText("走道4");
@@ -374,7 +374,7 @@ aisle3Image.add(aisle3ToAisle2, aisle3ToAisle4);
 // 走道4往走道3
 aisle4ToAisle3 = new PANOLENS.Infospot(
   800,
-  "./images/aisle4/aisle4-aisle3.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle4ToAisle3.position.set(-300, -500, 5000);
 // aisle4ToAisle3.addHoverText("走道3");
@@ -385,7 +385,7 @@ aisle4ToAisle3.addEventListener("click", function () {
 // 走道4往走道5
 aisle4ToAisle5 = new PANOLENS.Infospot(
   800,
-  "./images/aisle4/aisle4-aisle5.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle4ToAisle5.position.set(-300, -500, -5000);
 // aisle4ToAisle5.addHoverText("走道5");
@@ -398,7 +398,7 @@ aisle4Image.add(aisle4ToAisle3, aisle4ToAisle5);
 // 走道5往走道4
 aisle5ToAisle4 = new PANOLENS.Infospot(
   800,
-  "./images/aisle5/aisle5-aisle4.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle5ToAisle4.position.set(-300, -500, -5000);
 // aisle5ToAisle4.addHoverText("走道4");
@@ -409,7 +409,7 @@ aisle5ToAisle4.addEventListener("click", function () {
 // 走道5往走道6
 aisle5ToAisle6 = new PANOLENS.Infospot(
   800,
-  "./images/aisle5/aisle5-aisle6.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle5ToAisle6.position.set(-300, -500, 5000);
 // aisle5ToAisle6.addHoverText("走道6");
@@ -422,7 +422,7 @@ aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6);
 // 走道6往走道5
 aisle6ToAisle5 = new PANOLENS.Infospot(
   800,
-  "./images/aisle6/aisle6-aisle5.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle6ToAisle5.position.set(-300, -500, -5000);
 // aisle6ToAisle5.addHoverText("走道5");
@@ -433,7 +433,7 @@ aisle6ToAisle5.addEventListener("click", function () {
 // 走道6往走道7
 aisle6ToAisle7 = new PANOLENS.Infospot(
   800,
-  "./images/aisle6/aisle6-aisle7.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle6ToAisle7.position.set(300, -500, 5000);
 // aisle6ToAisle7.addHoverText("走道7");
@@ -446,7 +446,7 @@ aisle6Image.add(aisle6ToAisle5, aisle6ToAisle7);
 // 走道7往走道6
 aisle7ToAisle6 = new PANOLENS.Infospot(
   800,
-  "./images/aisle7/aisle7-aisle6.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle7ToAisle6.position.set(-5000, -500, -300);
 // aisle7ToAisle6.addHoverText("走道6");
@@ -457,7 +457,7 @@ aisle7ToAisle6.addEventListener("click", function () {
 // 走道7往研究發展大樓門口
 aisle7ToDevelopment = new PANOLENS.Infospot(
   800,
-  "./images/aisle7/aisle7-development.png"
+  PANOLENS.DataImage.MoveArrow
 );
 aisle7ToDevelopment.position.set(-300, -1500, -5000);
 // aisle7ToDevelopment.addHoverText("研究發展大樓門口");
@@ -470,7 +470,7 @@ aisle7Image.add(aisle7ToDevelopment, aisle7ToAisle6);
 // 研究大樓往走道7
 developmentToAisle7 = new PANOLENS.Infospot(
   800,
-  "./images/development/development-aisle7.png"
+  PANOLENS.DataImage.MoveArrow
 );
 developmentToAisle7.position.set(300, -500, 5000);
 // developmentToAisle7.addHoverText("走道6");
@@ -481,7 +481,7 @@ developmentToAisle7.addEventListener("click", function () {
 // 研究發展大樓門口往小展示間
 developmentToShowRoom = new PANOLENS.Infospot(
   800,
-  "./images/development/development-show_room.png"
+  PANOLENS.DataImage.MoveArrow
 );
 developmentToShowRoom.position.set(-7000, -1500, -1500);
 // developmentToShowRoom.addHoverText("小展示間");
@@ -492,7 +492,7 @@ developmentToShowRoom.addEventListener("click", function () {
 // 研究發展大樓門口往大展示間
 developmentToBShowRoom = new PANOLENS.Infospot(
   800,
-  "./images/development/development-b_show_room.png"
+  PANOLENS.DataImage.MoveArrow
 );
 developmentToBShowRoom.position.set(-7000, -1465, 1000);
 // developmentToBShowRoom.addHoverText("大展示間");
@@ -509,7 +509,7 @@ developmentImage.add(
 // 小展示間往研究大樓門口
 showRoomToDevelopment = new PANOLENS.Infospot(
   800,
-  "./images/show_room/show_room-development.png"
+  PANOLENS.DataImage.MoveArrow
 );
 showRoomToDevelopment.position.set(800, -1000, 4000);
 // showRoomToDevelopment.addHoverText("資訊大樓門口");
@@ -523,7 +523,7 @@ showRoomImage.add(showRoomToDevelopment);
 // 大展示間1往大展示間2
 bShowRoom1ToBShowRoom2 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show1-b_show2.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom1ToBShowRoom2.position.set(800, -1000, 4000);
 // bShowRoom1ToBShowRoom2.addHoverText("資訊大樓門口");
@@ -534,7 +534,7 @@ bShowRoom1ToBShowRoom2.addEventListener("click", function () {
 // 大展示間1往大展示間7
 bShowRoom1ToBShowRoom7 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show1-b_show7.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom1ToBShowRoom7.position.set(5000, -1000, -1000);
 // bShowRoom1ToBShowRoom7.addHoverText("資訊大樓門口");
@@ -545,7 +545,7 @@ bShowRoom1ToBShowRoom7.addEventListener("click", function () {
 // 大展示間1往研究大樓
 bShowRoom1ToDevelopment = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show1-development.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom1ToDevelopment.position.set(-1000, -1000, -4000);
 // bShowRoom1ToDevelopment.addHoverText("資訊大樓門口");
@@ -563,7 +563,7 @@ bShowRoom1Image.add(
 // 大展示間2往大展示間3
 bShowRoom2ToBShowRoom3 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show2-b_show3.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom2ToBShowRoom3.position.set(-2200, -1000, -4000);
 // bShowRoom2ToBShowRoom3.addHoverText("資訊大樓門口");
@@ -574,7 +574,7 @@ bShowRoom2ToBShowRoom3.addEventListener("click", function () {
 // 大展示間2往大展示間1
 bShowRoom2ToBShowRoom1 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show2-b_show1.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom2ToBShowRoom1.position.set(-1800, -1000, 1500);
 // bShowRoom2ToBShowRoom1.addHoverText("資訊大樓門口");
@@ -587,7 +587,7 @@ bShowRoom2Image.add(bShowRoom2ToBShowRoom3, bShowRoom2ToBShowRoom1);
 // 大展示間3往大展示間4
 bShowRoom3ToBShowRoom4 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show3-b_show4.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom3ToBShowRoom4.position.set(1800, -1000, 4000);
 // bShowRoom3ToBShowRoom4.addHoverText("資訊大樓門口");
@@ -598,7 +598,7 @@ bShowRoom3ToBShowRoom4.addEventListener("click", function () {
 // 大展示間3往大展示間2
 bShowRoom3ToBShowRoom2 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show3-b_show2.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom3ToBShowRoom2.position.set(-1800, -1000, -4000);
 // bShowRoom3ToBShowRoom2.addHoverText("資訊大樓門口");
@@ -611,7 +611,7 @@ bShowRoom3Image.add(bShowRoom3ToBShowRoom4, bShowRoom3ToBShowRoom2);
 // 大展示間4往大展示間5
 bShowRoom4ToBShowRoom5 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show4-b_show5.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom4ToBShowRoom5.position.set(0, -1000, 4000);
 // bShowRoom4ToBShowRoom5.addHoverText("資訊大樓門口");
@@ -622,7 +622,7 @@ bShowRoom4ToBShowRoom5.addEventListener("click", function () {
 // 大展示間4往大展示間3
 bShowRoom4ToBShowRoom3 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show4-b_show3.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom4ToBShowRoom3.position.set(0, -1000, -4000);
 // bShowRoom4ToBShowRoom3.addHoverText("大展示間4往大展示間3");
@@ -635,7 +635,7 @@ bShowRoom4Image.add(bShowRoom4ToBShowRoom5, bShowRoom4ToBShowRoom3);
 // 大展示間5往大展示間6
 bShowRoom5ToBShowRoom6 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show5-b_show6.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom5ToBShowRoom6.position.set(3000, -2000, 4000);
 // bShowRoom5ToBShowRoom6.addHoverText("資訊大樓門口");
@@ -646,7 +646,7 @@ bShowRoom5ToBShowRoom6.addEventListener("click", function () {
 // 大展示間5往大展示間4
 bShowRoom5ToBShowRoom4 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show5-b_show4.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom5ToBShowRoom4.position.set(4000, -2000, -4000);
 // bShowRoom5ToBShowRoom4.addHoverText("資訊大樓門口");
@@ -659,7 +659,7 @@ bShowRoom5Image.add(bShowRoom5ToBShowRoom6, bShowRoom5ToBShowRoom4);
 // 大展示間6往大展示間7
 bShowRoom6ToBShowRoom7 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show6-b_show7.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom6ToBShowRoom7.position.set(-1000, -2000, -4000);
 // bShowRoom6ToBShowRoom7.addHoverText("資訊大樓門口");
@@ -670,7 +670,7 @@ bShowRoom6ToBShowRoom7.addEventListener("click", function () {
 // 大展示間6往大展示間5
 bShowRoom6ToBShowRoom5 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show6-b_show5.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom6ToBShowRoom5.position.set(-5000, -1000, 2000);
 // bShowRoom6ToBShowRoom5.addHoverText("資訊大樓門口");
@@ -683,7 +683,7 @@ bShowRoom6Image.add(bShowRoom6ToBShowRoom7, bShowRoom6ToBShowRoom5);
 // 大展示間7往大展示間1
 bShowRoom7ToBShowRoom1 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show7-b_show1.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom7ToBShowRoom1.position.set(0, -2000, 4000);
 // bShowRoom7ToBShowRoom1.addHoverText("資訊大樓門口");
@@ -694,7 +694,7 @@ bShowRoom7ToBShowRoom1.addEventListener("click", function () {
 // 大展示間7往大展示間6
 bShowRoom7ToBShowRoom6 = new PANOLENS.Infospot(
   800,
-  "./images/b_show_room/b_show7-b_show6.png"
+  PANOLENS.DataImage.MoveArrow
 );
 bShowRoom7ToBShowRoom6.position.set(0, -2000, -4000);
 // bShowRoom7ToBShowRoom6.addHoverText("資訊大樓門口");
@@ -739,7 +739,7 @@ administrativePorchToAisle2_3.addEventListener("click", function () {
 // 門廊到行政大樓
 administrativePorchToAdministrative = new PANOLENS.Infospot(
   800,
-  "./images/administrative_porch/administrative_porch-administrative.png"
+  PANOLENS.DataImage.MoveArrow
 );
 administrativePorchToAdministrative.position.set(7000, -1500, 300);
 administrativePorchToAdministrative.addEventListener("click", function () {
@@ -755,7 +755,7 @@ administrativePorchImage.add(
 // 行政大樓 ------------------------------------------------------------------------------------------------
 administrativeToMeeting = new PANOLENS.Infospot(
   800,
-  "./images/administrative/administrative-meeting.png"
+  PANOLENS.DataImage.MoveArrow
 );
 administrativeToMeeting.position.set(-1150, -1200, 3500);
 // administrativeToMeeting.addHoverText("會議室");
@@ -765,7 +765,7 @@ administrativeToMeeting.addEventListener("click", function () {
 
 administrativeToAdministrativeDoor = new PANOLENS.Infospot(
   800,
-  "./images/administrative/administrative-administrative_porch.png"
+  PANOLENS.DataImage.MoveArrow
 );
 administrativeToAdministrativeDoor.position.set(2500, -1500, -1500);
 // administrativeToAdministrativeDoor.addHoverText("行政大樓門廊");
@@ -781,7 +781,7 @@ administrativeImage.add(
 //會議室 ------------------------------------------------------------------------------------------------
 meetingToAdministrative = new PANOLENS.Infospot(
   800,
-  "./images/meeting/meeting-administrative.png"
+  PANOLENS.DataImage.MoveArrow
 );
 meetingToAdministrative.position.set(4300, -1500, -7500);
 // meetingToAdministrative.addHoverText("行政大樓");
