@@ -57,7 +57,7 @@ const viewer = new PANOLENS.Viewer({
   autoHideInfospot:false,
   cameraFov:70
 });
-
+console.log('viewer',viewer);
 
 
 //會議室資訊
@@ -283,7 +283,7 @@ showRoom7Info1.addEventListener("click", function () {
 //door
 doorToAdministrativeArrow = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.MoveArrow,
 );
 doorToAdministrativeArrow.position.set(-7000, -1500, 500);
 // doorToAdministrativeArrow.addHoverText("大門");
