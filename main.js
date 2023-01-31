@@ -50,9 +50,12 @@ const imageContainer = document.querySelector(".image-container");
 
 const viewer = new PANOLENS.Viewer({
   container: imageContainer,
-  autoRotateSpeed: 0.3,
+  // autoRotateSpeed: 0.3,
   controlBar: false,
   passiveRendering:true,
+  autoHideControlBar:false,
+  autoHideInfospot:false,
+  cameraFov:70
 });
 
 
