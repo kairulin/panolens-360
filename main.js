@@ -80,7 +80,7 @@ bikeInfo.addEventListener("click", function () {
   bikeInfo.focus();
 });
 
-motorInfo = new PANOLENS.Infospot(500);
+motorInfo = new PANOLENS.Infospot(500); 
 motorInfo.position.set(-5200, -1800, -1300);
 motorInfo.addHoverText("電動汽車馬達資訊");
 motorInfo.addEventListener("click", function () {
@@ -531,10 +531,6 @@ bShowRoom1ToBShowRoom2.addEventListener("click", function () {
   lookCheck = true;
   changeFunction("bshowRoom2");
 });
-console.log(
-  "bShowRoom1ToBShowRoom2",
-  Object.values(bShowRoom1ToBShowRoom2.position).toString()
-);
 // 大展示間1往大展示間7
 bShowRoom1ToBShowRoom7 = new PANOLENS.Infospot(
   800,
