@@ -1,6 +1,5 @@
 //場景
 const doorImage = new PANOLENS.ImagePanorama("images/door.jpg");
-
 const aisle1Image = new PANOLENS.ImagePanorama("images/aisle1/aisle1.jpg");
 const aisle2Image = new PANOLENS.ImagePanorama("images/aisle2/aisle2.jpg");
 const aisle3Image = new PANOLENS.ImagePanorama("images/aisle3/aisle3.jpg");
@@ -57,7 +56,24 @@ const viewer = new PANOLENS.Viewer({
   autoHideInfospot:false,
   cameraFov:70
 });
-console.log('viewer',viewer);
+
+// var parent = new THREE.Object3D();
+// viewer.add( parent );
+
+// var direction = new THREE.Vector3( 0, 0, -1 );
+// var origin = new THREE.Vector3( 1, 0, 0 );
+// var length = 1;
+// var color = 0xff0000;
+
+// var arrowHelper = new THREE.ArrowHelper( direction, origin, length, color );
+// parent.add( arrowHelper );
+
+
+
+// viewer.addEventListener( 'panolens-viewer-handler', function ( event ) {
+//   console.log('event.position',event.position);
+//   console.log('event.quaternion',event.quaternion);
+// } );
 
 
 //會議室資訊
@@ -1187,3 +1203,10 @@ mapBtn.addEventListener("click", function () {
     infoMenu.classList.toggle("active");
   }
 });
+
+viewer.addEventListener( 'drag', function ( event ) {
+
+  // event.deltaX, event.deltaY
+  console.log( event.deltaX, event.deltaY );
+
+} );
