@@ -1347,15 +1347,20 @@ var mapBtn = document.querySelector(".menu-box__map");
 
 var mapMenu = document.querySelector(".map-box");
 var infoMenu = document.querySelector(".guide-box");
+
+var point = document.querySelector(".map-point");
+
 menuBtn.addEventListener("click", function () {
   infoMenu.classList.toggle("active");
   if (mapMenu.className.indexOf("active") !== -1) {
     mapMenu.classList.toggle("active");
+    point.classList.toggle("active");
   }
 });
 
 mapBtn.addEventListener("click", function () {
   mapMenu.classList.toggle("active");
+  point.classList.toggle("active");
   if (infoMenu.className.indexOf("active") !== -1) {
     infoMenu.classList.toggle("active");
   }
