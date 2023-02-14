@@ -5,7 +5,7 @@ function changeFunction(img, product) {
       btnFunction(-1, false);
       viewer.setPanorama(aisle1Image);
       break;
-    case "aisle2":    
+    case "aisle2":
       btnFunction(-1, false);
       viewer.setPanorama(aisle2Image);
       break;
@@ -28,6 +28,10 @@ function changeFunction(img, product) {
     case "aisle7":
       btnFunction(-1, false);
       viewer.setPanorama(aisle7Image);
+      break;
+    case "developmentDoor":
+      btnFunction(-1, false);
+      viewer.setPanorama(developmentDoorImage);
       break;
     case "development":
       btnFunction(-1, false);
@@ -122,6 +126,42 @@ function changeFunction(img, product) {
             break;
         }
       }
+      break;
+    case "storehouse8":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse8Image);
+      break;
+    case "storehouse7":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse7Image);
+      break;
+    case "storehouse6":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse6Image);
+      break;
+    case "storehouse5":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse5Image);
+      break;
+    case "storehouse4":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse4Image);
+      break;
+    case "storehouse3":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3Image);
+      break;
+    case "storehouse2":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2Image);
+      break;
+    case "storehouse1":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse1Image);
+      break;
+    case "storehouse2F1":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F1Image);
       break;
     default:
       btnFunction(-1, false);
