@@ -277,52 +277,51 @@ p {
   height: 733px;
 }
 
-
-.map-point{
+.map-point {
   display: none;
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   z-index: 9999;
   background: #1100ff;
-  position: relative;
-  left: 190px;
   top: 280px;
+  left: 190px;
+  position: relative;
   border-radius: 50%;
 }
-.map-point{
-  opacity:1;
-  animation: point 2s linear reverse infinite;
+.map-point {
+  opacity: 1;
+  animation: point 1s linear reverse infinite;
 }
 
 @keyframes point {
-  0%{
-    opacity:0;
+  0% {
+    opacity: 0;
   }
-  10%{
-    opacity:0.2;
+  10% {
+    opacity: 0.2;
   }
-  20%{
-    opacity:0.4;
+  20% {
+    opacity: 0.4;
   }
-  30%{
-    opacity:0.6;    
+  30% {
+    opacity: 0.6;
   }
-  40%{
-    opacity:0.8;
+  40% {
+    opacity: 0.8;
   }
-  50%{
-    opacity:1;
+  50% {
+    opacity: 1;
   }
-  60%{
-    opacity:0.8;
+  60% {
+    opacity: 0.8;
   }
-  70%{
-    opacity:0.6;    
+  70% {
+    opacity: 0.6;
   }
-  80%{
-    opacity:0.4;
+  80% {
+    opacity: 0.4;
   }
-  100%{
-    opacity:0.2;
+  100% {
+    opacity: 0.2;
   }
 }

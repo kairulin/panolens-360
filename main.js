@@ -71,23 +71,7 @@ const viewer = new PANOLENS.Viewer({
   autoHideInfospot: false,
   cameraFov: 70,
 });
-
-// var parent = new THREE.Object3D();
-// viewer.add( parent );
-
-// var direction = new THREE.Vector3( 0, 0, -1 );
-// var origin = new THREE.Vector3( 1, 0, 0 );
-// var length = 1;
-// var color = 0xff0000;
-
-// var arrowHelper = new THREE.ArrowHelper( direction, origin, length, color );
-// parent.add( arrowHelper );
-
-// viewer.addEventListener( 'panolens-viewer-handler', function ( event ) {
-//   console.log('event.position',event.position);
-//   console.log('event.quaternion',event.quaternion);
-// } );
-
+let lookCheck = true;
 //會議室資訊
 var bikeInfo,
   motorInfo,
@@ -103,200 +87,92 @@ var bikeInfo,
   porchArrow2,
   meetingArrow;
 
+function infoSetting(infoName, x, y, z, hoverText, idx) {
+  infoName.position.set(x, y, z);
+  infoName.addHoverText(hoverText);
+  infoName.addEventListener("click", function () {
+    btnFunction(idx, false);
+    infoName.focus();
+  });
+}
+
 bikeInfo = new PANOLENS.Infospot(500);
-bikeInfo.position.set(-5100, -1800, -3800);
-bikeInfo.addHoverText("自行車資訊");
-bikeInfo.addEventListener("click", function () {
-  btnFunction(1, false);
-  bikeInfo.focus();
-});
+infoSetting(bikeInfo, -5100, -1800, -3800, "自行車資訊", 1);
 
 motorInfo = new PANOLENS.Infospot(500);
-motorInfo.position.set(-5200, -1800, -1300);
-motorInfo.addHoverText("電動汽車馬達資訊");
-motorInfo.addEventListener("click", function () {
-  btnFunction(2, false);
-  motorInfo.focus();
-});
+infoSetting(motorInfo, -5200, -1800, -1300, "電動汽車馬達資訊", 2);
 
 ledInfo = new PANOLENS.Infospot(500);
-ledInfo.position.set(-5200, -1800, 1400);
-ledInfo.addHoverText("LDE車燈應用資訊");
-ledInfo.addEventListener("click", function () {
-  btnFunction(3, false);
-  ledInfo.focus();
-});
+infoSetting(ledInfo, -5200, -1800, 1400, "LDE車燈應用資訊", 3);
 
 medicalInfo = new PANOLENS.Infospot(525);
-medicalInfo.position.set(-5200, -1800, 4100);
-medicalInfo.addHoverText("醫療接著膠材資訊");
-medicalInfo.addEventListener("click", function () {
-  btnFunction(4, false);
-  medicalInfo.focus();
-});
+infoSetting(medicalInfo, -5200, -1800, 4100, "醫療接著膠材資訊", 4);
 
 tireInfo = new PANOLENS.Infospot(600);
-tireInfo.position.set(-5200, -1800, 6600);
-tireInfo.addHoverText("胎壓偵測系統資訊");
-tireInfo.addEventListener("click", function () {
-  btnFunction(5, false);
-  tireInfo.focus();
-});
+infoSetting(tireInfo, -5200, -1800, 6600, "胎壓偵測系統資訊", 5);
 
 miniLedInfo = new PANOLENS.Infospot(500);
-miniLedInfo.position.set(5800, -1800, 5950);
-miniLedInfo.addHoverText("MINI LED資訊");
-miniLedInfo.addEventListener("click", function () {
-  btnFunction(6, false);
-  miniLedInfo.focus();
-});
+infoSetting(miniLedInfo, 5800, -1800, 5950, "MINI LED資訊", 6);
 
 electricInfo = new PANOLENS.Infospot(500);
-electricInfo.position.set(5600, -1800, 3450);
-electricInfo.addHoverText("電桿應用資訊");
-electricInfo.addEventListener("click", function () {
-  btnFunction(7, false);
-  electricInfo.focus();
-});
+infoSetting(electricInfo, 5600, -1800, 3450, "電桿應用資訊", 7);
 
 speakerInfo = new PANOLENS.Infospot(500);
-speakerInfo.position.set(5400, -1800, 900);
-speakerInfo.addHoverText("微型揚聲器(聲學產業)資訊");
-speakerInfo.addEventListener("click", function () {
-  btnFunction(8, false);
-  speakerInfo.focus();
-});
+infoSetting(speakerInfo, 5400, -1800, 900, "微型揚聲器(聲學產業)資訊", 8);
 
 lensInfo = new PANOLENS.Infospot(500);
-lensInfo.position.set(5200, -1800, -1600);
-lensInfo.addHoverText("光學鏡頭資訊");
-lensInfo.addEventListener("click", function () {
-  btnFunction(9, false);
-  lensInfo.focus();
-});
+infoSetting(lensInfo, 5200, -1800, -1600, "光學鏡頭資訊", 9);
 
 communicationInfo = new PANOLENS.Infospot(500);
-communicationInfo.position.set(5000, -1800, -4050);
-communicationInfo.addHoverText("5G-光通訊-光通訊資訊");
-communicationInfo.addEventListener("click", function () {
-  btnFunction(10, false);
-  communicationInfo.focus();
-});
+infoSetting(communicationInfo, 5000, -1800, -4050, "5G-光通訊-光通訊資訊", 10);
+
 //大展示間1資訊
 TopInfo = new PANOLENS.Infospot(550);
-TopInfo.position.set(-3500, 0, -4500);
-TopInfo.addHoverText("光電類");
-TopInfo.addEventListener("click", function () {
-  btnFunction("show1", false);
-  TopInfo.focus();
-});
+infoSetting(TopInfo, -3500, 0, -4500, "光電類", "show1");
 
 MidInfo = new PANOLENS.Infospot(550);
-MidInfo.position.set(-3500, -3000, -4500);
-MidInfo.addHoverText("光電產業");
-MidInfo.addEventListener("click", function () {
-  btnFunction("show2", false);
-  MidInfo.focus();
-});
-let lookCheck = true;
+infoSetting(MidInfo, -3500, -3000, -4500, "光電產業", "show2");
+
 // 大展示間2資訊
 showRoom2Info1 = new PANOLENS.Infospot(350);
-showRoom2Info1.position.set(0, -400, -4000);
-// showRoom2Info1.addHoverText("LED車燈灌注密封應用");
-showRoom2Info1.addEventListener("click", function () {
-  btnFunction("show4", false);
-  showRoom2Info1.focus();
-});
+infoSetting(showRoom2Info1, 0, -400, -4000, "", "show4");
 
 showRoom2Info2 = new PANOLENS.Infospot(450);
-showRoom2Info2.position.set(-2600, -1500, 1100);
-// showRoom2Info2.addHoverText("5");
-showRoom2Info2.addEventListener("click", function () {
-  btnFunction("show5", false);
-  showRoom2Info2.focus();
-});
+infoSetting(showRoom2Info2, -2600, -1500, 1100, "", "show5");
 
 showRoom2Info3 = new PANOLENS.Infospot(450);
-showRoom2Info3.position.set(-2450, -1500, -1650);
-// showRoom2Info3.addHoverText("6");
-showRoom2Info3.addEventListener("click", function () {
-  btnFunction("show6", false);
-  showRoom2Info3.focus();
-});
+infoSetting(showRoom2Info3, -2450, -1500, -1650, "", "show6");
+
 showRoom2Info4 = new PANOLENS.Infospot(350);
-showRoom2Info4.position.set(2500, -500, -50);
-// showRoom2Info4.addHoverText("7");
-showRoom2Info4.addEventListener("click", function () {
-  btnFunction("show7", false);
-  showRoom2Info4.focus();
-});
+infoSetting(showRoom2Info4, 2500, -500, -50, "", "show7");
 
 showRoom2Info5 = new PANOLENS.Infospot(450);
-showRoom2Info5.position.set(3300, -800, 3000);
-// showRoom2Info5.addHoverText("8");
-showRoom2Info5.addEventListener("click", function () {
-  btnFunction("show8", false);
-  showRoom2Info5.focus();
-});
+infoSetting(showRoom2Info5, 3300, -800, 3000, "", "show8");
+
 // 大展示間3資訊
 showRoom3Info1 = new PANOLENS.Infospot(350);
-showRoom3Info1.position.set(-2800, -1300, -1800);
-// showRoom3Info1.addHoverText("10");
-showRoom3Info1.addEventListener("click", function () {
-  btnFunction("show10", false);
-  showRoom3Info1.focus();
-});
+infoSetting(showRoom3Info1, -2800, -1300, -1800, "", "show10");
 
 showRoom3Info2 = new PANOLENS.Infospot(350);
-showRoom3Info2.position.set(-3000, -1300, 2000);
-// showRoom3Info2.addHoverText("11");
-showRoom3Info2.addEventListener("click", function () {
-  btnFunction("show11", false);
-  showRoom3Info2.focus();
-});
+infoSetting(showRoom3Info2, -3000, -1300, 2000, "", "show11");
 
 // 大展示間4資訊
 showRoom4Info1 = new PANOLENS.Infospot(350);
-showRoom4Info1.position.set(-1000, -1000, -2000);
-// showRoom4Info1.addHoverText("12");
-showRoom4Info1.addEventListener("click", function () {
-  btnFunction("show12", false);
-  showRoom4Info1.focus();
-});
+infoSetting(showRoom4Info1, -1000, -1000, -2000, "", "show12");
 
 // 大展示間5資訊
 showRoom5Info1 = new PANOLENS.Infospot(350);
-showRoom5Info1.position.set(2000, -600, 2500);
-showRoom5Info1.addHoverText("14");
-showRoom5Info1.addEventListener("click", function () {
-  btnFunction("show14", false);
-  showRoom5Info1.focus();
-});
+infoSetting(showRoom5Info1, 2000, -600, 2500, "", "show14");
 
 showRoom5Info2 = new PANOLENS.Infospot(450);
-showRoom5Info2.position.set(3500, -800, -500);
-showRoom5Info2.addHoverText("15");
-showRoom5Info2.addEventListener("click", function () {
-  btnFunction("show15", false);
-  showRoom5Info2.focus();
-});
+infoSetting(showRoom5Info2, 3500, -800, -500, "", "show15");
 
 showRoom5Info3 = new PANOLENS.Infospot(350);
-showRoom5Info3.position.set(-2000, -1000, -1000);
-showRoom5Info3.addHoverText("17");
-showRoom5Info3.addEventListener("click", function () {
-  btnFunction("show17", false);
-  showRoom5Info3.focus();
-});
+infoSetting(showRoom5Info3, -2000, -1000, -1000, "", "show17");
 
 // 大展示間6資訊
 showRoom6Info1 = new PANOLENS.Infospot(350);
-showRoom6Info1.position.set(2500, -1000, 1000);
-// showRoom6Info1.addHoverText("18");
-showRoom6Info1.addEventListener("click", function () {
-  btnFunction("show18", false);
-  showRoom6Info1.focus();
-});
+infoSetting(showRoom6Info1, 2500, -1000, 1000, "", "show18");
 
 //設置箭頭的function
 function arrowSetting(arrowName, x, y, z, hoverText, check, changeSite) {
@@ -332,15 +208,7 @@ aisle2ToAdministrativePorch = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  aisle2ToAdministrativePorch,
-  -5000,
-  0,
-  -100,
-  "",
-  true,
-  "administrativePorch"
-);
+arrowSetting(  aisle2ToAdministrativePorch,  -5000,  0,  -100,  "",  true,  "administrativePorch");
 
 // 走道2往走道1
 aisle2ToAisle1 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -401,15 +269,7 @@ aisle7TodevelopmentDoor = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  aisle7TodevelopmentDoor,
-  -300,
-  -1500,
-  -5000,
-  "",
-  true,
-  "developmentDoor"
-);
+arrowSetting(  aisle7TodevelopmentDoor,  -300,  -1500,  -5000,  "",  true,  "developmentDoor");
 
 aisle7Image.add(aisle7TodevelopmentDoor, aisle7ToAisle6);
 //研究大樓門口 ------------------------------------------------------------------------------------------------
@@ -425,15 +285,7 @@ developmentDoorTodevelopment = new PANOLENS.Infospot(
   900,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  developmentDoorTodevelopment,
-  -7000,
-  -1500,
-  -250,
-  "",
-  true,
-  "development"
-);
+arrowSetting(  developmentDoorTodevelopment,  -7000,  -1500,  -250,  "",  true,  "development");
 
 developmentDoorImage.add(developmentDoorToAisle7, developmentDoorTodevelopment);
 // 研究大樓 ------------------------------------------------------------------
@@ -442,15 +294,7 @@ developmentToDevelopmentDoor = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  developmentToDevelopmentDoor,
-  100,
-  -500,
-  4000,
-  "",
-  false,
-  "developmentDoor"
-);
+arrowSetting(  developmentToDevelopmentDoor,  100,  -500,  4000,  "",  false,  "developmentDoor");
 
 // 研究大樓往小展示間
 developmentToshowRoom = new PANOLENS.Infospot(
@@ -464,45 +308,21 @@ developmentToBshowRoom = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.RightArrow
 );
-arrowSetting(
-  developmentToBshowRoom,
-  -2500,
-  -500,
-  -5000,
-  "",
-  true,
-  "bshowRoom1"
-);
+arrowSetting(  developmentToBshowRoom,  -2500,  -500,  -5000,  "",  true,  "bshowRoom1");
 
 // 研究大樓往倉庫8
 developmentToStorehouse8 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  developmentToStorehouse8,
-  200,
-  -500,
-  -5000,
-  "",
-  true,
-  "storehouse8"
-);
+arrowSetting(  developmentToStorehouse8,  200,  -500,  -5000,  "",  true,  "storehouse8");
 
 // 研究大樓往倉庫二樓
 developmentToStorehouse2F1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.LeftFrontArrow
 );
-arrowSetting(
-  developmentToStorehouse2F1,
-  200,
-  300,
-  -5000,
-  "",
-  true,
-  "storehouse2F1"
-);
+arrowSetting(  developmentToStorehouse2F1,  200,  300,  -5000,  "",  true,  "storehouse2F1");
 
 developmentImage.add(
   developmentToDevelopmentDoor,
@@ -517,45 +337,21 @@ storehouse8toStorhouse7 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse8toStorhouse7,
-  -100,
-  -500,
-  -5000,
-  "",
-  true,
-  "storehouse7"
-);
+arrowSetting(  storehouse8toStorhouse7,  -100,  -500,  -5000,  "",  true,  "storehouse7");
 
 //倉庫8往研究大樓
 storehouse8toDevelopment = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.LeftFrontArrow
 );
-arrowSetting(
-  storehouse8toDevelopment,
-  4000,
-  -500,
-  2500,
-  "研究大樓",
-  false,
-  "development"
-);
+arrowSetting(  storehouse8toDevelopment,  4000,  -500,  2500,  "研究大樓",  false,  "development");
 
 //倉庫8往倉庫二樓
 storehouse8toStorehouse2F1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.RightFrontArrow
 );
-arrowSetting(
-  storehouse8toStorehouse2F1,
-  4000,
-  -500,
-  1800,
-  "二樓",
-  true,
-  "storehouse2F1"
-);
+arrowSetting(  storehouse8toStorehouse2F1,  4000,  -500,  1800,  "二樓",  true,  "storehouse2F1");
 
 storehouse8Image.add(
   storehouse8toStorhouse7,
@@ -568,30 +364,14 @@ storehouse7toStorhouse8 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse7toStorhouse8,
-  -100,
-  -500,
-  -5000,
-  "",
-  false,
-  "storehouse8"
-);
+arrowSetting(  storehouse7toStorhouse8,  -100,  -500,  -5000,  "",  false,  "storehouse8");
 
 //倉庫7往倉庫6
 storehouse7toStorhouse6 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse7toStorhouse6,
-  -100,
-  -500,
-  5000,
-  "",
-  true,
-  "storehouse6"
-);
+arrowSetting(  storehouse7toStorhouse6,  -100,  -500,  5000,  "",  true,  "storehouse6");
 
 storehouse7Image.add(storehouse7toStorhouse8, storehouse7toStorhouse6);
 //倉庫6-------------------------------------------------------------------------
@@ -600,15 +380,7 @@ storehouse6toStorhouse7 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse6toStorhouse7,
-  -200,
-  -500,
-  -5000,
-  "",
-  false,
-  "storehouse7"
-);
+arrowSetting(  storehouse6toStorhouse7,  -200,  -500,  -5000,  "",  false,  "storehouse7");
 
 //倉庫6往倉庫5
 storehouse6toStorhouse5 = new PANOLENS.Infospot(
@@ -625,30 +397,14 @@ storehouse5toStorhouse6 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse5toStorhouse6,
-  1500,
-  -500,
-  -5000,
-  "",
-  false,
-  "storehouse6"
-);
+arrowSetting(  storehouse5toStorhouse6,  1500,  -500,  -5000,  "",  false,  "storehouse6");
 
 //倉庫5往倉庫4
 storehouse5toStorhouse4 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse5toStorhouse4,
-  -1500,
-  -500,
-  5000,
-  "",
-  true,
-  "storehouse4"
-);
+arrowSetting(  storehouse5toStorhouse4,  -1500,  -500,  5000,  "",  true,  "storehouse4");
 
 storehouse5Image.add(storehouse5toStorhouse6, storehouse5toStorhouse4);
 
@@ -658,15 +414,7 @@ storehouse4toStorhouse5 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse4toStorhouse5,
-  -250,
-  -500,
-  -5000,
-  "",
-  false,
-  "storehouse5"
-);
+arrowSetting(  storehouse4toStorhouse5,  -250,  -500,  -5000,  "",  false,  "storehouse5");
 
 //倉庫4往倉庫3
 storehouse4toStorhouse3 = new PANOLENS.Infospot(
@@ -683,30 +431,14 @@ storehouse3toStorhouse4 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse3toStorhouse4,
-  450,
-  -500,
-  5000,
-  "",
-  false,
-  "storehouse4"
-);
+arrowSetting(  storehouse3toStorhouse4,  450,  -500,  5000,  "",  false,  "storehouse4");
 
 //倉庫3往倉庫2
 storehouse3toStorhouse2 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.RightArrow
 );
-arrowSetting(
-  storehouse3toStorhouse2,
-  -2500,
-  -500,
-  -2000,
-  "",
-  true,
-  "storehouse2"
-);
+arrowSetting(  storehouse3toStorhouse2,  -2500,  -500,  -2000,  "",  true,  "storehouse2");
 
 storehouse3Image.add(storehouse3toStorhouse4, storehouse3toStorhouse2);
 
@@ -716,30 +448,14 @@ storehouse2toStorhouse3 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse2toStorhouse3,
-  3500,
-  -500,
-  300,
-  "",
-  false,
-  "storehouse3"
-);
+arrowSetting(  storehouse2toStorhouse3,  3500,  -500,  300,  "",  false,  "storehouse3");
 
 //倉庫2往倉庫1
 storehouse2toStorhouse1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  storehouse2toStorhouse1,
-  450,
-  -500,
-  -5000,
-  "",
-  true,
-  "storehouse1"
-);
+arrowSetting(  storehouse2toStorhouse1,  450,  -500,  -5000,  "",  true,  "storehouse1");
 
 storehouse2Image.add(storehouse2toStorhouse3, storehouse2toStorhouse1);
 
@@ -749,15 +465,7 @@ storehouse1toStorhouse2 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.RightArrow
 );
-arrowSetting(
-  storehouse1toStorhouse2,
-  -2750,
-  -500,
-  -2500,
-  "",
-  false,
-  "storehouse2"
-);
+arrowSetting(  storehouse1toStorhouse2,  -2750,  -500,  -2500,  "",  false,  "storehouse2");
 
 //倉庫1往走道3
 // storehouse1toAisle3 = new PANOLENS.Infospot(600, PANOLENS.DataImage.RightArrow);
@@ -774,15 +482,7 @@ showRoomToDevelopment = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  showRoomToDevelopment,
-  800,
-  -1000,
-  4000,
-  "",
-  "fromShowRoom",
-  "development"
-);
+arrowSetting(  showRoomToDevelopment,  800,  -1000,  4000,  "",  "fromShowRoom",  "development");
 
 showRoomImage.add(showRoomToDevelopment);
 //大展示間1 ------------------------------------------------------------------------------------------------
@@ -798,15 +498,7 @@ bShowRoom1ToDevelopment = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  bShowRoom1ToDevelopment,
-  -750,
-  -1000,
-  -4000,
-  "",
-  "fromBShowRoom",
-  "development"
-);
+arrowSetting(  bShowRoom1ToDevelopment,  -750,  -1000,  -4000,  "",  "fromBShowRoom",  "development");
 
 bShowRoom1Image.add(bShowRoom1ToBShowRoom2, bShowRoom1ToDevelopment);
 //大展示間2 ------------------------------------------------------------------------------------------------
@@ -828,15 +520,7 @@ bShowRoom2ToBShowRoom1 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  bShowRoom2ToBShowRoom1,
-  1800,
-  -1000,
-  -1500,
-  "",
-  false,
-  "bshowRoom1"
-);
+arrowSetting(  bShowRoom2ToBShowRoom1,  1800,  -1000,  -1500,  "",  false,  "bshowRoom1");
 
 bShowRoom2Image.add(bShowRoom2ToBShowRoom3, bShowRoom2ToBShowRoom1);
 //大展示間3 ------------------------------------------------------------------------------------------------
@@ -868,15 +552,7 @@ bShowRoom4ToBShowRoom3 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  bShowRoom4ToBShowRoom3,
-  5000,
-  -1000,
-  -3500,
-  "",
-  false,
-  "bshowRoom3"
-);
+arrowSetting(  bShowRoom4ToBShowRoom3,  5000,  -1000,  -3500,  "",  false,  "bshowRoom3");
 
 bShowRoom4Image.add(bShowRoom4ToBShowRoom5, bShowRoom4ToBShowRoom3);
 //大展示間5 ------------------------------------------------------------------------------------------------
@@ -885,30 +561,14 @@ bShowRoom5ToBShowRoom6 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  bShowRoom5ToBShowRoom6,
-  -100,
-  -2000,
-  -4000,
-  "",
-  true,
-  "bshowRoom6"
-);
+arrowSetting(  bShowRoom5ToBShowRoom6,  -100,  -2000,  -4000,  "",  true,  "bshowRoom6");
 
 // 大展示間5往大展示間4
 bShowRoom5ToBShowRoom4 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  bShowRoom5ToBShowRoom4,
-  -4000,
-  -2000,
-  4000,
-  "",
-  false,
-  "bshowRoom4"
-);
+arrowSetting(  bShowRoom5ToBShowRoom4,  -4000,  -2000,  4000,  "",  false,  "bshowRoom4");
 
 bShowRoom5Image.add(bShowRoom5ToBShowRoom6, bShowRoom5ToBShowRoom4);
 //大展示間6 ------------------------------------------------------------------------------------------------
@@ -917,15 +577,7 @@ bShowRoom6ToDevelopment = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.LeftArrow
 );
-arrowSetting(
-  bShowRoom6ToDevelopment,
-  2500,
-  -500,
-  -4000,
-  "",
-  "fromBShowRoom",
-  "development"
-);
+arrowSetting(  bShowRoom6ToDevelopment,  2500,  -500,  -4000,  "",  "fromBShowRoom",  "development");
 
 // 大展示間6往大展示間5
 bShowRoom6ToBShowRoom5 = new PANOLENS.Infospot(
@@ -942,45 +594,21 @@ administrativePorchToAisle2_1 = new PANOLENS.Infospot(
   800,
   "./images/administrative_porch/administrative_porch-aisle2_1.png"
 );
-arrowSetting(
-  administrativePorchToAisle2_1,
-  -5000,
-  -1500,
-  -1500,
-  "往入口",
-  false,
-  "aisle2"
-);
+arrowSetting(  administrativePorchToAisle2_1,  -5000,  -1500,  -1500,  "往入口",  false,  "aisle2");
 
 // 門廊到走道2(面對走道3)
 administrativePorchToAisle2_3 = new PANOLENS.Infospot(
   800,
   "./images/administrative_porch/administrative_porch-aisle2_3.png"
 );
-arrowSetting(
-  administrativePorchToAisle2_3,
-  -5000,
-  -1500,
-  1400,
-  "往右",
-  true,
-  "aisle2"
-);
+arrowSetting(  administrativePorchToAisle2_3,  -5000,  -1500,  1400,  "往右",  true,  "aisle2");
 
 // 門廊到行政大樓
 administrativePorchToAdministrative = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  administrativePorchToAdministrative,
-  7000,
-  -1500,
-  300,
-  "",
-  true,
-  "administrative"
-);
+arrowSetting(  administrativePorchToAdministrative,  7000,  -1500,  300,  "",  true,  "administrative");
 
 administrativePorchImage.add(
   administrativePorchToAisle2_1,
@@ -999,15 +627,7 @@ administrativeToAdministrativeDoor = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  administrativeToAdministrativeDoor,
-  2500,
-  -1500,
-  -1500,
-  "",
-  false,
-  "administrativePorch"
-);
+arrowSetting(  administrativeToAdministrativeDoor,  2500,  -1500,  -1500,  "",  false,  "administrativePorch");
 
 administrativeImage.add(
   administrativeToAdministrativeDoor,
