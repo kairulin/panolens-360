@@ -2,34 +2,64 @@
 function changeFunction(img, product) {
   switch (img) {
     case "aisle1":
+      point.style.top = "230px";
+      point.style.left = "190px";
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle1Image);
       break;
-    case "aisle2":    
+    case "aisle2":
+      point.style.top = "200px";
+      point.style.left = "190px";
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle2Image);
       break;
     case "aisle3":
+      point.style.top = "110px";
+      point.style.left = "190px";
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle3Image);
       break;
     case "aisle4":
+      point.style.top = "10px";
+      point.style.left = "190px";
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle4Image);
       break;
     case "aisle5":
+      point.style.top = "-80px";
+      point.style.left = "190px";
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle5Image);
       break;
     case "aisle6":
+      point.style.top = "-180px";
+      point.style.left = "190px";
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle6Image);
       break;
     case "aisle7":
+      point.style.top = "-270px";
+      point.style.left = "220px";
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle7Image);
       break;
+    case "developmentDoor":
+      point.style.top = "-270px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(developmentDoorImage);
+      break;
     case "development":
+      point.style.top = "-220px";
+      point.style.left = "230px";
       btnFunction(-1, false);
       viewer.setPanorama(developmentImage);
       break;
@@ -66,14 +96,23 @@ function changeFunction(img, product) {
       viewer.setPanorama(bShowRoom7Image);
       break;
     case "administrativePorch":
+      point.style.top = "200px";
+      point.style.left = "230px";
+
       btnFunction(-1, false);
       viewer.setPanorama(administrativePorchImage);
       break;
     case "administrative":
+      point.style.top = "200px";
+      point.style.left = "250px";
+
       btnFunction(-1, false);
       viewer.setPanorama(administrativeImage);
       break;
     case "meeting":
+      point.style.top = "200px";
+      point.style.left = "250px";
+      
       viewer.setPanorama(meetingImage);
       setTimeout(focusItem, 100);
       function focusItem() {
@@ -123,7 +162,111 @@ function changeFunction(img, product) {
         }
       }
       break;
+    case "storehouse8":
+      point.style.top = "-180px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse8Image);
+      break;
+    case "storehouse7":
+      point.style.top = "-150px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse7Image);
+      break;
+    case "storehouse6":
+      point.style.top = "-120px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse6Image);
+      break;
+    case "storehouse5":
+      point.style.top = "-50px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse5Image);
+      break;
+    case "storehouse4":
+      point.style.top = "0px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse4Image);
+      break;
+    case "storehouse3":
+      point.style.top = "50px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3Image);
+      break;
+    case "storehouse2":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2Image);
+      break;
+    case "storehouse1":
+      point.style.top = "110px";
+      point.style.left = "230px";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse1Image);
+      break;
+    case "storehouse2F1":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F1Image);
+      break;
+    case "storehouse2F2":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F2Image);
+      break;
+    case "storehouse2F3":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F3Image);
+      break;
+    case "storehouse2F4":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F4Image);
+      break;
+    case "storehouse2F5":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F5Image);
+      break;
+    case "storehouse2F6":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F6Image);
+      break;
+    case "storehouse2F7":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F7Image);
+      break;
+    case "storehouse3F1":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3F1Image);
+      break;
+    case "storehouse3F2":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3F2Image);
+      break;
+    case "storehouse3F3":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3F3Image);
+      break;
+    case "storehouse3F4":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3F4Image);
+      break;
+    case "storehouse3F5":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3F5Image);
+      break;
     default:
+      point.style.top = "280px";
+      point.style.left = "190px";
+
       btnFunction(-1, false);
       viewer.setPanorama(doorImage);
       break;

@@ -7,8 +7,12 @@ const aisle4Image = new PANOLENS.ImagePanorama("images/aisle4/aisle4.jpg");
 const aisle5Image = new PANOLENS.ImagePanorama("images/aisle5/aisle5.jpg");
 const aisle6Image = new PANOLENS.ImagePanorama("images/aisle6/aisle6.jpg");
 const aisle7Image = new PANOLENS.ImagePanorama("images/aisle7/aisle7.jpg");
+
 const developmentImage = new PANOLENS.ImagePanorama(
   "images/development/development.jpg"
+);
+const developmentDoorImage = new PANOLENS.ImagePanorama(
+  "images/developmentDoor/developmentDoor.jpg"
 );
 
 const showRoomImage = new PANOLENS.ImagePanorama(
@@ -33,15 +37,59 @@ const bShowRoom5Image = new PANOLENS.ImagePanorama(
 const bShowRoom6Image = new PANOLENS.ImagePanorama(
   "images/b_show_room/b_show6.jpg"
 );
-const bShowRoom7Image = new PANOLENS.ImagePanorama(
-  "images/b_show_room/b_show7.jpg"
-);
 
 const administrativePorchImage = new PANOLENS.ImagePanorama(
   "images/administrative_porch/administrative_porch.jpg"
 );
 const administrativeImage = new PANOLENS.ImagePanorama(
   "images/administrative/administrative.jpg"
+);
+
+const storehouse8Image = new PANOLENS.ImagePanorama("images/storehouse/8.jpg");
+const storehouse7Image = new PANOLENS.ImagePanorama("images/storehouse/7.jpg");
+const storehouse6Image = new PANOLENS.ImagePanorama("images/storehouse/6.jpg");
+const storehouse5Image = new PANOLENS.ImagePanorama("images/storehouse/5.jpg");
+const storehouse4Image = new PANOLENS.ImagePanorama("images/storehouse/4.jpg");
+const storehouse3Image = new PANOLENS.ImagePanorama("images/storehouse/3.jpg");
+const storehouse2Image = new PANOLENS.ImagePanorama("images/storehouse/2.jpg");
+const storehouse1Image = new PANOLENS.ImagePanorama("images/storehouse/1.jpg");
+
+const storehouse2F1Image = new PANOLENS.ImagePanorama(
+  "images/storehouse2F/1.jpg"
+);
+const storehouse2F2Image = new PANOLENS.ImagePanorama(
+  "images/storehouse2F/2.jpg"
+);
+const storehouse2F3Image = new PANOLENS.ImagePanorama(
+  "images/storehouse2F/3.jpg"
+);
+const storehouse2F4Image = new PANOLENS.ImagePanorama(
+  "images/storehouse2F/4.jpg"
+);
+const storehouse2F5Image = new PANOLENS.ImagePanorama(
+  "images/storehouse2F/5.jpg"
+);
+const storehouse2F6Image = new PANOLENS.ImagePanorama(
+  "images/storehouse2F/6.jpg"
+);
+const storehouse2F7Image = new PANOLENS.ImagePanorama(
+  "images/storehouse2F/7.jpg"
+);
+
+const storehouse3F1Image = new PANOLENS.ImagePanorama(
+  "images/storehouse3F/1.jpg"
+);
+const storehouse3F2Image = new PANOLENS.ImagePanorama(
+  "images/storehouse3F/2.jpg"
+);
+const storehouse3F3Image = new PANOLENS.ImagePanorama(
+  "images/storehouse3F/3.jpg"
+);
+const storehouse3F4Image = new PANOLENS.ImagePanorama(
+  "images/storehouse3F/4.jpg"
+);
+const storehouse3F5Image = new PANOLENS.ImagePanorama(
+  "images/storehouse3F/5.jpg"
 );
 const meetingImage = new PANOLENS.ImagePanorama("images/meeting/meeting.jpg");
 
@@ -51,31 +99,12 @@ const viewer = new PANOLENS.Viewer({
   container: imageContainer,
   // autoRotateSpeed: 0.3,
   controlBar: false,
-  passiveRendering:true,
-  autoHideControlBar:false,
-  autoHideInfospot:false,
-  cameraFov:70
+  passiveRendering: true,
+  autoHideControlBar: false,
+  autoHideInfospot: false,
+  cameraFov: 70,
 });
-
-// var parent = new THREE.Object3D();
-// viewer.add( parent );
-
-// var direction = new THREE.Vector3( 0, 0, -1 );
-// var origin = new THREE.Vector3( 1, 0, 0 );
-// var length = 1;
-// var color = 0xff0000;
-
-// var arrowHelper = new THREE.ArrowHelper( direction, origin, length, color );
-// parent.add( arrowHelper );
-
-
-
-// viewer.addEventListener( 'panolens-viewer-handler', function ( event ) {
-//   console.log('event.position',event.position);
-//   console.log('event.quaternion',event.quaternion);
-// } );
-
-
+let lookCheck = true;
 //會議室資訊
 var bikeInfo,
   motorInfo,
@@ -91,243 +120,119 @@ var bikeInfo,
   porchArrow2,
   meetingArrow;
 
-bikeInfo = new PANOLENS.Infospot(500);
-bikeInfo.position.set(-5100, -1800, -3800);
-bikeInfo.addHoverText("自行車資訊");
-bikeInfo.addEventListener("click", function () {
-  btnFunction(1, false);
-  bikeInfo.focus();
-});
+function infoSetting(infoName, x, y, z, hoverText, idx) {
+  infoName.position.set(x, y, z);
+  infoName.addHoverText(hoverText);
+  infoName.addEventListener("click", function () {
+    btnFunction(idx, false);
+    infoName.focus();
+  });
+}
 
-motorInfo = new PANOLENS.Infospot(500); 
-motorInfo.position.set(-5200, -1800, -1300);
-motorInfo.addHoverText("電動汽車馬達資訊");
-motorInfo.addEventListener("click", function () {
-  btnFunction(2, false);
-  motorInfo.focus();
-});
+bikeInfo = new PANOLENS.Infospot(500);
+infoSetting(bikeInfo, -5100, -1800, -3800, "自行車資訊", 1);
+
+motorInfo = new PANOLENS.Infospot(500);
+infoSetting(motorInfo, -5200, -1800, -1300, "電動汽車馬達資訊", 2);
 
 ledInfo = new PANOLENS.Infospot(500);
-ledInfo.position.set(-5200, -1800, 1400);
-ledInfo.addHoverText("LDE車燈應用資訊");
-ledInfo.addEventListener("click", function () {
-  btnFunction(3, false);
-  ledInfo.focus();
-});
+infoSetting(ledInfo, -5200, -1800, 1400, "LDE車燈應用資訊", 3);
 
 medicalInfo = new PANOLENS.Infospot(525);
-medicalInfo.position.set(-5200, -1800, 4100);
-medicalInfo.addHoverText("醫療接著膠材資訊");
-medicalInfo.addEventListener("click", function () {
-  btnFunction(4, false);
-  medicalInfo.focus();
-});
+infoSetting(medicalInfo, -5200, -1800, 4100, "醫療接著膠材資訊", 4);
 
 tireInfo = new PANOLENS.Infospot(600);
-tireInfo.position.set(-5200, -1800, 6600);
-tireInfo.addHoverText("胎壓偵測系統資訊");
-tireInfo.addEventListener("click", function () {
-  btnFunction(5, false);
-  tireInfo.focus();
-});
+infoSetting(tireInfo, -5200, -1800, 6600, "胎壓偵測系統資訊", 5);
 
 miniLedInfo = new PANOLENS.Infospot(500);
-miniLedInfo.position.set(5800, -1800, 5950);
-miniLedInfo.addHoverText("MINI LED資訊");
-miniLedInfo.addEventListener("click", function () {
-  btnFunction(6, false);
-  miniLedInfo.focus();
-});
+infoSetting(miniLedInfo, 5800, -1800, 5950, "MINI LED資訊", 6);
 
 electricInfo = new PANOLENS.Infospot(500);
-electricInfo.position.set(5600, -1800, 3450);
-electricInfo.addHoverText("電桿應用資訊");
-electricInfo.addEventListener("click", function () {
-  btnFunction(7, false);
-  electricInfo.focus();
-});
+infoSetting(electricInfo, 5600, -1800, 3450, "電桿應用資訊", 7);
 
 speakerInfo = new PANOLENS.Infospot(500);
-speakerInfo.position.set(5400, -1800, 900);
-speakerInfo.addHoverText("微型揚聲器(聲學產業)資訊");
-speakerInfo.addEventListener("click", function () {
-  btnFunction(8, false);
-  speakerInfo.focus();
-});
+infoSetting(speakerInfo, 5400, -1800, 900, "微型揚聲器(聲學產業)資訊", 8);
 
 lensInfo = new PANOLENS.Infospot(500);
-lensInfo.position.set(5200, -1800, -1600);
-lensInfo.addHoverText("光學鏡頭資訊");
-lensInfo.addEventListener("click", function () {
-  btnFunction(9, false);
-  lensInfo.focus();
-});
+infoSetting(lensInfo, 5200, -1800, -1600, "光學鏡頭資訊", 9);
 
 communicationInfo = new PANOLENS.Infospot(500);
-communicationInfo.position.set(5000, -1800, -4050);
-communicationInfo.addHoverText("5G-光通訊-光通訊資訊");
-communicationInfo.addEventListener("click", function () {
-  btnFunction(10, false);
-  communicationInfo.focus();
-});
-//大展示間1資訊
-TopInfo = new PANOLENS.Infospot(350);
-TopInfo.position.set(-5500, 1000, 0);
-TopInfo.addHoverText("光電類");
-TopInfo.addEventListener("click", function () {
-  btnFunction("show1", false);
-  TopInfo.focus();
-});
+infoSetting(communicationInfo, 5000, -1800, -4050, "5G-光通訊-光通訊資訊", 10);
 
-MidInfo = new PANOLENS.Infospot(350);
-MidInfo.position.set(-5500, -3000, 0);
-MidInfo.addHoverText("光電產業");
-MidInfo.addEventListener("click", function () {
-  btnFunction("show2", false);
-  MidInfo.focus();
-});
-let lookCheck = true;
+//大展示間1資訊
+TopInfo = new PANOLENS.Infospot(550);
+infoSetting(TopInfo, -3500, 0, -4500, "光電類", "show1");
+
+MidInfo = new PANOLENS.Infospot(550);
+infoSetting(MidInfo, -3500, -3000, -4500, "光電產業", "show2");
+
 // 大展示間2資訊
 showRoom2Info1 = new PANOLENS.Infospot(350);
-showRoom2Info1.position.set(3300, -400, 4000);
-showRoom2Info1.addHoverText("LED車燈灌注密封應用");
-showRoom2Info1.addEventListener("click", function () {
-  btnFunction("show4", false);
-  showRoom2Info1.focus();
-});
+infoSetting(showRoom2Info1, 0, -400, -4000, "", "show4");
 
-showRoom2Info2 = new PANOLENS.Infospot(350);
-showRoom2Info2.position.set(3300, -1500, -1500);
-showRoom2Info2.addHoverText("5");
-showRoom2Info2.addEventListener("click", function () {
-  btnFunction("show5", false);
-  showRoom2Info2.focus();
-});
+showRoom2Info2 = new PANOLENS.Infospot(450);
+infoSetting(showRoom2Info2, -2600, -1500, 1100, "", "show5");
 
-showRoom2Info3 = new PANOLENS.Infospot(350);
-showRoom2Info3.position.set(1050, -1500, -5250);
-showRoom2Info3.addHoverText("6");
-showRoom2Info3.addEventListener("click", function () {
-  btnFunction("show6", false);
-  showRoom2Info3.focus();
-});
+showRoom2Info3 = new PANOLENS.Infospot(450);
+infoSetting(showRoom2Info3, -2450, -1500, -1650, "", "show6");
+
+showRoom2Info4 = new PANOLENS.Infospot(350);
+infoSetting(showRoom2Info4, 2500, -500, -50, "", "show7");
+
+showRoom2Info5 = new PANOLENS.Infospot(450);
+infoSetting(showRoom2Info5, 3300, -800, 3000, "", "show8");
 
 // 大展示間3資訊
 showRoom3Info1 = new PANOLENS.Infospot(350);
-showRoom3Info1.position.set(2500, -1300, -2800);
-showRoom3Info1.addHoverText("7");
-showRoom3Info1.addEventListener("click", function () {
-  btnFunction("show7", false);
-  showRoom3Info1.focus();
-});
+infoSetting(showRoom3Info1, -2800, -1300, -1800, "", "show10");
 
 showRoom3Info2 = new PANOLENS.Infospot(350);
-showRoom3Info2.position.set(3000, -1300, 500);
-showRoom3Info2.addHoverText("8");
-showRoom3Info2.addEventListener("click", function () {
-  btnFunction("show8", false);
-  showRoom3Info2.focus();
-});
+infoSetting(showRoom3Info2, -3000, -1300, 2000, "", "show11");
 
 // 大展示間4資訊
 showRoom4Info1 = new PANOLENS.Infospot(350);
-showRoom4Info1.position.set(-3500, -1300, -1500);
-showRoom4Info1.addHoverText("10");
-showRoom4Info1.addEventListener("click", function () {
-  btnFunction("show10", false);
-  showRoom4Info1.focus();
-});
-
-showRoom4Info2 = new PANOLENS.Infospot(350);
-showRoom4Info2.position.set(-4000, -1300, 3500);
-showRoom4Info2.addHoverText("11");
-showRoom4Info2.addEventListener("click", function () {
-  btnFunction("show11", false);
-  showRoom4Info2.focus();
-});
+infoSetting(showRoom4Info1, -1000, -1000, -2000, "", "show12");
 
 // 大展示間5資訊
 showRoom5Info1 = new PANOLENS.Infospot(350);
-showRoom5Info1.position.set(-3500, -1000, -2500);
-showRoom5Info1.addHoverText("12");
-showRoom5Info1.addEventListener("click", function () {
-  btnFunction("show12", false);
-  showRoom5Info1.focus();
-});
+infoSetting(showRoom5Info1, 2000, -600, 2500, "", "show14");
+
+showRoom5Info2 = new PANOLENS.Infospot(450);
+infoSetting(showRoom5Info2, 3500, -800, -500, "", "show15");
+
+showRoom5Info3 = new PANOLENS.Infospot(350);
+infoSetting(showRoom5Info3, -2000, -1000, -1000, "", "show17");
 
 // 大展示間6資訊
 showRoom6Info1 = new PANOLENS.Infospot(350);
-showRoom6Info1.position.set(2000, -1000, 2500);
-showRoom6Info1.addHoverText("14");
-showRoom6Info1.addEventListener("click", function () {
-  btnFunction("show14", false);
-  showRoom6Info1.focus();
-});
+infoSetting(showRoom6Info1, 2500, -1000, 1000, "", "show18");
 
-showRoom6Info2 = new PANOLENS.Infospot(350);
-showRoom6Info2.position.set(3000, -1000, -1500);
-showRoom6Info2.addHoverText("15");
-showRoom6Info2.addEventListener("click", function () {
-  btnFunction("show15", false);
-  showRoom6Info2.focus();
-});
+//設置箭頭的function
+function arrowSetting(arrowName, x, y, z, hoverText, check, changeSite) {
+  arrowName.position.set(x, y, z);
+  arrowName.addHoverText(hoverText, 80, 50);
+  arrowName.addEventListener("click", function () {
+    lookCheck = check;
+    changeFunction(changeSite);
+  });
+}
 
-showRoom6Info3 = new PANOLENS.Infospot(350);
-showRoom6Info3.position.set(-3000, -1000, -1500);
-showRoom6Info3.addHoverText("17");
-showRoom6Info3.addEventListener("click", function () {
-  btnFunction("show17", false);
-  showRoom6Info3.focus();
-});
-
-// 大展示間7資訊
-showRoom7Info1 = new PANOLENS.Infospot(350);
-showRoom7Info1.position.set(-2000, -1000, -500);
-showRoom7Info1.addHoverText("18");
-showRoom7Info1.addEventListener("click", function () {
-  btnFunction("show18", false);
-  showRoom7Info1.focus();
-});
-
-// solarEnergyInfo = new PANOLENS.Infospot(350);
-// solarEnergyInfo.position.set(-3300, -900, 2800);
-// solarEnergyInfo.addHoverText("太陽能電池模組防水密封應用");
-
-// fuelCellInfo = new PANOLENS.Infospot(350);
-// fuelCellInfo.position.set(-4200, -900, -500);
-// fuelCellInfo.addHoverText("燃料電池密封應用");
 //door
 doorToAdministrativeArrow = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow,
+  PANOLENS.DataImage.MoveArrow
 );
-doorToAdministrativeArrow.position.set(-7000, -1500, 500);
-// doorToAdministrativeArrow.addHoverText("大門");
-doorToAdministrativeArrow.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle1");
-});
+arrowSetting(doorToAdministrativeArrow, -7000, -1500, 500, "", true, "aisle1");
 
 doorImage.add(doorToAdministrativeArrow);
 //aisle1 ------------------------------------------------------------------------------------------------
 // 走道1往走道2
-aisle1ToAisle2 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle1ToAisle2.position.set(-5000, -1500, -100);
-// aisle1ToAisle2.addHoverText("行政大樓前");
-aisle1ToAisle2.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle2");
-});
+aisle1ToAisle2 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle1ToAisle2, -5000, -1500, -100, "", true, "aisle2");
+
 // 走道1往門口
 aisle1ToDoor = new PANOLENS.Infospot(300, PANOLENS.DataImage.MoveArrow);
-aisle1ToDoor.position.set(3500, -800, 100);
-// aisle1ToDoor.addHoverText("大門");
-aisle1ToDoor.addEventListener("click", function () {
-  changeFunction("door");
-});
+arrowSetting(aisle1ToDoor, 3500, -800, 100, "", true, "door");
 
 aisle1Image.add(aisle1ToDoor, aisle1ToAisle2);
 //aisle2 ------------------------------------------------------------------------------------------------
@@ -336,206 +241,858 @@ aisle2ToAdministrativePorch = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-aisle2ToAdministrativePorch.position.set(-5000, -00, -100);
-// aisle2ToAdministrativePorch.addHoverText("行政大樓門口");
-aisle2ToAdministrativePorch.addEventListener("click", function () {
-  lookCheck=true
-  changeFunction("administrativePorch");
-});
+arrowSetting(
+  aisle2ToAdministrativePorch,
+  -5000,
+  0,
+  -100,
+  "",
+  true,
+  "administrativePorch"
+);
+
 // 走道2往走道1
-aisle2ToAisle1 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle2ToAisle1.position.set(1000, -500, 5000);
-// aisle2ToAisle1.addHoverText("入口");
-aisle2ToAisle1.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle1");
-});
+aisle2ToAisle1 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle2ToAisle1, 1000, -500, 5000, "", false, "aisle1");
+
 // 走道2往走道3
-aisle2ToAisle3 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle2ToAisle3.position.set(200, -500, -5000);
-// aisle2ToAisle3.addHoverText("走道3");
-aisle2ToAisle3.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle3");
-});
+aisle2ToAisle3 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle2ToAisle3, 200, -500, -5000, "", true, "aisle3");
+
 aisle2Image.add(aisle2ToAdministrativePorch, aisle2ToAisle1, aisle2ToAisle3);
 //aisle3 ------------------------------------------------------------------------------------------------
 // 走道3往走道2
-aisle3ToAisle2 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle3ToAisle2.position.set(100, -500, 5000);
-// aisle3ToAisle2.addHoverText("走道2");
-aisle3ToAisle2.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle2");
-});
+aisle3ToAisle2 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle3ToAisle2, 100, -500, 5000, "", false, "aisle2");
+
 // 走道3往走道4
-aisle3ToAisle4 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle3ToAisle4.position.set(0, -500, -5000);
-// aisle3ToAisle4.addHoverText("走道4");
-aisle3ToAisle4.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle4");
-});
+aisle3ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle3ToAisle4, 0, -500, -5000, "", true, "aisle4");
+
 aisle3Image.add(aisle3ToAisle2, aisle3ToAisle4);
 //aisle4 ------------------------------------------------------------------------------------------------
 // 走道4往走道3
-aisle4ToAisle3 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle4ToAisle3.position.set(-300, -500, 5000);
-// aisle4ToAisle3.addHoverText("走道3");
-aisle4ToAisle3.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle3");
-});
+aisle4ToAisle3 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle4ToAisle3, -300, -500, 5000, "", false, "aisle3");
+
 // 走道4往走道5
-aisle4ToAisle5 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle4ToAisle5.position.set(-300, -500, -5000);
-// aisle4ToAisle5.addHoverText("走道5");
-aisle4ToAisle5.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle5");
-});
+aisle4ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle4ToAisle5, -300, -500, -5000, "", true, "aisle5");
+
 aisle4Image.add(aisle4ToAisle3, aisle4ToAisle5);
 //aisle5 ------------------------------------------------------------------------------------------------
 // 走道5往走道4
-aisle5ToAisle4 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle5ToAisle4.position.set(-300, -500, -5000);
-// aisle5ToAisle4.addHoverText("走道4");
-aisle5ToAisle4.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle4");
-});
+aisle5ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle5ToAisle4, -300, -500, -5000, "", false, "aisle4");
+
 // 走道5往走道6
-aisle5ToAisle6 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle5ToAisle6.position.set(-300, -500, 5000);
-// aisle5ToAisle6.addHoverText("走道6");
-aisle5ToAisle6.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle6");
-});
+aisle5ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle5ToAisle6, -300, -500, 5000, "", true, "aisle6");
+
 aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6);
 //aisle6 ------------------------------------------------------------------------------------------------
 // 走道6往走道5
-aisle6ToAisle5 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle6ToAisle5.position.set(-300, -500, -5000);
-// aisle6ToAisle5.addHoverText("走道5");
-aisle6ToAisle5.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle5");
-});
+aisle6ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle6ToAisle5, -300, -500, -5000, "", false, "aisle5");
+
 // 走道6往走道7
-aisle6ToAisle7 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle6ToAisle7.position.set(300, -500, 5000);
-// aisle6ToAisle7.addHoverText("走道7");
-aisle6ToAisle7.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle7");
-});
+aisle6ToAisle7 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle6ToAisle7, 300, -500, 5000, "", true, "aisle7");
+
 aisle6Image.add(aisle6ToAisle5, aisle6ToAisle7);
 //aisle7 ------------------------------------------------------------------------------------------------
 // 走道7往走道6
-aisle7ToAisle6 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-aisle7ToAisle6.position.set(-5000, -500, -300);
-// aisle7ToAisle6.addHoverText("走道6");
-aisle7ToAisle6.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle6");
-});
+aisle7ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle7ToAisle6, -5000, -500, -300, "", false, "aisle6");
+
 // 走道7往研究發展大樓門口
-aisle7ToDevelopment = new PANOLENS.Infospot(
+aisle7TodevelopmentDoor = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-aisle7ToDevelopment.position.set(-300, -1500, -5000);
-// aisle7ToDevelopment.addHoverText("研究發展大樓門口");
-aisle7ToDevelopment.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("development");
-});
-aisle7Image.add(aisle7ToDevelopment, aisle7ToAisle6);
-//研究大樓 ------------------------------------------------------------------------------------------------
-// 研究大樓往走道7
-developmentToAisle7 = new PANOLENS.Infospot(
+arrowSetting(
+  aisle7TodevelopmentDoor,
+  -300,
+  -1500,
+  -5000,
+  "",
+  true,
+  "developmentDoor"
+);
+
+aisle7Image.add(aisle7TodevelopmentDoor, aisle7ToAisle6);
+//研究大樓門口 ------------------------------------------------------------------------------------------------
+// 研究大樓門口往走道7
+developmentDoorToAisle7 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-developmentToAisle7.position.set(300, -500, 5000);
-// developmentToAisle7.addHoverText("走道6");
-developmentToAisle7.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle7");
-});
-// 研究發展大樓門口往小展示間
-developmentToShowRoom = new PANOLENS.Infospot(
+arrowSetting(developmentDoorToAisle7, 300, -500, 5000, "", false, "aisle7");
+
+// 研究發展大樓門口往研究發展大樓
+developmentDoorTodevelopment = new PANOLENS.Infospot(
+  900,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  developmentDoorTodevelopment,
+  -7000,
+  -1500,
+  -250,
+  "",
+  true,
+  "development"
+);
+
+developmentDoorImage.add(developmentDoorToAisle7, developmentDoorTodevelopment);
+// 研究大樓 ------------------------------------------------------------------
+// 研究大樓往研究大樓門口
+developmentToDevelopmentDoor = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-developmentToShowRoom.position.set(-7000, -1500, -1500);
-// developmentToShowRoom.addHoverText("小展示間");
-developmentToShowRoom.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("showRoom");
-});
-// 研究發展大樓門口往大展示間
-developmentToBShowRoom = new PANOLENS.Infospot(
-  800,
+arrowSetting(
+  developmentToDevelopmentDoor,
+  100,
+  -500,
+  4000,
+  "",
+  false,
+  "developmentDoor"
+);
+
+// 研究大樓往小展示間
+developmentToshowRoom = new PANOLENS.Infospot(
+  600,
   PANOLENS.DataImage.MoveArrow
 );
-developmentToBShowRoom.position.set(-7000, -1465, 1000);
-// developmentToBShowRoom.addHoverText("大展示間");
-developmentToBShowRoom.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("bshowRoom1");
-});
+arrowSetting(developmentToshowRoom, 2000, -500, -1600, "", false, "showRoom");
+
+// 研究大樓往大展示間
+developmentToBshowRoom = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.RightArrow
+);
+arrowSetting(
+  developmentToBshowRoom,
+  -2500,
+  -500,
+  -5000,
+  "",
+  true,
+  "bshowRoom1"
+);
+
+// 研究大樓往倉庫8
+developmentToStorehouse8 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  developmentToStorehouse8,
+  200,
+  -500,
+  -5000,
+  "",
+  true,
+  "storehouse8"
+);
+
+// 研究大樓往倉庫二樓
+developmentToStorehouse2F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.LeftFrontArrow
+);
+arrowSetting(
+  developmentToStorehouse2F1,
+  200,
+  300,
+  -5000,
+  "",
+  true,
+  "storehouse2F1"
+);
+
 developmentImage.add(
-  developmentToAisle7,
-  developmentToShowRoom,
-  developmentToBShowRoom
+  developmentToDevelopmentDoor,
+  developmentToshowRoom,
+  developmentToBshowRoom,
+  developmentToStorehouse8,
+  developmentToStorehouse2F1
 );
+//倉庫8-------------------------------------------------------------------------
+//倉庫8往倉庫7
+storehouse8toStorhouse7 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse8toStorhouse7,
+  -100,
+  -500,
+  -5000,
+  "",
+  true,
+  "storehouse7"
+);
+
+//倉庫8往研究大樓
+storehouse8toDevelopment = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.LeftFrontArrow
+);
+arrowSetting(
+  storehouse8toDevelopment,
+  4000,
+  -500,
+  2500,
+  "研究大樓",
+  false,
+  "development"
+);
+
+//倉庫8往倉庫二樓
+storehouse8toStorehouse2F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.RightFrontArrow
+);
+arrowSetting(
+  storehouse8toStorehouse2F1,
+  4000,
+  -500,
+  1800,
+  "二樓",
+  true,
+  "storehouse2F1"
+);
+
+storehouse8Image.add(
+  storehouse8toStorhouse7,
+  storehouse8toDevelopment,
+  storehouse8toStorehouse2F1
+);
+//倉庫7-------------------------------------------------------------------------
+//倉庫7往倉庫8
+storehouse7toStorhouse8 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse7toStorhouse8,
+  -100,
+  -500,
+  -5000,
+  "",
+  false,
+  "storehouse8"
+);
+
+//倉庫7往倉庫6
+storehouse7toStorhouse6 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse7toStorhouse6,
+  -100,
+  -500,
+  5000,
+  "",
+  true,
+  "storehouse6"
+);
+
+storehouse7Image.add(storehouse7toStorhouse8, storehouse7toStorhouse6);
+//倉庫6-------------------------------------------------------------------------
+//倉庫6往倉庫7
+storehouse6toStorhouse7 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse6toStorhouse7,
+  -200,
+  -500,
+  -5000,
+  "",
+  false,
+  "storehouse7"
+);
+
+//倉庫6往倉庫5
+storehouse6toStorhouse5 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(storehouse6toStorhouse5, 0, -500, 5000, "", true, "storehouse5");
+
+storehouse6Image.add(storehouse6toStorhouse5, storehouse6toStorhouse7);
+
+//倉庫5-------------------------------------------------------------------------
+//倉庫5往倉庫6
+storehouse5toStorhouse6 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse5toStorhouse6,
+  1500,
+  -500,
+  -5000,
+  "",
+  false,
+  "storehouse6"
+);
+
+//倉庫5往倉庫4
+storehouse5toStorhouse4 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse5toStorhouse4,
+  -1500,
+  -500,
+  5000,
+  "",
+  true,
+  "storehouse4"
+);
+
+storehouse5Image.add(storehouse5toStorhouse6, storehouse5toStorhouse4);
+
+//倉庫4-------------------------------------------------------------------------
+//倉庫4往倉庫5
+storehouse4toStorhouse5 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse4toStorhouse5,
+  -250,
+  -500,
+  -5000,
+  "",
+  false,
+  "storehouse5"
+);
+
+//倉庫4往倉庫3
+storehouse4toStorhouse3 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(storehouse4toStorhouse3, 250, -500, 5000, "", true, "storehouse3");
+
+storehouse4Image.add(storehouse4toStorhouse5, storehouse4toStorhouse3);
+
+//倉庫3-------------------------------------------------------------------------
+//倉庫3往倉庫4
+storehouse3toStorhouse4 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3toStorhouse4,
+  450,
+  -500,
+  5000,
+  "",
+  false,
+  "storehouse4"
+);
+
+//倉庫3往倉庫2
+storehouse3toStorhouse2 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.RightArrow
+);
+arrowSetting(
+  storehouse3toStorhouse2,
+  -2500,
+  -500,
+  -2000,
+  "",
+  true,
+  "storehouse2"
+);
+
+storehouse3Image.add(storehouse3toStorhouse4, storehouse3toStorhouse2);
+
+//倉庫2-------------------------------------------------------------------------
+//倉庫2往倉庫3
+storehouse2toStorhouse3 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2toStorhouse3,
+  3500,
+  -500,
+  300,
+  "",
+  false,
+  "storehouse3"
+);
+
+//倉庫2往倉庫1
+storehouse2toStorhouse1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2toStorhouse1,
+  450,
+  -500,
+  -5000,
+  "",
+  true,
+  "storehouse1"
+);
+
+storehouse2Image.add(storehouse2toStorhouse3, storehouse2toStorhouse1);
+
+//倉庫1-------------------------------------------------------------------------
+//倉庫1往倉庫2
+storehouse1toStorhouse2 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.RightArrow
+);
+arrowSetting(
+  storehouse1toStorhouse2,
+  -2750,
+  -500,
+  -2500,
+  "",
+  false,
+  "storehouse2"
+);
+
+//倉庫1往走道3
+// storehouse1toAisle3 = new PANOLENS.Infospot(600, PANOLENS.DataImage.RightArrow);
+// storehouse1toAisle3.position.set(0, -500, -5000);
+// storehouse1toAisle3.addEventListener("click", function () {
+//   lookCheck = false;
+//   changeFunction("aisle3");
+// });
+storehouse1Image.add(storehouse1toStorhouse2);
+
+// 倉庫二樓1 -----------------------------------------------------------------------------------------------------
+// 往一樓
+storehouse2F1toStroehouse8 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.DownArrow
+);
+arrowSetting(
+  storehouse2F1toStroehouse8,
+  -700,
+  -500,
+  2500,
+  "",
+  true,
+  "storehouse8"
+);
+
+//前進
+storehouse2F1toStorehouse2F2 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F1toStorehouse2F2,
+  3000,
+  -500,
+  500,
+  "",
+  true,
+  "storehouse2F2"
+);
+//視聽教室
+storehouse2F1toStorehouse2F7 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F1toStorehouse2F7,
+  700,
+  -500,
+  -2500,
+  "",
+  true,
+  "storehouse2F7"
+);
+
+storehouse2F1Image.add(
+  storehouse2F1toStroehouse8,
+  storehouse2F1toStorehouse2F2,
+  storehouse2F1toStorehouse2F7
+);
+// 倉庫二樓7(視聽教室) -----------------------------------------------------------------------------------------------------
+storehouse2F7toStroehouse2F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F7toStroehouse2F1,
+  -700,
+  -500,
+  2500,
+  "",
+  false,
+  "storehouse2F1"
+);
+
+storehouse2F7Image.add(storehouse2F7toStroehouse2F1);
+// 倉庫二樓2 -----------------------------------------------------------------------------------------------------
+//前進
+storehouse2F2toStroehouse2F3 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F2toStroehouse2F3,
+  -250,
+  -500,
+  3000,
+  "",
+  true,
+  "storehouse2F3"
+);
+//退回
+storehouse2F2toStroehouse2F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.RightArrow
+);
+arrowSetting(
+  storehouse2F2toStroehouse2F1,
+  100,
+  -500,
+  -3000,
+  "",
+  false,
+  "storehouse2F1"
+);
+storehouse2F2Image.add(
+  storehouse2F2toStroehouse2F3,
+  storehouse2F2toStroehouse2F1
+);
+// 倉庫二樓3 -----------------------------------------------------------------------------------------------------
+//前進
+storehouse2F3toStroehouse2F4 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F3toStroehouse2F4,
+  500,
+  -500,
+  -3000,
+  "",
+  true,
+  "storehouse2F4"
+);
+//退回
+storehouse2F3toStroehouse2F2 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F3toStroehouse2F2,
+  -500,
+  -500,
+  3000,
+  "",
+  false,
+  "storehouse2F2"
+);
+storehouse2F3Image.add(
+  storehouse2F3toStroehouse2F4,
+  storehouse2F3toStroehouse2F2
+);
+// 倉庫二樓4 -----------------------------------------------------------------------------------------------------
+//前進
+storehouse2F4toStroehouse2F5 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F4toStroehouse2F5,
+  0,
+  -500,
+  3000,
+  "",
+  true,
+  "storehouse2F5"
+);
+//退回
+storehouse2F4toStroehouse2F3 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F4toStroehouse2F3,
+  100,
+  -500,
+  -3000,
+  "",
+  false,
+  "storehouse2F3"
+);
+//往三樓
+storehouse2F4toStroehouse3F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.LeftFrontArrow
+);
+arrowSetting(
+  storehouse2F4toStroehouse3F1,
+  -800,
+  -500,
+  3000,
+  "三樓",
+  "go",
+  "storehouse3F1"
+);
+storehouse2F4Image.add(
+  storehouse2F4toStroehouse2F5,
+  storehouse2F4toStroehouse2F3,
+  storehouse2F4toStroehouse3F1
+);
+// 倉庫二樓5 -----------------------------------------------------------------------------------------------------
+//前進
+storehouse2F5toStroehouse2F6 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F5toStroehouse2F6,
+  -1000,
+  -500,
+  0,
+  "",
+  true,
+  "storehouse2F6"
+);
+//退回
+storehouse2F5toStroehouse2F4 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F5toStroehouse2F4,
+  0,
+  -500,
+  3000,
+  "",
+  false,
+  "storehouse2F4"
+);
+
+//往三樓
+storehouse2F5toStorehouse3F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.RightFrontArrow
+);
+arrowSetting(
+  storehouse2F5toStorehouse3F1,
+  700,
+  -500,
+  3000,
+  "三樓",
+  "go",
+  "storehouse3F1"
+);
+storehouse2F5Image.add(
+  storehouse2F5toStroehouse2F6,
+  storehouse2F5toStroehouse2F4,
+  storehouse2F5toStorehouse3F1
+);
+// 倉庫二樓6 -----------------------------------------------------------------------------------------------------
+//退回
+storehouse2F6toStroehouse2F5 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.RightArrow
+);
+arrowSetting(
+  storehouse2F6toStroehouse2F5,
+  -4500,
+  -500,
+  2000,
+  "",
+  false,
+  "storehouse2F5"
+);
+
+storehouse2F6Image.add(storehouse2F6toStroehouse2F5);
+// 倉庫三樓1 -----------------------------------------------------------------------------------------------------
+// 往二樓
+storehouse3F1toStorehouse2F = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.DownArrow
+);
+arrowSetting(
+  storehouse3F1toStorehouse2F,
+  3000,
+  -500,
+  1500,
+  "",
+  false,
+  "storehouse2F4"
+);
+//左轉
+storehouse3F1toStorehouse3F2 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F1toStorehouse3F2,
+  0,
+  -500,
+  -5000,
+  "",
+  true,
+  "storehouse3F2"
+);
+//右轉
+storehouse3F1toStorehouse3F3 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F1toStorehouse3F3,
+  0,
+  -500,
+  5000,
+  "",
+  true,
+  "storehouse3F3"
+);
+storehouse3F1Image.add(
+  storehouse3F1toStorehouse2F,
+  storehouse3F1toStorehouse3F2,
+  storehouse3F1toStorehouse3F3
+);
+// 倉庫三樓2 -----------------------------------------------------------------------------------------------------
+storehouse3F2toStorehouse3F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F2toStorehouse3F1,
+  0,
+  -500,
+  5000,
+  "",
+  true,
+  "storehouse3F1"
+);
+storehouse3F2Image.add(storehouse3F2toStorehouse3F1);
+// 倉庫三樓3 -----------------------------------------------------------------------------------------------------
+storehouse3F3toStorehouse3F1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F3toStorehouse3F1,
+  0,
+  -500,
+  -5000,
+  "",
+  false,
+  "storehouse3F1"
+);
+
+storehouse3F3toStorehouse3F4 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F3toStorehouse3F4,
+  0,
+  -500,
+  5000,
+  "",
+  true,
+  "storehouse3F4"
+);
+storehouse3F3Image.add(
+  storehouse3F3toStorehouse3F1,
+  storehouse3F3toStorehouse3F4
+);
+// 倉庫三樓4(圖書館) -----------------------------------------------------------------------------------------------------
+storehouse3F4toStorehouse3F5 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F4toStorehouse3F5,
+  -5000,
+  -500,
+  0,
+  "",
+  false,
+  "storehouse3F5"
+);
+storehouse3F4toStorehouse3F3 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F4toStorehouse3F3,
+  1000,
+  -500,
+  850,
+  "",
+  false,
+  "storehouse3F3"
+);
+storehouse3F4Image.add(storehouse3F4toStorehouse3F5,storehouse3F4toStorehouse3F3)
+// 倉庫三樓5(圖書館) -----------------------------------------------------------------------------------------------------
+storehouse3F5toStorehouse3F4 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3F5toStorehouse3F4,
+  5000,
+  -500,
+  500,
+  "",
+  false,
+  "storehouse3F4"
+);
+storehouse3F5Image.add(storehouse3F5toStorehouse3F4)
+
+//視聽教室
+storehouse2F1toStorehouse2F7 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse2F1toStorehouse2F7,
+  700,
+  -500,
+  -2500,
+  "",
+  true,
+  "storehouse2F7"
+);
+
+storehouse2F1Image;
 //小展示間 ------------------------------------------------------------------------------------------------
 // 小展示間往研究大樓門口
 showRoomToDevelopment = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-showRoomToDevelopment.position.set(800, -1000, 4000);
-// showRoomToDevelopment.addHoverText("資訊大樓門口");
-showRoomToDevelopment.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("development");
-});
+arrowSetting(
+  showRoomToDevelopment,
+  800,
+  -1000,
+  4000,
+  "",
+  "fromShowRoom",
+  "development"
+);
 
 showRoomImage.add(showRoomToDevelopment);
 //大展示間1 ------------------------------------------------------------------------------------------------
@@ -544,63 +1101,53 @@ bShowRoom1ToBShowRoom2 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom1ToBShowRoom2.position.set(800, -1000, 4000);
-// bShowRoom1ToBShowRoom2.addHoverText("資訊大樓門口");
-bShowRoom1ToBShowRoom2.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("bshowRoom2");
-});
-// 大展示間1往大展示間7
-bShowRoom1ToBShowRoom7 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-bShowRoom1ToBShowRoom7.position.set(5000, -1000, -1000);
-// bShowRoom1ToBShowRoom7.addHoverText("資訊大樓門口");
-bShowRoom1ToBShowRoom7.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("bshowRoom7");
-});
+arrowSetting(bShowRoom1ToBShowRoom2, 5000, -1000, 800, "", true, "bshowRoom2");
+
 // 大展示間1往研究大樓
 bShowRoom1ToDevelopment = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom1ToDevelopment.position.set(-1000, -1000, -4000);
-// bShowRoom1ToDevelopment.addHoverText("資訊大樓門口");
-bShowRoom1ToDevelopment.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("development");
-});
-
-bShowRoom1Image.add(
-  bShowRoom1ToBShowRoom2,
-  bShowRoom1ToBShowRoom7,
-  bShowRoom1ToDevelopment
+arrowSetting(
+  bShowRoom1ToDevelopment,
+  -750,
+  -1000,
+  -4000,
+  "",
+  "fromBShowRoom",
+  "development"
 );
+
+bShowRoom1Image.add(bShowRoom1ToBShowRoom2, bShowRoom1ToDevelopment);
 //大展示間2 ------------------------------------------------------------------------------------------------
 // 大展示間2往大展示間3
 bShowRoom2ToBShowRoom3 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom2ToBShowRoom3.position.set(-2200, -1000, -4000);
+arrowSetting(bShowRoom2ToBShowRoom3, 200, -1000, 4000, "", true, "bshowRoom3");
+
 // bShowRoom2ToBShowRoom3.addHoverText("資訊大樓門口");
 bShowRoom2ToBShowRoom3.addEventListener("click", function () {
   lookCheck = true;
   changeFunction("bshowRoom3");
 });
+
 // 大展示間2往大展示間1
 bShowRoom2ToBShowRoom1 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom2ToBShowRoom1.position.set(-1800, -1000, 1500);
-// bShowRoom2ToBShowRoom1.addHoverText("資訊大樓門口");
-bShowRoom2ToBShowRoom1.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("bshowRoom1");
-});
+arrowSetting(
+  bShowRoom2ToBShowRoom1,
+  1800,
+  -1000,
+  -1500,
+  "",
+  false,
+  "bshowRoom1"
+);
+
 bShowRoom2Image.add(bShowRoom2ToBShowRoom3, bShowRoom2ToBShowRoom1);
 //大展示間3 ------------------------------------------------------------------------------------------------
 // 大展示間3往大展示間4
@@ -608,23 +1155,15 @@ bShowRoom3ToBShowRoom4 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom3ToBShowRoom4.position.set(1800, -1000, 4000);
-// bShowRoom3ToBShowRoom4.addHoverText("資訊大樓門口");
-bShowRoom3ToBShowRoom4.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("bshowRoom4");
-});
+arrowSetting(bShowRoom3ToBShowRoom4, 0, -1000, 4000, "", true, "bshowRoom4");
+
 // 大展示間3往大展示間2
 bShowRoom3ToBShowRoom2 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom3ToBShowRoom2.position.set(-1800, -1000, -4000);
-// bShowRoom3ToBShowRoom2.addHoverText("資訊大樓門口");
-bShowRoom3ToBShowRoom2.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("bshowRoom2");
-});
+arrowSetting(bShowRoom3ToBShowRoom2, 0, -1000, -4000, "", false, "bshowRoom2");
+
 bShowRoom3Image.add(bShowRoom3ToBShowRoom4, bShowRoom3ToBShowRoom2);
 //大展示間4 ------------------------------------------------------------------------------------------------
 // 大展示間4往大展示間5
@@ -632,23 +1171,23 @@ bShowRoom4ToBShowRoom5 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom4ToBShowRoom5.position.set(0, -1000, 4000);
-// bShowRoom4ToBShowRoom5.addHoverText("資訊大樓門口");
-bShowRoom4ToBShowRoom5.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("bshowRoom5");
-});
+arrowSetting(bShowRoom4ToBShowRoom5, 1000, -1000, 4000, "", true, "bshowRoom5");
+
 // 大展示間4往大展示間3
 bShowRoom4ToBShowRoom3 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom4ToBShowRoom3.position.set(0, -1000, -4000);
-// bShowRoom4ToBShowRoom3.addHoverText("大展示間4往大展示間3");
-bShowRoom4ToBShowRoom3.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("bshowRoom3");
-});
+arrowSetting(
+  bShowRoom4ToBShowRoom3,
+  5000,
+  -1000,
+  -3500,
+  "",
+  false,
+  "bshowRoom3"
+);
+
 bShowRoom4Image.add(bShowRoom4ToBShowRoom5, bShowRoom4ToBShowRoom3);
 //大展示間5 ------------------------------------------------------------------------------------------------
 // 大展示間5往大展示間6
@@ -656,116 +1195,104 @@ bShowRoom5ToBShowRoom6 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom5ToBShowRoom6.position.set(3000, -2000, 4000);
-// bShowRoom5ToBShowRoom6.addHoverText("資訊大樓門口");
-bShowRoom5ToBShowRoom6.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("bshowRoom6");
-});
+arrowSetting(
+  bShowRoom5ToBShowRoom6,
+  -100,
+  -2000,
+  -4000,
+  "",
+  true,
+  "bshowRoom6"
+);
+
 // 大展示間5往大展示間4
 bShowRoom5ToBShowRoom4 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom5ToBShowRoom4.position.set(4000, -2000, -4000);
-// bShowRoom5ToBShowRoom4.addHoverText("資訊大樓門口");
-bShowRoom5ToBShowRoom4.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("bshowRoom4");
-});
+arrowSetting(
+  bShowRoom5ToBShowRoom4,
+  -4000,
+  -2000,
+  4000,
+  "",
+  false,
+  "bshowRoom4"
+);
+
 bShowRoom5Image.add(bShowRoom5ToBShowRoom6, bShowRoom5ToBShowRoom4);
 //大展示間6 ------------------------------------------------------------------------------------------------
-// 大展示間6往大展示間7
-bShowRoom6ToBShowRoom7 = new PANOLENS.Infospot(
+// 大展示間6往研究大樓
+bShowRoom6ToDevelopment = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.LeftArrow
 );
-bShowRoom6ToBShowRoom7.position.set(-1000, -2000, -4000);
-// bShowRoom6ToBShowRoom7.addHoverText("資訊大樓門口");
-bShowRoom6ToBShowRoom7.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("bshowRoom7");
-});
+arrowSetting(
+  bShowRoom6ToDevelopment,
+  2500,
+  -500,
+  -4000,
+  "",
+  "fromBShowRoom",
+  "development"
+);
+
 // 大展示間6往大展示間5
 bShowRoom6ToBShowRoom5 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-bShowRoom6ToBShowRoom5.position.set(-5000, -1000, 2000);
-// bShowRoom6ToBShowRoom5.addHoverText("資訊大樓門口");
-bShowRoom6ToBShowRoom5.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("bshowRoom5");
-});
-bShowRoom6Image.add(bShowRoom6ToBShowRoom7, bShowRoom6ToBShowRoom5);
-//大展示間7 ------------------------------------------------------------------------------------------------
-// 大展示間7往大展示間1
-bShowRoom7ToBShowRoom1 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-bShowRoom7ToBShowRoom1.position.set(0, -2000, 4000);
-// bShowRoom7ToBShowRoom1.addHoverText("資訊大樓門口");
-bShowRoom7ToBShowRoom1.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("bshowRoom1");
-});
-// 大展示間7往大展示間6
-bShowRoom7ToBShowRoom6 = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-bShowRoom7ToBShowRoom6.position.set(0, -2000, -4000);
-// bShowRoom7ToBShowRoom6.addHoverText("資訊大樓門口");
-bShowRoom7ToBShowRoom6.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("bshowRoom6");
-});
-bShowRoom7Image.add(bShowRoom7ToBShowRoom1, bShowRoom7ToBShowRoom6);
-//會議大樓門廊 ------------------------------------------------------------------------------------------------
-// 門廊到走道2
-// administrativePorchToAisle2 = new PANOLENS.Infospot(
-//   800,
-//   "./images/administrative_porch/administrative_porch-aisle2.png"
-// );
-// administrativePorchToAisle2.position.set(-5000, -1500, -100);
-// // administrativePorchToAisle2.addHoverText("走道2");
-// administrativePorchToAisle2.addEventListener("click", function () {
-//   changeFunction("aisle2");
-// });
+arrowSetting(bShowRoom6ToBShowRoom5, 0, -1000, 3000, "", false, "bshowRoom5");
+
+bShowRoom6Image.add(bShowRoom6ToDevelopment, bShowRoom6ToBShowRoom5);
+
+//行政大樓門廊 ------------------------------------------------------------------------------------------------
 // 門廊到走道2(面對走道1)
 administrativePorchToAisle2_1 = new PANOLENS.Infospot(
   800,
-  "./images/administrative_porch/administrative_porch-aisle2_1.png"
+  PANOLENS.DataImage.LeftFrontArrow
 );
-administrativePorchToAisle2_1.position.set(-5000, -1500, -1500);
-// administrativePorchToAisle2.addHoverText("走道2");
-administrativePorchToAisle2_1.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("aisle2");
-});
+arrowSetting(
+  administrativePorchToAisle2_1,
+  -5000,
+  -1500,
+  -1500,
+  "往入口",
+  false,
+  "aisle2"
+);
+
 // 門廊到走道2(面對走道3)
 administrativePorchToAisle2_3 = new PANOLENS.Infospot(
   800,
-  "./images/administrative_porch/administrative_porch-aisle2_3.png"
+  PANOLENS.DataImage.RightFrontArrow
 );
-administrativePorchToAisle2_3.position.set(-5000, -1500, 1400);
-// administrativePorchToAisle2.addHoverText("走道2");
-administrativePorchToAisle2_3.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("aisle2");
-});
+arrowSetting(
+  administrativePorchToAisle2_3,
+  -5000,
+  -1500,
+  1400,
+  "往右",
+  true,
+  "aisle2"
+);
+
 // 門廊到行政大樓
 administrativePorchToAdministrative = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-administrativePorchToAdministrative.position.set(7000, -1500, 300);
-administrativePorchToAdministrative.addEventListener("click", function () {
-  lookCheck = true;
-  changeFunction("administrative");
-});
-administrativePorchImage.add( 
+arrowSetting(
+  administrativePorchToAdministrative,
+  7000,
+  -1500,
+  300,
+  "",
+  true,
+  "administrative"
+);
+
+administrativePorchImage.add(
   administrativePorchToAisle2_1,
   administrativePorchToAisle2_3,
   administrativePorchToAdministrative
@@ -776,60 +1303,26 @@ administrativeToMeeting = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-administrativeToMeeting.position.set(-1150, -1200, 3500);
-// administrativeToMeeting.addHoverText("會議室");
-administrativeToMeeting.addEventListener("click", function () {
-  changeFunction("meeting");
-});
+arrowSetting(administrativeToMeeting, -1150, -1200, 3500, "", true, "meeting");
 
 administrativeToAdministrativeDoor = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-administrativeToAdministrativeDoor.position.set(2500, -1500, -1500);
-// administrativeToAdministrativeDoor.addHoverText("行政大樓門廊");
-administrativeToAdministrativeDoor.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("administrativePorch");
-});
+arrowSetting(
+  administrativeToAdministrativeDoor,
+  2500,
+  -1500,
+  -1500,
+  "",
+  false,
+  "administrativePorch"
+);
 
 administrativeImage.add(
   administrativeToAdministrativeDoor,
   administrativeToMeeting
 );
-//會議室 ------------------------------------------------------------------------------------------------
-meetingToAdministrative = new PANOLENS.Infospot(
-  800,
-  PANOLENS.DataImage.MoveArrow
-);
-meetingToAdministrative.position.set(4300, -1500, -7500);
-// meetingToAdministrative.addHoverText("行政大樓");
-meetingToAdministrative.addEventListener("click", function () {
-  lookCheck = false;
-  changeFunction("administrative");
-});
-
-meetingImage.add(
-  bikeInfo,
-  motorInfo,
-  ledInfo,
-  medicalInfo,
-  tireInfo,
-  miniLedInfo,
-  electricInfo,
-  speakerInfo,
-  lensInfo,
-  communicationInfo,
-  meetingToAdministrative
-);
-
-bShowRoom1Image.add(TopInfo, MidInfo);
-bShowRoom2Image.add(showRoom2Info1, showRoom2Info2, showRoom2Info3);
-bShowRoom3Image.add(showRoom3Info1, showRoom3Info2);
-bShowRoom4Image.add(showRoom4Info1, showRoom4Info2);
-bShowRoom5Image.add(showRoom5Info1);
-bShowRoom6Image.add(showRoom6Info1, showRoom6Info2, showRoom6Info3);
-bShowRoom7Image.add(showRoom7Info1);
 
 viewer.add(
   doorImage,
@@ -840,6 +1333,7 @@ viewer.add(
   aisle5Image,
   aisle6Image,
   aisle7Image,
+  developmentDoorImage,
   developmentImage,
   showRoomImage,
   bShowRoom1Image,
@@ -848,218 +1342,88 @@ viewer.add(
   bShowRoom4Image,
   bShowRoom5Image,
   bShowRoom6Image,
-  bShowRoom7Image,
   administrativePorchImage,
   administrativeImage,
-  meetingImage
+  meetingImage,
+  storehouse8Image,
+  storehouse7Image,
+  storehouse6Image,
+  storehouse5Image,
+  storehouse4Image,
+  storehouse3Image,
+  storehouse2Image,
+  storehouse1Image,
+  storehouse2F1Image,
+  storehouse2F2Image,
+  storehouse2F3Image,
+  storehouse2F4Image,
+  storehouse2F5Image,
+  storehouse2F6Image,
+  storehouse2F7Image,
+  storehouse3F1Image,
+  storehouse3F2Image,
+  storehouse3F3Image,
+  storehouse3F4Image,
+  storehouse3F5Image
 );
+// 可以方便直接定位的function
+function position(site) {
+  return new THREE.Vector3(site.position.x, site.position.y, site.position.z);
+}
+
 var lookAtPositions = [
-  new THREE.Vector3(
-    doorToAdministrativeArrow.position.x,
-    doorToAdministrativeArrow.position.y,
-    doorToAdministrativeArrow.position.z
-  ), //door
-  [
-    new THREE.Vector3(
-      aisle2ToAisle3.position.x,
-      aisle2ToAisle3.position.y,
-      aisle2ToAisle3.position.z
-    ),
-    new THREE.Vector3(
-      aisle2ToAisle1.position.x,
-      aisle2ToAisle1.position.y,
-      aisle2ToAisle1.position.z
-    ),
-  ], //asile2
   [
     new THREE.Vector3(
       administrativePorchToAdministrative.position.x,
       administrativePorchToAdministrative.position.y,
       administrativePorchToAdministrative.position.z
     ),
-    new THREE.Vector3(
-      -5000,
-      -1500,
-      -100
-    ),
+    new THREE.Vector3(-5000, -1500, -100),
   ], //administrative_porch
   [
     new THREE.Vector3(-5000, -1500, 3500),
     new THREE.Vector3(
       administrativeToAdministrativeDoor.position.x,
-      administrativeToAdministrativeDoor.position.y +800,
+      administrativeToAdministrativeDoor.position.y + 800,
       administrativeToAdministrativeDoor.position.z
     ),
   ], //administrative
-  new THREE.Vector3(5400, 0, 100), //meeting
-  [
-    new THREE.Vector3(
-      aisle3ToAisle4.position.x,
-      aisle3ToAisle4.position.y,
-      aisle3ToAisle4.position.z
-    ),
-    new THREE.Vector3(
-      aisle3ToAisle2.position.x,
-      aisle3ToAisle2.position.y,
-      aisle3ToAisle2.position.z
-    ),
-  ], //asile3
-  [
-    new THREE.Vector3(
-      aisle4ToAisle5.position.x,
-      aisle4ToAisle5.position.y,
-      aisle4ToAisle5.position.z
-    ),
-    new THREE.Vector3(
-      aisle4ToAisle3.position.x,
-      aisle4ToAisle3.position.y,
-      aisle4ToAisle3.position.z
-    ),
-  ], //asile4
-  [
-    new THREE.Vector3(
-      aisle5ToAisle6.position.x,
-      aisle5ToAisle6.position.y,
-      aisle5ToAisle6.position.z
-    ),
-    new THREE.Vector3(
-      aisle5ToAisle4.position.x,
-      aisle5ToAisle4.position.y,
-      aisle5ToAisle4.position.z
-    ),
-  ], //asile5
-  [
-    new THREE.Vector3(
-      aisle6ToAisle7.position.x,
-      aisle6ToAisle7.position.y,
-      aisle6ToAisle7.position.z
-    ),
-    new THREE.Vector3(
-      aisle6ToAisle5.position.x,
-      aisle6ToAisle5.position.y,
-      aisle6ToAisle5.position.z
-    ),
-  ], //asile6
-  [
-    new THREE.Vector3(
-      aisle7ToDevelopment.position.x,
-      aisle7ToDevelopment.position.y,
-      aisle7ToDevelopment.position.z
-    ),
-    new THREE.Vector3(
-      aisle7ToAisle6.position.x,
-      aisle7ToAisle6.position.y,
-      aisle7ToAisle6.position.z
-    ),
-  ], //asile7
+  [new THREE.Vector3(5400, 0, 100)], //meeting
   [
     new THREE.Vector3(-5000, -500, -300),
     new THREE.Vector3(
-      developmentToAisle7.position.x,
-      developmentToAisle7.position.y,
-      developmentToAisle7.position.z
+      developmentDoorToAisle7.position.x,
+      developmentDoorToAisle7.position.y,
+      developmentDoorToAisle7.position.z
     ),
-  ], //development
-  [
-    new THREE.Vector3(
-      aisle1ToAisle2.position.x,
-      aisle1ToAisle2.position.y,
-      aisle1ToAisle2.position.z
-    ),
-    new THREE.Vector3(
-      aisle1ToDoor.position.x,
-      aisle1ToDoor.position.y,
-      aisle1ToDoor.position.z
-    ),
-  ], //asile1
-  new THREE.Vector3(800, -1000, 4000), //show_room
+  ], //developmentDoor
+  [new THREE.Vector3(-4000, -250, -1000)], //show_room new THREE.Vector3(800, -1000, 4000)
+  [new THREE.Vector3(-3000, -500, 0)], //storehouse2F1
 ];
+
+//大展示間----------------------------------------------------------------
+bShowRoom1Image.add(TopInfo, MidInfo);
+bShowRoom2Image.add(
+  showRoom2Info1,
+  showRoom2Info2,
+  showRoom2Info3,
+  showRoom2Info4,
+  showRoom2Info5
+);
+bShowRoom3Image.add(showRoom3Info1, showRoom3Info2);
+bShowRoom4Image.add(showRoom4Info1);
+bShowRoom5Image.add(showRoom5Info1, showRoom5Info2, showRoom5Info3);
+bShowRoom6Image.add(showRoom6Info1);
+
 var lookAtShowRoom = [
-  [
-    new THREE.Vector3(
-      bShowRoom1ToBShowRoom2.position.x,
-      bShowRoom1ToBShowRoom2.position.y,
-      bShowRoom1ToBShowRoom2.position.z
-    ),
-    new THREE.Vector3(
-      bShowRoom1ToDevelopment.position.x,
-      bShowRoom1ToDevelopment.position.y,
-      bShowRoom1ToDevelopment.position.z
-    ),
-  ], //b_show_room1
-  [
-    new THREE.Vector3(
-      bShowRoom2ToBShowRoom3.position.x,
-      bShowRoom2ToBShowRoom3.position.y,
-      bShowRoom2ToBShowRoom3.position.z
-    ),
-    new THREE.Vector3(
-      bShowRoom2ToBShowRoom1.position.x,
-      bShowRoom2ToBShowRoom1.position.y,
-      bShowRoom2ToBShowRoom1.position.z
-    ),
-  ], //b_show_room2
-  [
-    new THREE.Vector3(
-      bShowRoom3ToBShowRoom4.position.x,
-      bShowRoom3ToBShowRoom4.position.y,
-      bShowRoom3ToBShowRoom4.position.z
-    ),
-    new THREE.Vector3(
-      bShowRoom3ToBShowRoom2.position.x,
-      bShowRoom3ToBShowRoom2.position.y,
-      bShowRoom3ToBShowRoom2.position.z
-    ),
-  ], //b_show_room3
-  [
-    new THREE.Vector3(
-      bShowRoom4ToBShowRoom5.position.x,
-      bShowRoom4ToBShowRoom5.position.y,
-      bShowRoom4ToBShowRoom5.position.z
-    ),
-    new THREE.Vector3(
-      bShowRoom4ToBShowRoom3.position.x,
-      bShowRoom4ToBShowRoom3.position.y,
-      bShowRoom4ToBShowRoom3.position.z
-    ),
-  ], //b_show_room4
-  [
-    new THREE.Vector3(
-      bShowRoom5ToBShowRoom6.position.x,
-      bShowRoom5ToBShowRoom6.position.y,
-      bShowRoom5ToBShowRoom6.position.z
-    ),
-    new THREE.Vector3(
-      bShowRoom5ToBShowRoom4.position.x,
-      bShowRoom5ToBShowRoom4.position.y,
-      bShowRoom5ToBShowRoom4.position.z
-    ),
-  ], //b_show_room5
-  [
-    new THREE.Vector3(
-      bShowRoom6ToBShowRoom7.position.x,
-      bShowRoom6ToBShowRoom7.position.y,
-      bShowRoom6ToBShowRoom7.position.z
-    ),
-    new THREE.Vector3(
-      bShowRoom6ToBShowRoom5.position.x,
-      bShowRoom6ToBShowRoom5.position.y,
-      bShowRoom6ToBShowRoom5.position.z
-    ),
-  ], //b_show_room6
-  [
-    new THREE.Vector3(
-      bShowRoom7ToBShowRoom1.position.x,
-      bShowRoom7ToBShowRoom1.position.y,
-      bShowRoom7ToBShowRoom1.position.z
-    ),
-    new THREE.Vector3(
-      bShowRoom7ToBShowRoom6.position.x,
-      bShowRoom7ToBShowRoom6.position.y,
-      bShowRoom7ToBShowRoom6.position.z
-    ),
-  ], //b_show_room7
+  [position(bShowRoom1ToBShowRoom2), position(bShowRoom1ToDevelopment)], //b_show_room1
+  [position(bShowRoom2ToBShowRoom3), position(bShowRoom2ToBShowRoom1)], //b_show_room2
+  [position(bShowRoom3ToBShowRoom4), position(bShowRoom3ToBShowRoom2)], //b_show_room3
+  [position(bShowRoom4ToBShowRoom5), position(bShowRoom4ToBShowRoom3)], //b_show_room4
+  [position(bShowRoom5ToBShowRoom6), position(bShowRoom5ToBShowRoom4)], //b_show_room5
+  [position(bShowRoom6ToDevelopment), position(bShowRoom6ToBShowRoom5)], //b_show_room6
 ];
+
 function focusBShowRoom(key, index) {
   switch (key) {
     case true:
@@ -1091,98 +1455,300 @@ bShowRoom5Image.addEventListener("enter-fade-start", function () {
 bShowRoom6Image.addEventListener("enter-fade-start", function () {
   focusBShowRoom(lookCheck, 5);
 });
-bShowRoom7Image.addEventListener("enter-fade-start", function () {
-  focusBShowRoom(lookCheck, 6);
-});
-doorImage.addEventListener("enter-fade-start", function () {
-  viewer.tweenControlCenter(lookAtPositions[0], 0);
-});
 
-aisle1Image.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[11][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[11][1], 0);
+// 門口
+var lookAtDoor = [
+  [
+    new THREE.Vector3(
+      doorToAdministrativeArrow.position.x,
+      doorToAdministrativeArrow.position.y,
+      doorToAdministrativeArrow.position.z
+    ),
+  ], //door
+];
+
+doorImage.addEventListener("enter-fade-start", function () {
+  viewer.tweenControlCenter(lookAtDoor[0][0], 0);
+});
+//走道----------------------------------------------------------------
+var lookAtAisle = [
+  [position(aisle1ToAisle2), position(aisle1ToDoor)], //asile1
+  [position(aisle2ToAisle3), position(aisle2ToAisle1)], //asile2
+  [position(aisle3ToAisle4), position(aisle3ToAisle2)], //asile3
+  [position(aisle4ToAisle5), position(aisle4ToAisle3)], //asile4
+  [position(aisle5ToAisle6), position(aisle5ToAisle4)], //asile5
+  [position(aisle6ToAisle7), position(aisle6ToAisle5)], //asile6
+  [position(aisle7TodevelopmentDoor), position(aisle7ToAisle6)], //asile7
+];
+function focusAisle(key, index) {
+  switch (key) {
+    case true:
+      viewer.tweenControlCenter(lookAtAisle[index][0], 0);
+      break;
+    case false:
+      viewer.tweenControlCenter(lookAtAisle[index][1], 0);
+      break;
+    default:
+      break;
   }
+}
+aisle1Image.addEventListener("enter-fade-start", function () {
+  focusAisle(lookCheck, 0);
 });
 
 aisle2Image.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[1][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[1][1], 0);
-  }
+  focusAisle(lookCheck, 1);
 });
 
 aisle3Image.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[5][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[5][1], 0);
-  }
+  focusAisle(lookCheck, 2);
 });
 
 aisle4Image.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[6][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[6][1], 0);
-  }
+  focusAisle(lookCheck, 3);
 });
 
 aisle5Image.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[7][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[7][1], 0);
-  }
+  focusAisle(lookCheck, 4);
 });
 
 aisle6Image.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[8][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[8][1], 0);
-  }
+  focusAisle(lookCheck, 5);
 });
 
 aisle7Image.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[9][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[9][1], 0);
-  }
+  focusAisle(lookCheck, 6);
 });
-
-developmentImage.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[10][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[10][1], 0);
-  }
-});
-
-showRoomImage.addEventListener("enter-fade-start", function () {
-  viewer.tweenControlCenter(lookAtPositions[12], 0);
-});
-administrativePorchImage.addEventListener("enter-fade-start", function () {
-  if (lookCheck) {
-    viewer.tweenControlCenter(lookAtPositions[2][0], 0);
-  } else {
-    viewer.tweenControlCenter(lookAtPositions[2][1], 0);
-  }
-});
-
-administrativeImage.addEventListener("enter-fade-start", function () {
+//研究發展大樓門口----------------------------------------------------------------
+developmentDoorImage.addEventListener("enter-fade-start", function () {
   if (lookCheck) {
     viewer.tweenControlCenter(lookAtPositions[3][0], 0);
   } else {
     viewer.tweenControlCenter(lookAtPositions[3][1], 0);
   }
 });
+//研究發展大樓----------------------------------------------------------------
+var lookAtDevelopment = [
+  [
+    new THREE.Vector3(-500, -500, -5000),
+    new THREE.Vector3(-1000, 0, 0),
+    new THREE.Vector3(5000, 0, -500),
+    new THREE.Vector3(
+      developmentToDevelopmentDoor.position.x,
+      developmentToDevelopmentDoor.position.y,
+      developmentToDevelopmentDoor.position.z
+    ),
+  ], // development
+];
+
+developmentImage.addEventListener("enter-fade-start", function () {
+  if (lookCheck === true) {
+    viewer.tweenControlCenter(lookAtDevelopment[0][0], 0);
+  } else if (lookCheck === "fromShowRoom") {
+    viewer.tweenControlCenter(lookAtDevelopment[0][1], 0);
+  } else if (lookCheck === "fromBShowRoom") {
+    viewer.tweenControlCenter(lookAtDevelopment[0][2], 0);
+  } else {
+    viewer.tweenControlCenter(lookAtDevelopment[0][3], 0);
+  }
+});
+
+//倉庫----------------------------------------------------------------
+var lookAtStorehouse = [
+  [position(storehouse8toStorhouse7), position(storehouse8toDevelopment)], //storehouse8
+  [position(storehouse7toStorhouse6), position(storehouse7toStorhouse8)], //storehouse7
+  [position(storehouse6toStorhouse5), position(storehouse6toStorhouse7)], //storehouse6
+  [position(storehouse5toStorhouse4), position(storehouse5toStorhouse6)], //storehouse5
+  [position(storehouse4toStorhouse3), position(storehouse4toStorhouse5)], //storehouse4
+  [position(storehouse3toStorhouse2), position(storehouse3toStorhouse4)], //storehouse3
+  [position(storehouse2toStorhouse1), position(storehouse2toStorhouse3)], //storehouse2
+  [new THREE.Vector3(5000, -500, 0)], //storehouse1
+];
+
+function focusStorehouse(key, index) {
+  switch (key) {
+    case true:
+      viewer.tweenControlCenter(lookAtStorehouse[index][0], 0);
+      break;
+    case false:
+      viewer.tweenControlCenter(lookAtStorehouse[index][1], 0);
+      break;
+    default:
+      break;
+  }
+}
+
+storehouse8Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 0);
+});
+
+storehouse7Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 1);
+});
+
+storehouse6Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 2);
+});
+
+storehouse5Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 3);
+});
+
+storehouse4Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 4);
+});
+
+storehouse3Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 5);
+});
+
+storehouse2Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 6);
+});
+
+storehouse1Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse(lookCheck, 7);
+});
+//倉庫二樓----------------------------------------------------------------------
+var lookAtStorehouse2F = [
+  [
+    position(storehouse2F1toStorehouse2F7),
+    position(storehouse2F1toStroehouse8),
+  ], //2F1
+  [
+    position(storehouse2F2toStroehouse2F3),
+    position(storehouse2F2toStroehouse2F1),
+  ], //2F2
+  [
+    position(storehouse2F3toStroehouse2F4),
+    position(storehouse2F3toStroehouse2F2),
+  ], // 2F3
+  [
+    position(storehouse2F4toStroehouse2F5),
+    position(storehouse2F4toStroehouse2F3),
+  ], //2F4
+  [new THREE.Vector3(0, -500, -3000), position(storehouse2F5toStroehouse2F4)], //2F5
+  [new THREE.Vector3(3000, -500, 0)], //2F6
+  [new THREE.Vector3(5000, -500, 0)], //視聽教室
+];
+function focusStorehouse2F(key, index) {
+  switch (key) {
+    case true:
+      viewer.tweenControlCenter(lookAtStorehouse2F[index][0], 0);
+      break;
+    case false:
+      viewer.tweenControlCenter(lookAtStorehouse2F[index][1], 0);
+      break;
+    default:
+      break;
+  }
+}
+storehouse2F1Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse2F(lookCheck, 0);
+});
+
+storehouse2F2Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse2F(lookCheck, 1);
+});
+storehouse2F3Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse2F(lookCheck, 2);
+});
+storehouse2F4Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse2F(lookCheck, 3);
+});
+storehouse2F5Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse2F(lookCheck, 4);
+});
+storehouse2F6Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse2F(lookCheck, 5);
+});
+storehouse2F7Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse2F(lookCheck, 6);
+});
+//倉庫三樓----------------------------------------------------------------------
+var lookAtStorehouse3F = [
+  [
+    position(storehouse3F1toStorehouse3F3),
+    position(storehouse3F1toStorehouse3F2),
+    new THREE.Vector3(-3000, -500, 0),
+  ], //3F1
+  [position(storehouse3F3toStorehouse3F4),position(storehouse3F3toStorehouse3F1)],//3F3
+  [position(storehouse3F4toStorehouse3F5),position(storehouse3F4toStorehouse3F3)],//3F4
+];
+function focusStorehouse3F(key, index) {
+  switch (key) {
+    case true:
+      viewer.tweenControlCenter(lookAtStorehouse3F[index][0], 0);
+      break;
+    case false:
+      viewer.tweenControlCenter(lookAtStorehouse3F[index][1], 0);
+      break;
+    default:
+      viewer.tweenControlCenter(lookAtStorehouse3F[index][2], 0);
+      break;
+  }
+}
+storehouse3F1Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse3F(lookCheck, 0);
+});
+storehouse3F3Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse3F(lookCheck, 1);
+});
+storehouse3F4Image.addEventListener("enter-fade-start", function () {
+  focusStorehouse3F(lookCheck, 2);
+});
+//小展示間----------------------------------------------------------------
+showRoomImage.addEventListener("enter-fade-start", function () {
+  viewer.tweenControlCenter(lookAtPositions[4][0], 0);
+});
+
+//行政大樓門廊----------------------------------------------------------------
+administrativePorchImage.addEventListener("enter-fade-start", function () {
+  if (lookCheck) {
+    viewer.tweenControlCenter(lookAtPositions[0][0], 0);
+  } else {
+    viewer.tweenControlCenter(lookAtPositions[0][1], 0);
+  }
+});
+//行政大樓----------------------------------------------------------------
+administrativeImage.addEventListener("enter-fade-start", function () {
+  if (lookCheck) {
+    viewer.tweenControlCenter(lookAtPositions[1][0], 0);
+  } else {
+    viewer.tweenControlCenter(lookAtPositions[1][1], 0);
+  }
+});
+//會議室----------------------------------------------------------------
+meetingToAdministrative = new PANOLENS.Infospot(
+  800,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  meetingToAdministrative,
+  4300,
+  -1500,
+  -7500,
+  "",
+  false,
+  "administrative"
+);
+
+meetingImage.add(
+  bikeInfo,
+  motorInfo,
+  ledInfo,
+  medicalInfo,
+  tireInfo,
+  miniLedInfo,
+  electricInfo,
+  speakerInfo,
+  lensInfo,
+  communicationInfo,
+  meetingToAdministrative
+);
 
 meetingImage.addEventListener("enter-fade-start", function () {
-  viewer.tweenControlCenter(lookAtPositions[4], 0);
+  viewer.tweenControlCenter(lookAtPositions[2][0], 0);
 });
 
 var menuBtn = document.querySelector(".menu-box__menu");
@@ -1190,23 +1756,21 @@ var mapBtn = document.querySelector(".menu-box__map");
 
 var mapMenu = document.querySelector(".map-box");
 var infoMenu = document.querySelector(".guide-box");
+
+var point = document.querySelector(".map-point");
+
 menuBtn.addEventListener("click", function () {
   infoMenu.classList.toggle("active");
   if (mapMenu.className.indexOf("active") !== -1) {
     mapMenu.classList.toggle("active");
+    point.classList.toggle("active");
   }
 });
 
 mapBtn.addEventListener("click", function () {
   mapMenu.classList.toggle("active");
+  point.classList.toggle("active");
   if (infoMenu.className.indexOf("active") !== -1) {
     infoMenu.classList.toggle("active");
   }
 });
-
-viewer.addEventListener( 'drag', function ( event ) {
-
-  // event.deltaX, event.deltaY
-  console.log( event.deltaX, event.deltaY );
-
-} );
