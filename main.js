@@ -1789,7 +1789,7 @@ var mapBtn = document.querySelector(".menu-box__map");
 var mapMenu = document.querySelector(".map-box");
 var infoMenu = document.querySelector(".guide-box");
 
-var point = document.querySelector(".map-point");
+var point = document.querySelector(".point");
 
 menuBtn.addEventListener("click", function () {
   infoMenu.classList.toggle("active");
