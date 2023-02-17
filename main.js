@@ -122,7 +122,7 @@ var bikeInfo,
 
 function infoSetting(infoName, x, y, z, hoverText, idx) {
   infoName.position.set(x, y, z);
-  infoName.addHoverText(hoverText);
+  // infoName.addHoverText(hoverText);
   infoName.addEventListener("click", function () {
     btnFunction(idx, false);
     infoName.focus();
@@ -210,7 +210,7 @@ infoSetting(showRoom6Info1, 2500, -1000, 1000, "", "show18");
 //設置箭頭的function
 function arrowSetting(arrowName, x, y, z, hoverText, check, changeSite) {
   arrowName.position.set(x, y, z);
-  arrowName.addHoverText(hoverText, 80, 50);
+  arrowName.addHoverText(hoverText, 100, 50);
   arrowName.addEventListener("click", function () {
     lookCheck = check;
     changeFunction(changeSite);
@@ -268,8 +268,11 @@ arrowSetting(aisle3ToAisle2, 100, -500, 5000, "", false, "aisle2");
 // 走道3往走道4
 aisle3ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle3ToAisle4, 0, -500, -5000, "", true, "aisle4");
+// 走道3往倉庫1
+aisle3ToStorehouse1 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle3ToStorehouse1, -5000, -500, -500, "", false, "storehouse1");
 
-aisle3Image.add(aisle3ToAisle2, aisle3ToAisle4);
+aisle3Image.add(aisle3ToAisle2, aisle3ToAisle4, aisle3ToStorehouse1);
 //aisle4 ------------------------------------------------------------------------------------------------
 // 走道4往走道3
 aisle4ToAisle3 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -278,8 +281,11 @@ arrowSetting(aisle4ToAisle3, -300, -500, 5000, "", false, "aisle3");
 // 走道4往走道5
 aisle4ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle4ToAisle5, -300, -500, -5000, "", true, "aisle5");
+// 走道4往倉庫4
+aisle4ToStorehouse4 =  new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle4ToStorehouse4, -4500, -500, 0, "", false, "storehouse4");
 
-aisle4Image.add(aisle4ToAisle3, aisle4ToAisle5);
+aisle4Image.add(aisle4ToAisle3, aisle4ToAisle5,aisle4ToStorehouse4);
 //aisle5 ------------------------------------------------------------------------------------------------
 // 走道5往走道4
 aisle5ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -288,8 +294,12 @@ arrowSetting(aisle5ToAisle4, -300, -500, -5000, "", false, "aisle4");
 // 走道5往走道6
 aisle5ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle5ToAisle6, -300, -500, 5000, "", true, "aisle6");
+//走道5往倉庫6
+aisle5ToStorehouse2 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle5ToStorehouse2, 4500, -500, 500, "", false, "storehouse6");
 
-aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6);
+
+aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6,aisle5ToStorehouse2);
 //aisle6 ------------------------------------------------------------------------------------------------
 // 走道6往走道5
 aisle6ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -298,8 +308,12 @@ arrowSetting(aisle6ToAisle5, -300, -500, -5000, "", false, "aisle5");
 // 走道6往走道7
 aisle6ToAisle7 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle6ToAisle7, 300, -500, 5000, "", true, "aisle7");
+//走道6往倉庫8
+aisle6ToStorehouse8 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(aisle6ToStorehouse8, 4500, -500, -100, "", false, "storehouse8");
 
-aisle6Image.add(aisle6ToAisle5, aisle6ToAisle7);
+
+aisle6Image.add(aisle6ToAisle5, aisle6ToAisle7,aisle6ToStorehouse8);
 //aisle7 ------------------------------------------------------------------------------------------------
 // 走道7往走道6
 aisle7ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -465,11 +479,15 @@ arrowSetting(
   true,
   "storehouse2F1"
 );
+//倉庫8往走道6
+storehouse8ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(storehouse8ToAisle6, -4500, -500, 1500, "", true, "aisle6");
 
 storehouse8Image.add(
   storehouse8toStorhouse7,
   storehouse8toDevelopment,
-  storehouse8toStorehouse2F1
+  storehouse8toStorehouse2F1,
+  storehouse8ToAisle6
 );
 //倉庫7-------------------------------------------------------------------------
 //倉庫7往倉庫8
@@ -525,8 +543,11 @@ storehouse6toStorhouse5 = new PANOLENS.Infospot(
   PANOLENS.DataImage.MoveArrow
 );
 arrowSetting(storehouse6toStorhouse5, 0, -500, 5000, "", true, "storehouse5");
+//倉庫6往走道5
+storehouse6ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.RightArrow);
+arrowSetting(storehouse6ToAisle5, 4500, -500, 5000, "", true, "aisle5");
 
-storehouse6Image.add(storehouse6toStorhouse5, storehouse6toStorhouse7);
+storehouse6Image.add(storehouse6toStorhouse5, storehouse6toStorhouse7,storehouse6ToAisle5);
 
 //倉庫5-------------------------------------------------------------------------
 //倉庫5往倉庫6
@@ -558,8 +579,12 @@ arrowSetting(
   true,
   "storehouse4"
 );
+arrowSetting(storehouse6toStorhouse5, 0, -500, 5000, "", true, "storehouse5");
+//倉庫5往走道5
+storehouse5ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.LeftArrow);
+arrowSetting(storehouse5ToAisle5, 4500, -500, -5000, "", true, "aisle5");
 
-storehouse5Image.add(storehouse5toStorhouse6, storehouse5toStorhouse4);
+storehouse5Image.add(storehouse5toStorhouse6, storehouse5toStorhouse4,storehouse5ToAisle5);
 
 //倉庫4-------------------------------------------------------------------------
 //倉庫4往倉庫5
@@ -583,8 +608,11 @@ storehouse4toStorhouse3 = new PANOLENS.Infospot(
   PANOLENS.DataImage.MoveArrow
 );
 arrowSetting(storehouse4toStorhouse3, 250, -500, 5000, "", true, "storehouse3");
+//倉庫4往走道4
+storehouse4ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(storehouse4ToAisle4, 4500, -500, 0, "", true, "aisle4");
 
-storehouse4Image.add(storehouse4toStorhouse5, storehouse4toStorhouse3);
+storehouse4Image.add(storehouse4toStorhouse5, storehouse4toStorhouse3,storehouse4ToAisle4);
 
 //倉庫3-------------------------------------------------------------------------
 //倉庫3往倉庫4
@@ -667,15 +695,13 @@ arrowSetting(
   false,
   "storehouse2"
 );
-
 //倉庫1往走道3
-// storehouse1toAisle3 = new PANOLENS.Infospot(600, PANOLENS.DataImage.RightArrow);
-// storehouse1toAisle3.position.set(0, -500, -5000);
-// storehouse1toAisle3.addEventListener("click", function () {
-//   lookCheck = false;
-//   changeFunction("aisle3");
-// });
-storehouse1Image.add(storehouse1toStorhouse2);
+storehouse1ToAisle3 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+arrowSetting(storehouse1ToAisle3,  -500,
+  -500,
+  -5000, "", true, "aisle3");
+
+storehouse1Image.add(storehouse1toStorhouse2,storehouse1ToAisle3);
 
 // 倉庫二樓1 -----------------------------------------------------------------------------------------------------
 // 往一樓
@@ -865,9 +891,9 @@ storehouse2F5toStroehouse2F6 = new PANOLENS.Infospot(
 );
 arrowSetting(
   storehouse2F5toStroehouse2F6,
-  -1000,
+  -1200,
   -500,
-  0,
+  350,
   "",
   true,
   "storehouse2F6"
@@ -1010,7 +1036,7 @@ arrowSetting(
   0,
   -500,
   5000,
-  "",
+  "圖書館",
   true,
   "storehouse3F4"
 );
@@ -1045,7 +1071,10 @@ arrowSetting(
   false,
   "storehouse3F3"
 );
-storehouse3F4Image.add(storehouse3F4toStorehouse3F5,storehouse3F4toStorehouse3F3)
+storehouse3F4Image.add(
+  storehouse3F4toStorehouse3F5,
+  storehouse3F4toStorehouse3F3
+);
 // 倉庫三樓5(圖書館) -----------------------------------------------------------------------------------------------------
 storehouse3F5toStorehouse3F4 = new PANOLENS.Infospot(
   600,
@@ -1060,7 +1089,7 @@ arrowSetting(
   false,
   "storehouse3F4"
 );
-storehouse3F5Image.add(storehouse3F5toStorehouse3F4)
+storehouse3F5Image.add(storehouse3F5toStorehouse3F4);
 
 //視聽教室
 storehouse2F1toStorehouse2F7 = new PANOLENS.Infospot(
@@ -1416,12 +1445,12 @@ bShowRoom5Image.add(showRoom5Info1, showRoom5Info2, showRoom5Info3);
 bShowRoom6Image.add(showRoom6Info1);
 
 var lookAtShowRoom = [
-  [position(bShowRoom1ToBShowRoom2), position(bShowRoom1ToDevelopment)], //b_show_room1
-  [position(bShowRoom2ToBShowRoom3), position(bShowRoom2ToBShowRoom1)], //b_show_room2
-  [position(bShowRoom3ToBShowRoom4), position(bShowRoom3ToBShowRoom2)], //b_show_room3
-  [position(bShowRoom4ToBShowRoom5), position(bShowRoom4ToBShowRoom3)], //b_show_room4
-  [position(bShowRoom5ToBShowRoom6), position(bShowRoom5ToBShowRoom4)], //b_show_room5
-  [position(bShowRoom6ToDevelopment), position(bShowRoom6ToBShowRoom5)], //b_show_room6
+  [new THREE.Vector3(-5000, 0, -500), position(bShowRoom1ToDevelopment)], //b_show_room1
+  [new THREE.Vector3(-2450, -1500, 0), position(bShowRoom2ToBShowRoom1)], //b_show_room2
+  [new THREE.Vector3(-3000, -1300, 0), position(bShowRoom3ToBShowRoom2)], //b_show_room3
+  [new THREE.Vector3(-1000, -1000, -2000), position(bShowRoom4ToBShowRoom3)], //b_show_room4
+  [new THREE.Vector3(2000, -600, 0), position(bShowRoom5ToBShowRoom4)], //b_show_room5
+  [new THREE.Vector3(2500, -1000, 1000), position(bShowRoom6ToBShowRoom5)], //b_show_room6
 ];
 
 function focusBShowRoom(key, index) {
@@ -1562,7 +1591,7 @@ var lookAtStorehouse = [
   [position(storehouse4toStorhouse3), position(storehouse4toStorhouse5)], //storehouse4
   [position(storehouse3toStorhouse2), position(storehouse3toStorhouse4)], //storehouse3
   [position(storehouse2toStorhouse1), position(storehouse2toStorhouse3)], //storehouse2
-  [new THREE.Vector3(5000, -500, 0)], //storehouse1
+  [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(-4000, -500, -0)], //storehouse1
 ];
 
 function focusStorehouse(key, index) {
@@ -1611,10 +1640,7 @@ storehouse1Image.addEventListener("enter-fade-start", function () {
 });
 //倉庫二樓----------------------------------------------------------------------
 var lookAtStorehouse2F = [
-  [
-    position(storehouse2F1toStorehouse2F7),
-    position(storehouse2F1toStroehouse8),
-  ], //2F1
+  [new THREE.Vector3(700, 300, -2500), position(storehouse2F1toStorehouse2F2)], //2F1
   [
     position(storehouse2F2toStroehouse2F3),
     position(storehouse2F2toStroehouse2F1),
@@ -1672,8 +1698,14 @@ var lookAtStorehouse3F = [
     position(storehouse3F1toStorehouse3F2),
     new THREE.Vector3(-3000, -500, 0),
   ], //3F1
-  [position(storehouse3F3toStorehouse3F4),position(storehouse3F3toStorehouse3F1)],//3F3
-  [position(storehouse3F4toStorehouse3F5),position(storehouse3F4toStorehouse3F3)],//3F4
+  [
+    position(storehouse3F3toStorehouse3F4),
+    position(storehouse3F3toStorehouse3F1),
+  ], //3F3
+  [
+    position(storehouse3F4toStorehouse3F5),
+    position(storehouse3F4toStorehouse3F3),
+  ], //3F4
 ];
 function focusStorehouse3F(key, index) {
   switch (key) {
