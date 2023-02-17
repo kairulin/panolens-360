@@ -2,64 +2,64 @@
 function changeFunction(img, product) {
   switch (img) {
     case "aisle1":
-      point.style.top = "230px";
-      point.style.left = "190px";
+      point.style.top = "85%";
+      point.style.left = "40%";
 
       btnFunction(-1, false);
       viewer.setPanorama(aisle1Image);
       break;
     case "aisle2":
-      point.style.top = "200px";
-      point.style.left = "190px";
+      point.style.top = "77%";
+      point.style.left = "40%";
 
       btnFunction(-1, false);
       viewer.setPanorama(aisle2Image);
       break;
     case "aisle3":
-      point.style.top = "110px";
-      point.style.left = "190px";
+      point.style.top = "65%";
+      point.style.left = "40%";
 
       btnFunction(-1, false);
       viewer.setPanorama(aisle3Image);
       break;
     case "aisle4":
-      point.style.top = "10px";
-      point.style.left = "190px";
+      point.style.top = "50%";
+      point.style.left = "40%";
 
       btnFunction(-1, false);
       viewer.setPanorama(aisle4Image);
       break;
     case "aisle5":
-      point.style.top = "-80px";
-      point.style.left = "190px";
+      point.style.top = "40%";
+      point.style.left = "40%";
 
       btnFunction(-1, false);
       viewer.setPanorama(aisle5Image);
       break;
     case "aisle6":
-      point.style.top = "-180px";
-      point.style.left = "190px";
+      point.style.top = "25%";
+      point.style.left = "40%";
 
       btnFunction(-1, false);
       viewer.setPanorama(aisle6Image);
       break;
     case "aisle7":
-      point.style.top = "-270px";
-      point.style.left = "220px";
+      point.style.top = "13%";
+      point.style.left = "45%";
 
       btnFunction(-1, false);
       viewer.setPanorama(aisle7Image);
       break;
     case "developmentDoor":
-      point.style.top = "-270px";
-      point.style.left = "230px";
+      point.style.top = "13%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(developmentDoorImage);
       break;
     case "development":
-      point.style.top = "-220px";
-      point.style.left = "230px";
+      point.style.top = "20%";
+      point.style.left = "50%";
       btnFunction(-1, false);
       viewer.setPanorama(developmentImage);
       break;
@@ -96,22 +96,22 @@ function changeFunction(img, product) {
       viewer.setPanorama(bShowRoom7Image);
       break;
     case "administrativePorch":
-      point.style.top = "200px";
-      point.style.left = "230px";
+      point.style.top = "77%";
+      point.style.left = "47%";
 
       btnFunction(-1, false);
       viewer.setPanorama(administrativePorchImage);
       break;
     case "administrative":
-      point.style.top = "200px";
-      point.style.left = "250px";
+      point.style.top = "77%";
+      point.style.left = "55%";
 
       btnFunction(-1, false);
       viewer.setPanorama(administrativeImage);
       break;
     case "meeting":
-      point.style.top = "200px";
-      point.style.left = "250px";
+      point.style.top = "77%";
+      point.style.left = "55%";
       
       viewer.setPanorama(meetingImage);
       setTimeout(focusItem, 100);
@@ -163,43 +163,43 @@ function changeFunction(img, product) {
       }
       break;
     case "storehouse8":
-      point.style.top = "-180px";
-      point.style.left = "230px";
+      point.style.top = "25%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse8Image);
       break;
     case "storehouse7":
-      point.style.top = "-150px";
-      point.style.left = "230px";
+      point.style.top = "30%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse7Image);
       break;
     case "storehouse6":
-      point.style.top = "-120px";
-      point.style.left = "230px";
+      point.style.top = "35%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse6Image);
       break;
     case "storehouse5":
-      point.style.top = "-50px";
-      point.style.left = "230px";
+      point.style.top = "45%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse5Image);
       break;
     case "storehouse4":
-      point.style.top = "0px";
-      point.style.left = "230px";
+      point.style.top = "50%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse4Image);
       break;
     case "storehouse3":
-      point.style.top = "50px";
-      point.style.left = "230px";
+      point.style.top = "55%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse3Image);
@@ -209,8 +209,8 @@ function changeFunction(img, product) {
       viewer.setPanorama(storehouse2Image);
       break;
     case "storehouse1":
-      point.style.top = "110px";
-      point.style.left = "230px";
+      point.style.top = "65%";
+      point.style.left = "50%";
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse1Image);
@@ -264,8 +264,8 @@ function changeFunction(img, product) {
       viewer.setPanorama(storehouse3F5Image);
       break;
     default:
-      point.style.top = "280px";
-      point.style.left = "190px";
+      point.style.top = "90%";
+      point.style.left = "40%";
 
       btnFunction(-1, false);
       viewer.setPanorama(doorImage);
