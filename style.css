@@ -273,29 +273,36 @@ p {
   padding-right: 0px;
   height: 703px;
 }
-
-.map-box > .map-point {
+.map-box > .point {
   display: none;
+  z-index: 9999;
+  top: 90%;
+  left: 40%;
+  /* transform: translate(-50%, -50%); */
+  transform: translate(-10%,-50%);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+.map-box > .point > .map-point {
   width: 30px;
   height: 30px;
-  z-index: 9999;
-  background: #30ff00;
-  /* top: 280px;
-  left: 190px; */
-  /* top: calc(50% + (703px) - 603px);  */
-  top: 90%; 
-  /* top: calc(100% - 603px + 50px); */
-  left: 40%;
-  transform: translate(-50%,-50%);
-  /* transform: translateX(-50%); */
-  position: absolute;
+  background: #30ff00; 
   border-radius: 50%;
-}
-.map-point {
   opacity: 1;
   animation: point 1s linear reverse infinite;
 }
 
+.map-box > .point > .hint {
+  white-space: nowrap;
+  transform: translate(-60%, -100%);
+  font-weight: bold;
+  font-size: 24px;
+  color:white;
+  background:#26471f;
+  border-radius: 5px;
+
+}
 @keyframes point {
   0% {
     opacity: 0;

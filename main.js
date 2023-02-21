@@ -1091,7 +1091,7 @@ arrowSetting(
 );
 storehouse3F5Image.add(storehouse3F5toStorehouse3F4);
 
-//視聽教室
+//視聽教室(三樓)
 storehouse2F1toStorehouse2F7 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -1789,7 +1789,7 @@ var mapBtn = document.querySelector(".menu-box__map");
 var mapMenu = document.querySelector(".map-box");
 var infoMenu = document.querySelector(".guide-box");
 
-var point = document.querySelector(".map-point");
+var point = document.querySelector(".point");
 
 menuBtn.addEventListener("click", function () {
   infoMenu.classList.toggle("active");
