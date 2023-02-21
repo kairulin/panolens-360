@@ -663,13 +663,13 @@ arrowSetting(
 //廠區3往廠區2
 storehouse3toStorhouse2 = new PANOLENS.Infospot(
   600,
-  PANOLENS.DataImage.RightArrow
+  PANOLENS.DataImage.LeftFrontArrow
 );
 arrowSetting(
   storehouse3toStorhouse2,
   -2500,
   -500,
-  -2000,
+  1500,
   "",
   true,
   "storehouse2"
