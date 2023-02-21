@@ -122,7 +122,7 @@ var bikeInfo,
 
 function infoSetting(infoName, x, y, z, hoverText, idx) {
   infoName.position.set(x, y, z);
-  // infoName.addHoverText(hoverText);
+  infoName.addHoverText(hoverText);
   infoName.addEventListener("click", function () {
     btnFunction(idx, false);
     infoName.focus();
@@ -268,7 +268,7 @@ arrowSetting(aisle3ToAisle2, 100, -500, 5000, "", false, "aisle2");
 // 走道3往走道4
 aisle3ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle3ToAisle4, 0, -500, -5000, "", true, "aisle4");
-// 走道3往倉庫1
+// 走道3往廠區1
 aisle3ToStorehouse1 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle3ToStorehouse1, -5000, -500, -500, "", false, "storehouse1");
 
@@ -281,11 +281,11 @@ arrowSetting(aisle4ToAisle3, -300, -500, 5000, "", false, "aisle3");
 // 走道4往走道5
 aisle4ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle4ToAisle5, -300, -500, -5000, "", true, "aisle5");
-// 走道4往倉庫4
-aisle4ToStorehouse4 =  new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+// 走道4往廠區4
+aisle4ToStorehouse4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle4ToStorehouse4, -4500, -500, 0, "", false, "storehouse4");
 
-aisle4Image.add(aisle4ToAisle3, aisle4ToAisle5,aisle4ToStorehouse4);
+aisle4Image.add(aisle4ToAisle3, aisle4ToAisle5, aisle4ToStorehouse4);
 //aisle5 ------------------------------------------------------------------------------------------------
 // 走道5往走道4
 aisle5ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -294,12 +294,11 @@ arrowSetting(aisle5ToAisle4, -300, -500, -5000, "", false, "aisle4");
 // 走道5往走道6
 aisle5ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle5ToAisle6, -300, -500, 5000, "", true, "aisle6");
-//走道5往倉庫6
+//走道5往廠區6
 aisle5ToStorehouse2 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle5ToStorehouse2, 4500, -500, 500, "", false, "storehouse6");
 
-
-aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6,aisle5ToStorehouse2);
+aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6, aisle5ToStorehouse2);
 //aisle6 ------------------------------------------------------------------------------------------------
 // 走道6往走道5
 aisle6ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -308,12 +307,11 @@ arrowSetting(aisle6ToAisle5, -300, -500, -5000, "", false, "aisle5");
 // 走道6往走道7
 aisle6ToAisle7 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle6ToAisle7, 300, -500, 5000, "", true, "aisle7");
-//走道6往倉庫8
+//走道6往廠區8
 aisle6ToStorehouse8 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle6ToStorehouse8, 4500, -500, -100, "", false, "storehouse8");
 
-
-aisle6Image.add(aisle6ToAisle5, aisle6ToAisle7,aisle6ToStorehouse8);
+aisle6Image.add(aisle6ToAisle5, aisle6ToAisle7, aisle6ToStorehouse8);
 //aisle7 ------------------------------------------------------------------------------------------------
 // 走道7往走道6
 aisle7ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
@@ -380,7 +378,21 @@ developmentToshowRoom = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(developmentToshowRoom, 2000, -500, -1600, "", false, "showRoom");
+developmentToshowRoom.position.set(2000, -500, -1600);
+developmentToshowRoom.addHoverText("小展示間", 150, 50);
+developmentToshowRoom.addEventListener("click", function () {
+  lookCheck = false;
+  changeFunction("showRoom");
+});
+// arrowSetting(
+//   developmentToshowRoom,
+//   2000,
+//   -500,
+//   -1600,
+//   "小展示間",
+//   false,
+//   "showRoom"
+// );
 
 // 研究大樓往大展示間
 developmentToBshowRoom = new PANOLENS.Infospot(
@@ -392,27 +404,33 @@ arrowSetting(
   -2500,
   -500,
   -5000,
-  "",
+  "大展示間",
   true,
   "bshowRoom1"
 );
 
-// 研究大樓往倉庫8
+// 研究大樓往廠區8
 developmentToStorehouse8 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(
-  developmentToStorehouse8,
-  200,
-  -500,
-  -5000,
-  "",
-  true,
-  "storehouse8"
-);
+developmentToStorehouse8.position.set(200, -500, -5000);
+developmentToStorehouse8.addHoverText("廠區", -100, 50);
+developmentToStorehouse8.addEventListener("click", function () {
+  lookCheck = true;
+  changeFunction("storehouse8");
+});
+// arrowSetting(
+//   developmentToStorehouse8,
+//   200,
+//   -500,
+//   -5000,
+//   "廠區",
+//   true,
+//   "storehouse8"
+// );
 
-// 研究大樓往倉庫二樓
+// 研究大樓往廠區二樓
 developmentToStorehouse2F1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.LeftFrontArrow
@@ -422,7 +440,7 @@ arrowSetting(
   200,
   300,
   -5000,
-  "",
+  "二樓",
   true,
   "storehouse2F1"
 );
@@ -434,8 +452,8 @@ developmentImage.add(
   developmentToStorehouse8,
   developmentToStorehouse2F1
 );
-//倉庫8-------------------------------------------------------------------------
-//倉庫8往倉庫7
+//廠區8-------------------------------------------------------------------------
+//廠區8往廠區7
 storehouse8toStorhouse7 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -450,7 +468,7 @@ arrowSetting(
   "storehouse7"
 );
 
-//倉庫8往研究大樓
+//廠區8往研究大樓
 storehouse8toDevelopment = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.LeftFrontArrow
@@ -465,7 +483,7 @@ arrowSetting(
   "development"
 );
 
-//倉庫8往倉庫二樓
+//廠區8往廠區二樓
 storehouse8toStorehouse2F1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.RightFrontArrow
@@ -479,7 +497,7 @@ arrowSetting(
   true,
   "storehouse2F1"
 );
-//倉庫8往走道6
+//廠區8往走道6
 storehouse8ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(storehouse8ToAisle6, -4500, -500, 1500, "", true, "aisle6");
 
@@ -489,8 +507,8 @@ storehouse8Image.add(
   storehouse8toStorehouse2F1,
   storehouse8ToAisle6
 );
-//倉庫7-------------------------------------------------------------------------
-//倉庫7往倉庫8
+//廠區7-------------------------------------------------------------------------
+//廠區7往廠區8
 storehouse7toStorhouse8 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -505,7 +523,7 @@ arrowSetting(
   "storehouse8"
 );
 
-//倉庫7往倉庫6
+//廠區7往廠區6
 storehouse7toStorhouse6 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -521,8 +539,8 @@ arrowSetting(
 );
 
 storehouse7Image.add(storehouse7toStorhouse8, storehouse7toStorhouse6);
-//倉庫6-------------------------------------------------------------------------
-//倉庫6往倉庫7
+//廠區6-------------------------------------------------------------------------
+//廠區6往廠區7
 storehouse6toStorhouse7 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -537,20 +555,24 @@ arrowSetting(
   "storehouse7"
 );
 
-//倉庫6往倉庫5
+//廠區6往廠區5
 storehouse6toStorhouse5 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
 arrowSetting(storehouse6toStorhouse5, 0, -500, 5000, "", true, "storehouse5");
-//倉庫6往走道5
+//廠區6往走道5
 storehouse6ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.RightArrow);
 arrowSetting(storehouse6ToAisle5, 4500, -500, 5000, "", true, "aisle5");
 
-storehouse6Image.add(storehouse6toStorhouse5, storehouse6toStorhouse7,storehouse6ToAisle5);
+storehouse6Image.add(
+  storehouse6toStorhouse5,
+  storehouse6toStorhouse7,
+  storehouse6ToAisle5
+);
 
-//倉庫5-------------------------------------------------------------------------
-//倉庫5往倉庫6
+//廠區5-------------------------------------------------------------------------
+//廠區5往廠區6
 storehouse5toStorhouse6 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -565,7 +587,7 @@ arrowSetting(
   "storehouse6"
 );
 
-//倉庫5往倉庫4
+//廠區5往廠區4
 storehouse5toStorhouse4 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -580,14 +602,18 @@ arrowSetting(
   "storehouse4"
 );
 arrowSetting(storehouse6toStorhouse5, 0, -500, 5000, "", true, "storehouse5");
-//倉庫5往走道5
+//廠區5往走道5
 storehouse5ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.LeftArrow);
 arrowSetting(storehouse5ToAisle5, 4500, -500, -5000, "", true, "aisle5");
 
-storehouse5Image.add(storehouse5toStorhouse6, storehouse5toStorhouse4,storehouse5ToAisle5);
+storehouse5Image.add(
+  storehouse5toStorhouse6,
+  storehouse5toStorhouse4,
+  storehouse5ToAisle5
+);
 
-//倉庫4-------------------------------------------------------------------------
-//倉庫4往倉庫5
+//廠區4-------------------------------------------------------------------------
+//廠區4往廠區5
 storehouse4toStorhouse5 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -602,20 +628,24 @@ arrowSetting(
   "storehouse5"
 );
 
-//倉庫4往倉庫3
+//廠區4往廠區3
 storehouse4toStorhouse3 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
 );
 arrowSetting(storehouse4toStorhouse3, 250, -500, 5000, "", true, "storehouse3");
-//倉庫4往走道4
+//廠區4往走道4
 storehouse4ToAisle4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(storehouse4ToAisle4, 4500, -500, 0, "", true, "aisle4");
 
-storehouse4Image.add(storehouse4toStorhouse5, storehouse4toStorhouse3,storehouse4ToAisle4);
+storehouse4Image.add(
+  storehouse4toStorhouse5,
+  storehouse4toStorhouse3,
+  storehouse4ToAisle4
+);
 
-//倉庫3-------------------------------------------------------------------------
-//倉庫3往倉庫4
+//廠區3-------------------------------------------------------------------------
+//廠區3往廠區4
 storehouse3toStorhouse4 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -630,7 +660,7 @@ arrowSetting(
   "storehouse4"
 );
 
-//倉庫3往倉庫2
+//廠區3往廠區2
 storehouse3toStorhouse2 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.RightArrow
@@ -645,10 +675,28 @@ arrowSetting(
   "storehouse2"
 );
 
-storehouse3Image.add(storehouse3toStorhouse4, storehouse3toStorhouse2);
+//廠區3往廠區1
+storehouse3toStorhouse1 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.MoveArrow
+);
+arrowSetting(
+  storehouse3toStorhouse1,
+  -450,
+  -500,
+  -5000,
+  "",
+  true,
+  "storehouse1"
+);
+storehouse3Image.add(
+  storehouse3toStorhouse4,
+  storehouse3toStorhouse2,
+  storehouse3toStorhouse1
+);
 
-//倉庫2-------------------------------------------------------------------------
-//倉庫2往倉庫3
+//廠區2-------------------------------------------------------------------------
+//廠區2往廠區3
 storehouse2toStorhouse3 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -663,7 +711,7 @@ arrowSetting(
   "storehouse3"
 );
 
-//倉庫2往倉庫1
+//廠區2往廠區1
 storehouse2toStorhouse1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -680,8 +728,8 @@ arrowSetting(
 
 storehouse2Image.add(storehouse2toStorhouse3, storehouse2toStorhouse1);
 
-//倉庫1-------------------------------------------------------------------------
-//倉庫1往倉庫2
+//廠區1-------------------------------------------------------------------------
+//廠區1往廠區2
 storehouse1toStorhouse2 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.RightArrow
@@ -695,15 +743,32 @@ arrowSetting(
   false,
   "storehouse2"
 );
-//倉庫1往走道3
+//廠區1往走道3
 storehouse1ToAisle3 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
-arrowSetting(storehouse1ToAisle3,  -500,
+arrowSetting(storehouse1ToAisle3, -500, -500, -5000, "", true, "aisle3");
+
+//廠區1往廠區3
+storehouse1ToStorehouse3 = new PANOLENS.Infospot(
+  600,
+  PANOLENS.DataImage.LeftFrontArrow
+);
+arrowSetting(
+  storehouse1ToStorehouse3,
+  -2750,
   -500,
-  -5000, "", true, "aisle3");
+  1500,
+  "",
+  false,
+  "storehouse3"
+);
 
-storehouse1Image.add(storehouse1toStorhouse2,storehouse1ToAisle3);
+storehouse1Image.add(
+  storehouse1toStorhouse2,
+  storehouse1ToAisle3,
+  storehouse1ToStorehouse3
+);
 
-// 倉庫二樓1 -----------------------------------------------------------------------------------------------------
+// 廠區二樓1 -----------------------------------------------------------------------------------------------------
 // 往一樓
 storehouse2F1toStroehouse8 = new PANOLENS.Infospot(
   600,
@@ -753,7 +818,7 @@ storehouse2F1Image.add(
   storehouse2F1toStorehouse2F2,
   storehouse2F1toStorehouse2F7
 );
-// 倉庫二樓7(視聽教室) -----------------------------------------------------------------------------------------------------
+// 廠區二樓7(視聽教室) -----------------------------------------------------------------------------------------------------
 storehouse2F7toStroehouse2F1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -769,7 +834,7 @@ arrowSetting(
 );
 
 storehouse2F7Image.add(storehouse2F7toStroehouse2F1);
-// 倉庫二樓2 -----------------------------------------------------------------------------------------------------
+// 廠區二樓2 -----------------------------------------------------------------------------------------------------
 //前進
 storehouse2F2toStroehouse2F3 = new PANOLENS.Infospot(
   600,
@@ -802,7 +867,7 @@ storehouse2F2Image.add(
   storehouse2F2toStroehouse2F3,
   storehouse2F2toStroehouse2F1
 );
-// 倉庫二樓3 -----------------------------------------------------------------------------------------------------
+// 廠區二樓3 -----------------------------------------------------------------------------------------------------
 //前進
 storehouse2F3toStroehouse2F4 = new PANOLENS.Infospot(
   600,
@@ -835,7 +900,7 @@ storehouse2F3Image.add(
   storehouse2F3toStroehouse2F4,
   storehouse2F3toStroehouse2F2
 );
-// 倉庫二樓4 -----------------------------------------------------------------------------------------------------
+// 廠區二樓4 -----------------------------------------------------------------------------------------------------
 //前進
 storehouse2F4toStroehouse2F5 = new PANOLENS.Infospot(
   600,
@@ -883,7 +948,7 @@ storehouse2F4Image.add(
   storehouse2F4toStroehouse2F3,
   storehouse2F4toStroehouse3F1
 );
-// 倉庫二樓5 -----------------------------------------------------------------------------------------------------
+// 廠區二樓5 -----------------------------------------------------------------------------------------------------
 //前進
 storehouse2F5toStroehouse2F6 = new PANOLENS.Infospot(
   600,
@@ -932,7 +997,7 @@ storehouse2F5Image.add(
   storehouse2F5toStroehouse2F4,
   storehouse2F5toStorehouse3F1
 );
-// 倉庫二樓6 -----------------------------------------------------------------------------------------------------
+// 廠區二樓6 -----------------------------------------------------------------------------------------------------
 //退回
 storehouse2F6toStroehouse2F5 = new PANOLENS.Infospot(
   600,
@@ -949,7 +1014,7 @@ arrowSetting(
 );
 
 storehouse2F6Image.add(storehouse2F6toStroehouse2F5);
-// 倉庫三樓1 -----------------------------------------------------------------------------------------------------
+// 廠區三樓1 -----------------------------------------------------------------------------------------------------
 // 往二樓
 storehouse3F1toStorehouse2F = new PANOLENS.Infospot(
   600,
@@ -997,7 +1062,7 @@ storehouse3F1Image.add(
   storehouse3F1toStorehouse3F2,
   storehouse3F1toStorehouse3F3
 );
-// 倉庫三樓2 -----------------------------------------------------------------------------------------------------
+// 廠區三樓2 -----------------------------------------------------------------------------------------------------
 storehouse3F2toStorehouse3F1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -1012,7 +1077,7 @@ arrowSetting(
   "storehouse3F1"
 );
 storehouse3F2Image.add(storehouse3F2toStorehouse3F1);
-// 倉庫三樓3 -----------------------------------------------------------------------------------------------------
+// 廠區三樓3 -----------------------------------------------------------------------------------------------------
 storehouse3F3toStorehouse3F1 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -1044,7 +1109,7 @@ storehouse3F3Image.add(
   storehouse3F3toStorehouse3F1,
   storehouse3F3toStorehouse3F4
 );
-// 倉庫三樓4(圖書館) -----------------------------------------------------------------------------------------------------
+// 廠區三樓4(圖書館) -----------------------------------------------------------------------------------------------------
 storehouse3F4toStorehouse3F5 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -1075,7 +1140,7 @@ storehouse3F4Image.add(
   storehouse3F4toStorehouse3F5,
   storehouse3F4toStorehouse3F3
 );
-// 倉庫三樓5(圖書館) -----------------------------------------------------------------------------------------------------
+// 廠區三樓5(圖書館) -----------------------------------------------------------------------------------------------------
 storehouse3F5toStorehouse3F4 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.MoveArrow
@@ -1301,7 +1366,7 @@ arrowSetting(
   -5000,
   -1500,
   1400,
-  "往右",
+  "往廠區",
   true,
   "aisle2"
 );
@@ -1582,16 +1647,16 @@ developmentImage.addEventListener("enter-fade-start", function () {
   }
 });
 
-//倉庫----------------------------------------------------------------
+//廠區----------------------------------------------------------------
 var lookAtStorehouse = [
   [position(storehouse8toStorhouse7), position(storehouse8toDevelopment)], //storehouse8
   [position(storehouse7toStorhouse6), position(storehouse7toStorhouse8)], //storehouse7
   [position(storehouse6toStorhouse5), position(storehouse6toStorhouse7)], //storehouse6
   [position(storehouse5toStorhouse4), position(storehouse5toStorhouse6)], //storehouse5
   [position(storehouse4toStorhouse3), position(storehouse4toStorhouse5)], //storehouse4
-  [position(storehouse3toStorhouse2), position(storehouse3toStorhouse4)], //storehouse3
-  [position(storehouse2toStorhouse1), position(storehouse2toStorhouse3)], //storehouse2
-  [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(-4000, -500, -0)], //storehouse1
+  [position(storehouse3toStorhouse1), position(storehouse3toStorhouse4)], //storehouse3
+  [position(storehouse2toStorhouse1), new THREE.Vector3(-350, -500, 5000)], //storehouse2
+  [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(0, 0, 500)], //storehouse1
 ];
 
 function focusStorehouse(key, index) {
@@ -1638,7 +1703,7 @@ storehouse2Image.addEventListener("enter-fade-start", function () {
 storehouse1Image.addEventListener("enter-fade-start", function () {
   focusStorehouse(lookCheck, 7);
 });
-//倉庫二樓----------------------------------------------------------------------
+//廠區二樓----------------------------------------------------------------------
 var lookAtStorehouse2F = [
   [new THREE.Vector3(700, 300, -2500), position(storehouse2F1toStorehouse2F2)], //2F1
   [
@@ -1691,7 +1756,7 @@ storehouse2F6Image.addEventListener("enter-fade-start", function () {
 storehouse2F7Image.addEventListener("enter-fade-start", function () {
   focusStorehouse2F(lookCheck, 6);
 });
-//倉庫三樓----------------------------------------------------------------------
+//廠區三樓----------------------------------------------------------------------
 var lookAtStorehouse3F = [
   [
     position(storehouse3F1toStorehouse3F3),
