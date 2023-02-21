@@ -283,7 +283,7 @@ aisle4ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle4ToAisle5, -300, -500, -5000, "", true, "aisle5");
 // 走道4往廠區4
 aisle4ToStorehouse4 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
-arrowSetting(aisle4ToStorehouse4, -4500, -500, 0, "", false, "storehouse4");
+arrowSetting(aisle4ToStorehouse4, -4500, -500, 0, "", "go", "storehouse4");
 
 aisle4Image.add(aisle4ToAisle3, aisle4ToAisle5, aisle4ToStorehouse4);
 //aisle5 ------------------------------------------------------------------------------------------------
@@ -296,7 +296,7 @@ aisle5ToAisle6 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
 arrowSetting(aisle5ToAisle6, -300, -500, 5000, "", true, "aisle6");
 //走道5往廠區6
 aisle5ToStorehouse2 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
-arrowSetting(aisle5ToStorehouse2, 4500, -500, 500, "", false, "storehouse6");
+arrowSetting(aisle5ToStorehouse2, 4500, -500, 500, "", "go", "storehouse6");
 
 aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6, aisle5ToStorehouse2);
 //aisle6 ------------------------------------------------------------------------------------------------
@@ -731,8 +731,8 @@ storehouse2Image.add(storehouse2toStorhouse3, storehouse2toStorhouse1);
 //廠區1-------------------------------------------------------------------------
 //廠區1往廠區2
 storehouse1toStorhouse2 = new PANOLENS.Infospot(
-  600,
-  PANOLENS.DataImage.RightArrow
+  800,
+  PANOLENS.DataImage.RightFront2Arrow
 );
 arrowSetting(
   storehouse1toStorhouse2,
@@ -770,12 +770,12 @@ storehouse1Image.add(
 
 // 廠區二樓1 -----------------------------------------------------------------------------------------------------
 // 往一樓
-storehouse2F1toStroehouse8 = new PANOLENS.Infospot(
+storehouse2F1toStorehouse8 = new PANOLENS.Infospot(
   600,
   PANOLENS.DataImage.DownArrow
 );
 arrowSetting(
-  storehouse2F1toStroehouse8,
+  storehouse2F1toStorehouse8,
   -700,
   -500,
   2500,
@@ -814,7 +814,7 @@ arrowSetting(
 );
 
 storehouse2F1Image.add(
-  storehouse2F1toStroehouse8,
+  storehouse2F1toStorehouse8,
   storehouse2F1toStorehouse2F2,
   storehouse2F1toStorehouse2F7
 );
@@ -860,7 +860,7 @@ arrowSetting(
   -500,
   -3000,
   "",
-  false,
+  "back",
   "storehouse2F1"
 );
 storehouse2F2Image.add(
@@ -1651,9 +1651,9 @@ developmentImage.addEventListener("enter-fade-start", function () {
 var lookAtStorehouse = [
   [position(storehouse8toStorhouse7), position(storehouse8toDevelopment)], //storehouse8
   [position(storehouse7toStorhouse6), position(storehouse7toStorhouse8)], //storehouse7
-  [position(storehouse6toStorhouse5), position(storehouse6toStorhouse7)], //storehouse6
+  [position(storehouse6toStorhouse5), position(storehouse6toStorhouse7),new THREE.Vector3(-1000,0,0)], //storehouse6
   [position(storehouse5toStorhouse4), position(storehouse5toStorhouse6)], //storehouse5
-  [position(storehouse4toStorhouse3), position(storehouse4toStorhouse5)], //storehouse4
+  [position(storehouse4toStorhouse3), position(storehouse4toStorhouse5),new THREE.Vector3(0,0,0)], //storehouse4
   [position(storehouse3toStorhouse1), position(storehouse3toStorhouse4)], //storehouse3
   [position(storehouse2toStorhouse1), new THREE.Vector3(-350, -500, 5000)], //storehouse2
   [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(0, 0, 500)], //storehouse1
@@ -1668,6 +1668,7 @@ function focusStorehouse(key, index) {
       viewer.tweenControlCenter(lookAtStorehouse[index][1], 0);
       break;
     default:
+      viewer.tweenControlCenter(lookAtStorehouse[index][2], 0);
       break;
   }
 }
@@ -1705,7 +1706,7 @@ storehouse1Image.addEventListener("enter-fade-start", function () {
 });
 //廠區二樓----------------------------------------------------------------------
 var lookAtStorehouse2F = [
-  [new THREE.Vector3(700, 300, -2500), position(storehouse2F1toStorehouse2F2)], //2F1
+  [new THREE.Vector3(700, 300, -2500), position(storehouse2F1toStorehouse2F2),position(storehouse2F1toStorehouse8)], //2F1
   [
     position(storehouse2F2toStroehouse2F3),
     position(storehouse2F2toStroehouse2F1),
@@ -1729,8 +1730,9 @@ function focusStorehouse2F(key, index) {
       break;
     case false:
       viewer.tweenControlCenter(lookAtStorehouse2F[index][1], 0);
-      break;
+      break;      
     default:
+      viewer.tweenControlCenter(lookAtStorehouse2F[index][2], 0);
       break;
   }
 }
