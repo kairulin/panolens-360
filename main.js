@@ -1263,7 +1263,7 @@ bShowRoom3Image.add(bShowRoom3ToBShowRoom4, bShowRoom3ToBShowRoom2);
 // 大展示間4往大展示間5
 bShowRoom4ToBShowRoom5 = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.RightArrow
 );
 arrowSetting(bShowRoom4ToBShowRoom5, 1000, -1000, 4000, "", true, "bshowRoom5");
 
