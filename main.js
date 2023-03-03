@@ -1850,19 +1850,44 @@ meetingImage.addEventListener("enter-fade-start", function () {
   viewer.tweenControlCenter(lookAtPositions[2][0], 0);
 });
 
+//控制左上menu
 var menuBtn = document.querySelector(".menu-box__menu");
 var mapBtn = document.querySelector(".menu-box__map");
 
 var mapMenu = document.querySelector(".map-box");
 var infoMenu = document.querySelector(".guide-box");
 
+//獲取會議室menu區塊
+var allInfoBtn = infoMenu.getElementsByTagName("button");
+var meetingMenu = document.querySelector(".meeting-info");
+
 var point = document.querySelector(".point");
 
 menuBtn.addEventListener("click", function () {
   infoMenu.classList.toggle("active");
+  //加上infoMenu下滑動畫
+  if(infoMenu.className.indexOf("active") !== -1){
+    infoMenu.style.animation = "boxMoveDown 0.5s forwards";
+    for (let index = 0; index < allInfoBtn.length; index++) {
+      allInfoBtn[index].addEventListener("mousemove",function(){
+        if(index===2){
+          meetingMenu.classList.add("active","InfoMoveDown");
+        }else{
+          meetingMenu.classList.remove("active","InfoMoveDown");
+        }
+      })
+    }
+    meetingMenu.addEventListener("mouseleave",function(){
+      this.classList.remove("active","InfoMoveDown");
+    })
+  }
   if (mapMenu.className.indexOf("active") !== -1) {
     mapMenu.classList.toggle("active");
     point.classList.toggle("active");
+  }
+  //關閉第二層導覽
+  if (meetingMenu.className.indexOf("active") !== -1) {
+    meetingMenu.classList.toggle("active");
   }
 });
 
@@ -1871,5 +1896,9 @@ mapBtn.addEventListener("click", function () {
   point.classList.toggle("active");
   if (infoMenu.className.indexOf("active") !== -1) {
     infoMenu.classList.toggle("active");
+  }
+  //關閉第二層導覽
+  if (meetingMenu.className.indexOf("active") !== -1) {
+    meetingMenu.classList.toggle("active");
   }
 });

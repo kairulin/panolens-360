@@ -31,7 +31,7 @@ p {
   text-shadow: 2px 16px 16px rgba(0, 0, 0, 0.3);
   pointer-events: none;
 }
-
+/*控制會議室說明物件的出現和消失*/
 .active-menu {
   display: flex !important;
 }
@@ -49,7 +49,6 @@ p {
   height: 46.875rem;
   padding: 20px;
 }
-
 /* 會議室資訊 */
 .meeting-menu {
   position: fixed !important;
@@ -131,7 +130,6 @@ p {
   justify-content: center;
   cursor: pointer;
 }
-
 .close-btn > img {
   width: 17.75rem;
   position: absolute;
@@ -146,123 +144,132 @@ p {
   font-size: 16px;
   line-height: 150%;
 }
+/*控制左上menu的顯示*/
 .active {
   display: flex !important;
 }
-
 /* 左上快速導覽 */
 .guide-box {
   position: fixed;
   z-index: 999;
-  width: 13.25rem;
-  height: 13.25rem;
-  top: 6.25rem;
-  left: 1.5rem;
+  width: 15rem;
+  height: 297px;
+  /*改距離為與mapbox同距*/
+  top: 7.1rem;
+  left: 1.6rem;
   display: none;
   flex-direction: column;
+  overflow: hidden;
 }
-
+@keyframes boxMoveDown{
+  from{
+      height: 0;
+  }
+  to{
+      height: 297px;
+  }
+}
 .guide-box > .logo {
-  padding: 0.3125rem;
+  padding: 0.5rem;
   background: rgba(255, 255, 255, 0.819);
 }
 .guide-box > button {
-  padding: 0.625rem;
-  margin: 0;
+  padding: 0.8rem;
   text-align: left;
   border: none;
   background: rgba(255, 255, 255, 0.819);
   cursor: pointer;
+  /*微調字的大小*/
+  font-size: 16px;
+  font-weight: 500;
 }
 .guide-box > button:hover {
   background: #2d318b;
   color: white;
 }
-
 /* 快速導覽-會議室詳細 */
-.meeting-room {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.meeting-room:hover + .meeting-info {
-  display: flex;
-}
-
 .meeting-info {
   display: none;
+  z-index: 999;
   flex-direction: column;
-  position: absolute;
-  width: 13.25rem;
-  height: 23.125rem;
-  left: 212px;
-  top: 127.67px;
+  position:fixed;
+  width: 14rem;
+  height: 420px;
+  left: 270px;
+  top: 270px;
+  overflow: hidden;
+}
+/*新增會議室info下滑動畫*/
+.InfoMoveDown{
+  animation: InfoMoveDown 0.5s forwards;
+}
+@keyframes InfoMoveDown{
+  from{
+      height: 0;
+  }
+  to{
+      height: 420px;
+  }
 }
 .meeting-info > button {
   background: rgba(255, 255, 255, 0.819);
   border: none;
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
-}
-.meeting-info:hover {
-  display: flex;
+  /*微調字的大小*/
+  font-size: 13.5px;
 }
 .meeting-info > button:hover {
   background: #2d318b;
   color: white;
 }
-
 /* 左上選單 */
 .menu-box {
   display: flex;
+  align-items: center;
+  justify-content:space-around;
   width: 251px;
   /* width: 125.5px; */
-
-  height: 72px;
+  height: 73px;
   position: absolute;
   top: 24px;
   left: 24px;
   z-index: 998;
-  background: #a5a5a5;
   user-select: none;
+  /*新增漸層色+陰影+圓角*/
+  background-image: linear-gradient(to top, #858585, #a5a5a5);
+  box-shadow:0 0 10px #000000;
+  border-radius: 6px;
+  border:2px #b4b4b4 solid;
+  padding: 0 4px;
 }
-.menu-box > .menu-box__menu {
+/* 選單+地圖改為代碼共用 */
+.menu-box__menu,.menu-box__map {
   position: relative;
   z-index: 999;
-  color: white;
-  width: 112px;
-  height: 60px;
-  background: #333333;
+  color:#ddd;
+  width: 110px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  margin-top: 6px;
-  margin-left: 6px;
   cursor: pointer;
   padding-right: 3px;
+  /*新增漸層樣式*/
+  background-image: linear-gradient(to top, #242424, #414141);
+  border-radius: 6px;
+  box-shadow:0 6px 10px #131313 inset;
+  text-shadow: 0 0 10px #131313;
+  transition: 0.3s;
+}
+/*新增滑鼠移入發光效果*/
+.menu-box__menu:hover,.menu-box__map:hover{
+  color:#fff;
+  text-shadow: 0 0 10px #6e6e6e;
 }
 .menu-icon,
 .map-icon {
-  font-size: 45px;
-}
-
-/* 地圖 */
-.menu-box > .menu-box__map {
-  position: relative;
-  z-index: 999;
-  color: white;
-  width: 112px;
-  height: 60px;
-  background: #333333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  margin-top: 6px;
-  margin-left: 6px;
-  cursor: pointer;
+  font-size: 33px;
 }
 .map-box {
   position: relative;
