@@ -12,6 +12,8 @@ function changeFunction(img, product) {
       point.style.top = "77%";
       point.style.left = "40%";
 
+      // viewer.setCameraFov(70)
+
       btnFunction(-1, false);
       viewer.setPanorama(aisle2Image);
       break;
@@ -60,6 +62,9 @@ function changeFunction(img, product) {
     case "development":
       point.style.top = "20%";
       point.style.left = "50%";
+
+      // viewer.setCameraFov(70)
+
       btnFunction(-1, false);
       viewer.setPanorama(developmentImage);
       break;
@@ -106,6 +111,8 @@ function changeFunction(img, product) {
       point.style.top = "77%";
       point.style.left = "55%";
 
+      // viewer.setCameraFov(90)
+
       btnFunction(-1, false);
       viewer.setPanorama(administrativeImage);
       break;
@@ -113,6 +120,8 @@ function changeFunction(img, product) {
       point.style.top = "77%";
       point.style.left = "55%";
       
+      // viewer.setCameraFov(70)
+
       viewer.setPanorama(meetingImage);
       setTimeout(focusItem, 100);
       function focusItem() {
@@ -212,6 +221,8 @@ function changeFunction(img, product) {
       point.style.top = "65%";
       point.style.left = "50%";
 
+      // viewer.setCameraFov(90)
+
       btnFunction(-1, false);
       viewer.setPanorama(storehouse1Image);
       break;
@@ -266,6 +277,8 @@ function changeFunction(img, product) {
     default:
       point.style.top = "90%";
       point.style.left = "40%";
+
+      // viewer.setCameraFov(70)
 
       btnFunction(-1, false);
       viewer.setPanorama(doorImage);
