@@ -123,7 +123,7 @@ var bikeInfo,
 
 function infoSetting(infoName, positionXYZ, hoverText, idx) {
   infoName.position.set(positionXYZ[0], positionXYZ[1], positionXYZ[2]);
-  infoName.addHoverText(hoverText);
+  infoName.addHoverText(hoverText[0],hoverText[1],hoverText[2],hoverText[3]);
   infoName.addEventListener("click", function () {
     btnFunction(idx, false);
     infoName.focus();
@@ -131,37 +131,37 @@ function infoSetting(infoName, positionXYZ, hoverText, idx) {
 }
 
 bikeInfo = new PANOLENS.Infospot(500);
-infoSetting(bikeInfo, [-5100, -1800, -3800], "自行車資訊", 1);
+infoSetting(bikeInfo, [-5100, -1800, -3800], ["自行車資訊",-50,24,"yellow"], 1);
 
 motorInfo = new PANOLENS.Infospot(500);
-infoSetting(motorInfo, [-5200, -1800, -1300], "電動汽車馬達資訊", 2);
+infoSetting(motorInfo, [-5200, -1800, -1300], ["電動汽車馬達資訊",-50,24,"yellow"], 2);
 
 ledInfo = new PANOLENS.Infospot(500);
-infoSetting(ledInfo, [-5200, -1800, 1400], "LDE車燈應用資訊", 3);
+infoSetting(ledInfo, [-5200, -1800, 1400], ["LDE車燈應用資訊",-50,24,"yellow"], 3);
 
 medicalInfo = new PANOLENS.Infospot(525);
-infoSetting(medicalInfo, [-5200, -1800, 4100], "醫療接著膠材資訊", 4);
+infoSetting(medicalInfo, [-5200, -1800, 4100], ["醫療接著膠材資訊",-50,24,"yellow"], 4);
 
 tireInfo = new PANOLENS.Infospot(600);
-infoSetting(tireInfo, [-5200, -1800, 6600], "胎壓偵測系統資訊", 5);
+infoSetting(tireInfo, [-5200, -1800, 6600], ["胎壓偵測系統資訊",-50,24,"yellow"], 5);
 
 miniLedInfo = new PANOLENS.Infospot(500);
-infoSetting(miniLedInfo, [5800, -1800, 5950], "MINI LED資訊", 6);
+infoSetting(miniLedInfo, [5800, -1800, 5950], ["MINI LED資訊",-50,24,"yellow"], 6);
 
 electricInfo = new PANOLENS.Infospot(500);
-infoSetting(electricInfo, [5600, -1800, 3450], "電感應用資訊", 7);
+infoSetting(electricInfo, [5600, -1800, 3450], ["電感應用資訊",-50,24,"yellow"], 7);
 
 speakerInfo = new PANOLENS.Infospot(500);
-infoSetting(speakerInfo, [5400, -1800, 900], "微型揚聲器(聲學產業)資訊", 8);
+infoSetting(speakerInfo, [5400, -1800, 900], ["微型揚聲器(聲學產業)資訊",-50,24,"yellow"], 8);
 
 lensInfo = new PANOLENS.Infospot(500);
-infoSetting(lensInfo, [5200, -1800, -1600], "光學鏡頭資訊", 9);
+infoSetting(lensInfo, [5200, -1800, -1600], ["光學鏡頭資訊",-50,24,"yellow"], 9);
 
 communicationInfo = new PANOLENS.Infospot(500);
 infoSetting(
   communicationInfo,
   [5000, -1800, -4050],
-  "5G-光通訊-光通訊資訊",
+  ["5G-光通訊-光通訊資訊",-50,24,"yellow"],
   10
 );
 
@@ -1462,7 +1462,7 @@ administrativeToMeeting = new PANOLENS.Infospot(
 arrowSetting(
   administrativeToMeeting,
   [-1150, -1200, 3500],
-  "",
+  ["簡報會議室",120,50],
   true,
   "meeting"
 );

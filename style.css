@@ -62,16 +62,22 @@ p {
   height: 46.875rem;
   padding: 20px;
 }
-@media screen and (max-width: 1200px) {
+.more-img > img {
+  height: 12.5rem !important;
+}
+@media screen and (max-width: 1280px) {
   .meeting-menu {
     left: calc(100% - 50%);
+    height: 42rem;
   }
+
+  .more-img > img {
+    height: 12rem !important;
+  }
+  
   .showroom-menu {
     left: calc(100% - 50%);
   }
-}
-.more-img > img {
-  height: 12.5rem !important;
 }
 
 .info {
