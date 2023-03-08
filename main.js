@@ -1251,7 +1251,7 @@ bShowRoom1ToBShowRoom2 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow
 );
-arrowSetting(bShowRoom1ToBShowRoom2, 5000, -1000, 800, "", true, "bshowRoom2");
+arrowSetting(bShowRoom1ToBShowRoom2, [5000, -1000, 800], "", true, "bshowRoom2");
 
 // 大展示間1往研究大樓
 bShowRoom1ToDevelopment = new PANOLENS.Infospot(
