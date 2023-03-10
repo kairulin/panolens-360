@@ -47,7 +47,8 @@ const administrativeImage = new PANOLENS.ImagePanorama(
 
 const storehouse8Image = new PANOLENS.ImagePanorama("images/storehouse/8.jpg");
 const storehouse7Image = new PANOLENS.ImagePanorama("images/storehouse/7.jpg");
-const storehouse6Image = new PANOLENS.ImagePanorama("images/storehouse/6.jpg");
+// const storehouse6Image = new PANOLENS.ImagePanorama("images/storehouse/6.jpg");
+const storehouse6Image = new PANOLENS.ImagePanorama("images/storehouse/test.jpg");
 const storehouse5Image = new PANOLENS.ImagePanorama("images/storehouse/5.jpg");
 const storehouse4Image = new PANOLENS.ImagePanorama("images/storehouse/4.jpg");
 const storehouse3Image = new PANOLENS.ImagePanorama("images/storehouse/3.jpg");
@@ -642,7 +643,7 @@ storehouse7Image.add(storehouse7toStorhouse8, storehouse7toStorhouse6);
 //廠區6往廠區7
 storehouse6toStorhouse7 = new PANOLENS.Infospot(
   600,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.MoveArrow,
 );
 arrowSetting(
   storehouse6toStorhouse7,
@@ -653,20 +654,28 @@ arrowSetting(
 );
 
 //廠區6往廠區5
+// storehouse6toStorhouse5 = new PANOLENS.Infospot(
+//   600,
+//   PANOLENS.DataImage.MoveArrow
+// );
 storehouse6toStorhouse5 = new PANOLENS.Infospot(
-  600,
-  PANOLENS.DataImage.MoveArrow
+  1200,
+  PANOLENS.DataImage.MoveArrow,
+  "test",
+  0
 );
-
+// 299.96, -1936.05, 4593.24
+// 0, -500, 5000
 arrowSetting(
   storehouse6toStorhouse5,
-  [0, -500, 5000],
+  [299.96, -1936.05, 4593.24],
   ["往倉庫", -100, 50, "yellow"],
   true,
   "storehouse5"
 );
 //廠區6往走道5
 storehouse6ToAisle5 = new PANOLENS.Infospot(800, PANOLENS.DataImage.RightArrow);
+
 arrowSetting(
   storehouse6ToAisle5,
   [4500, -500, 5000],
