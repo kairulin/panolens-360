@@ -119,7 +119,7 @@ function changeFunction(img, product) {
     case "meeting":
       point.style.top = "77%";
       point.style.left = "55%";
-      
+
       // viewer.setCameraFov(70)
 
       viewer.setPanorama(meetingImage);
@@ -205,6 +205,13 @@ function changeFunction(img, product) {
 
       btnFunction(-1, false);
       viewer.setPanorama(storehouse4Image);
+      break;
+    case "storehouse3_1":
+      point.style.top = "55%";
+      point.style.left = "50%";
+
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse3_1Image);
       break;
     case "storehouse3":
       point.style.top = "55%";
