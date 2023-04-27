@@ -69,10 +69,15 @@ function changeFunction(img, product) {
       viewer.setPanorama(developmentImage);
       break;
     case "showRoom":
+
+
       btnFunction(-1, false);
       viewer.setPanorama(showRoomImage);
       break;
     case "bshowRoom1":
+      point.style.top = "20%";
+      point.style.left = "50%";
+      
       btnFunction(-1, false);
       viewer.setPanorama(bShowRoom1Image);
       break;
