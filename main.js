@@ -604,12 +604,14 @@ developmentDoorImage.add(developmentDoorToAisle7, developmentDoorTodevelopment);
 // 研究大樓往研究大樓門口
 developmentToDevelopmentDoor = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.MoveArrow,
+  "test",
+  0
 );
 arrowSetting(
   developmentToDevelopmentDoor,
   [100, -500, 4000],
-  ["研發大樓門口", 150, 50, "yellow"],
+  ["", 150, 50, "yellow"],
   false,
   "developmentDoor"
 );
@@ -617,10 +619,12 @@ arrowSetting(
 // 研究大樓往小展示間
 developmentToshowRoom = new PANOLENS.Infospot(
   600,
-  PANOLENS.DataImage.LeftArrow
+  PANOLENS.DataImage.LeftArrow,
+  "test",
+  0
 );
-developmentToshowRoom.position.set(2000, -500, -1600);
-developmentToshowRoom.addHoverText("會客室", 150, 50, "yellow");
+developmentToshowRoom.position.set(3546.39, -1947.76, -2925.69);
+developmentToshowRoom.addHoverText("", 150, 50, "yellow");
 developmentToshowRoom.addEventListener("click", function () {
   lookCheck = false;
   changeFunction("showRoom");
@@ -638,12 +642,14 @@ developmentToshowRoom.addEventListener("click", function () {
 // 研究大樓往大展示間
 developmentToBshowRoom = new PANOLENS.Infospot(
   600,
-  PANOLENS.DataImage.RightArrow
+  PANOLENS.DataImage.RightArrow,
+  "test",
+  0
 );
 arrowSetting(
   developmentToBshowRoom,
-  [-2500, -500, -5000],
-  ["大展示間", 100, 50, "yellow"],
+  [-2636.73, -983.26, -4120.41],
+  ["", 100, 50, "yellow"],
   true,
   "bshowRoom1"
 );
@@ -651,10 +657,12 @@ arrowSetting(
 // 研究大樓往廠區8
 developmentToStorehouse8 = new PANOLENS.Infospot(
   600,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.MoveArrow,
+  "test",
+  0
 );
-developmentToStorehouse8.position.set(200, -500, -5000);
-developmentToStorehouse8.addHoverText("出貨區", -100, 50, "yellow");
+developmentToStorehouse8.position.set(1235.76, -616.76, -4794.77);
+developmentToStorehouse8.addHoverText("", -100, 50, "yellow");
 developmentToStorehouse8.addEventListener("click", function () {
   lookCheck = true;
   changeFunction("storehouse8");
@@ -672,12 +680,14 @@ developmentToStorehouse8.addEventListener("click", function () {
 // 研究大樓往廠區二樓
 developmentToStorehouse2F1 = new PANOLENS.Infospot(
   600,
-  PANOLENS.DataImage.LeftFrontArrow
+  PANOLENS.DataImage.LeftFrontArrow,
+  "test",
+  0
 );
 arrowSetting(
   developmentToStorehouse2F1,
-  [200, 300, -5000],
-  ["二樓", 100, 50, "yellow"],
+  [1213.06, 833.39, -4770.07],
+  ["", 100, 50, "yellow"],
   true,
   "storehouse2F1"
 );
@@ -1473,7 +1483,9 @@ storehouse3F5Image.add(storehouse3F5toStorehouse3F4);
 // 小展示間往研究大樓門口
 showRoomToDevelopment = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.MoveArrow,
+  "test",
+  0
 );
 arrowSetting(
   showRoomToDevelopment,
@@ -1672,8 +1684,13 @@ bShowRoom6ToBShowRoom1 = new PANOLENS.Infospot(
   "test",
   0
 );
-arrowSetting(bShowRoom6ToBShowRoom1, [-2851.63, -2809.48, -2983.29], "", true, "bshowRoom1");
-
+arrowSetting(
+  bShowRoom6ToBShowRoom1,
+  [-2851.63, -2809.48, -2983.29],
+  "",
+  true,
+  "bshowRoom1"
+);
 
 // 大展示間6往大展示間5
 bShowRoom6ToBShowRoom5 = new PANOLENS.Infospot(
@@ -1682,9 +1699,19 @@ bShowRoom6ToBShowRoom5 = new PANOLENS.Infospot(
   "test",
   0
 );
-arrowSetting(bShowRoom6ToBShowRoom5, [208.64, -2825.69, 4109.81], "", false, "bshowRoom5");
+arrowSetting(
+  bShowRoom6ToBShowRoom5,
+  [208.64, -2825.69, 4109.81],
+  "",
+  false,
+  "bshowRoom5"
+);
 
-bShowRoom6Image.add(bShowRoom6ToDevelopment, bShowRoom6ToBShowRoom5,bShowRoom6ToBShowRoom1);
+bShowRoom6Image.add(
+  bShowRoom6ToDevelopment,
+  bShowRoom6ToBShowRoom5,
+  bShowRoom6ToBShowRoom1
+);
 
 //行政大樓門廊 ------------------------------------------------------------------------------------------------
 // // 門廊到走道2(面對走道1)
@@ -1741,12 +1768,14 @@ bShowRoom6Image.add(bShowRoom6ToDevelopment, bShowRoom6ToBShowRoom5,bShowRoom6To
 // 行政大樓 ------------------------------------------------------------------------------------------------
 administrativeToMeeting = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.MoveArrow,
+  "test",
+  0
 );
 arrowSetting(
   administrativeToMeeting,
-  [-1150, -1200, 3500],
-  ["簡報會議室", 120, 50],
+  [-4264.07, -1208.3, 2300.28],
+  ["", 120, 50],
   true,
   "meeting"
 );
@@ -1768,12 +1797,14 @@ arrowSetting(
 // 門廊到走道2(面對走道1)
 administrativeToAisle2_1 = new PANOLENS.Infospot(
   1100,
-  PANOLENS.DataImage.LeftArrow
+  PANOLENS.DataImage.LeftArrow,
+  "test",
+  0
 );
 arrowSetting(
   administrativeToAisle2_1,
-  [7500, -1500, -3000],
-  ["往入口", 100, 50],
+  [4736.91, -1209.89, 1034.18],
+  ["", 100, 50],
   false,
   "aisle2"
 );
@@ -1781,12 +1812,14 @@ arrowSetting(
 // 門廊到走道2(面對走道3)
 administrativeToAisle2_3 = new PANOLENS.Infospot(
   1100,
-  PANOLENS.DataImage.RightArrow
+  PANOLENS.DataImage.RightArrow,
+  "test",
+  0
 );
 arrowSetting(
   administrativeToAisle2_3,
-  [6000, -1500, -5000],
-  ["往廠區", 100, 50],
+  [4827.1, -1203.29, -469.09],
+  ["", 100, 50],
   true,
   "aisle2"
 );
@@ -1945,12 +1978,30 @@ doorImage.addEventListener("enter-fade-start", function () {
 //走道----------------------------------------------------------------
 var lookAtAisle = [
   [], //aisle1
-  [position(aisle2ToAisle3), position(aisle2ToDoor)], //aisle2
-  [position(aisle3ToAisle4), position(aisle3ToAisle2)], //aisle3
-  [position(aisle4ToAisle5), position(aisle4ToAisle3)], //aisle4
-  [position(aisle5ToAisle6), position(aisle5ToAisle4)], //aisle5
-  [position(aisle6ToAisle7), position(aisle6ToAisle5)], //aisle6
-  [position(aisle7TodevelopmentDoor), position(aisle7ToAisle6)], //aisle7
+  [
+    new THREE.Vector3(-3420.9, -167.09, -3631.21),
+    new THREE.Vector3(-3528.78, -349.37, 3513.21),
+  ], //aisle2
+  [
+    new THREE.Vector3(-3188.56, -339.11, -3825.81),
+    new THREE.Vector3(-3913.59, -484.71, 3059.49),
+  ], //aisle3
+  [
+    new THREE.Vector3(3868.27, -58.31, 3153.64),
+    new THREE.Vector3(3523.1, -693.09, -3466.24),
+  ], //aisle4
+  [
+    new THREE.Vector3(3848.94, -116.26, 3173.89),
+    new THREE.Vector3(3777.52, -404.12, -3242.66),
+  ], //aisle5
+  [
+    new THREE.Vector3(3468.74, -404.71, 3568.79),
+    new THREE.Vector3(3980.31, -821.43, -2908.84),
+  ], //aisle6
+  [
+    new THREE.Vector3(3679.26, -623.44, -3321.71),
+    new THREE.Vector3(3679.26, -623.44, -3321.71),
+  ], //aisle7
 ];
 function focusAisle(key, index) {
   switch (key) {
@@ -2215,11 +2266,13 @@ administrativeImage.addEventListener("enter-fade-start", function () {
 //會議室----------------------------------------------------------------
 meetingToAdministrative = new PANOLENS.Infospot(
   800,
-  PANOLENS.DataImage.MoveArrow
+  PANOLENS.DataImage.MoveArrow,
+  "test",
+  0
 );
 arrowSetting(
   meetingToAdministrative,
-  [4300, -1500, -7500],
+  [2327.55, -1190.01, -4255.96],
   "",
   false,
   "administrative"
