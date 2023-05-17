@@ -101,14 +101,17 @@ const imageContainer = document.querySelector(".image-container");
 
 const viewer = new PANOLENS.Viewer({
   container: imageContainer,
-  // autoRotateSpeed: 0.3,
+  autoRotateSpeed: 0.3,
   controlBar: false,
   passiveRendering: true,
   autoHideControlBar: false,
   autoHideInfospot: false,
   cameraFov: 90,
   output: "console",
+  // enableReticle: true,
 });
+// viewer.reticle.setColor(0x77ffff);
+
 let lookCheck = true;
 //會議室資訊
 var bikeInfo,
@@ -474,7 +477,7 @@ arrowSetting(
   true,
   "aisle6"
 );
-//走道5往廠區6
+//走道5往廠區5
 aisle5ToStorehouse2 = new PANOLENS.Infospot(
   800,
   PANOLENS.DataImage.MoveArrow,
@@ -485,8 +488,8 @@ arrowSetting(
   aisle5ToStorehouse2,
   [4874.57, -1053.11, 190.44],
   ["", 100, 50, "yellow"],
-  "go",
-  "storehouse6"
+  false,
+  "storehouse5"
 );
 
 aisle5Image.add(aisle5ToAisle4, aisle5ToAisle6, aisle5ToStorehouse2);
@@ -1089,17 +1092,17 @@ storehouse1toStorhouse2 = new PANOLENS.Infospot(
 );
 arrowSetting(
   storehouse1toStorhouse2,
-  [-2402.24, -1591.42, -4081.87],
+  [-3706.87, -627.26, -3288.00],
   ["", -100, 50, "yellow"],
   false,
   "storehouse2"
 );
 //廠區1往走道3
-storehouse1ToAisle3 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow);
+storehouse1ToAisle3 = new PANOLENS.Infospot(800, PANOLENS.DataImage.MoveArrow,"test",0);
 arrowSetting(
   storehouse1ToAisle3,
-  [-500, -500, -5000],
-  ["車道", -100, 50, "yellow"],
+  [-642.77, -1221.50, -4798.43],
+  ["", -100, 50, "yellow"],
   true,
   "aisle3"
 );
@@ -1113,7 +1116,7 @@ storehouse1ToStorehouse3 = new PANOLENS.Infospot(
 );
 arrowSetting(
   storehouse1ToStorehouse3,
-  [-3437.64, -1765.47, 3163.3],
+  [-4730.28, -765.60, 1408.43],
   ["", -100, 50, "yellow"],
   false,
   "storehouse3"
@@ -1491,7 +1494,7 @@ arrowSetting(
   showRoomToDevelopment,
   [800, -1000, 4000],
   "",
-  "fromShowRoom",
+  true,
   "development"
 );
 
@@ -1521,13 +1524,25 @@ bShowRoom1ToBShowRoom6 = new PANOLENS.Infospot(
 );
 arrowSetting(
   bShowRoom1ToBShowRoom6,
-  [-1808.33, -3238.43, 3347.66],
+  [-1858.30, -3237.18, 3323.31],
   "",
   "fromBShowRoom",
   "bshowRoom6"
 );
-
-bShowRoom1Image.add(bShowRoom1ToBShowRoom2, bShowRoom1ToBShowRoom6);
+bShowRoom1ToDevelopment = new PANOLENS.Infospot(
+  800,
+  PANOLENS.DataImage.MoveArrow,
+  "test",
+  0
+);
+arrowSetting(
+  bShowRoom1ToDevelopment,
+  [ 1408.67, -2746.90, 3923.45],
+  "",
+  true,
+  "development"
+);
+bShowRoom1Image.add(bShowRoom1ToBShowRoom2,bShowRoom1ToBShowRoom6, bShowRoom1ToDevelopment);
 //大展示間2 ------------------------------------------------------------------------------------------------
 // 大展示間2往大展示間3
 bShowRoom2ToBShowRoom3 = new PANOLENS.Infospot(
@@ -1608,7 +1623,7 @@ bShowRoom4ToBShowRoom5 = new PANOLENS.Infospot(
 );
 arrowSetting(
   bShowRoom4ToBShowRoom5,
-  [2495.63, -4322.04, -225.26],
+  [2409.38, -2960.14, 3225.35],
   "",
   true,
   "bshowRoom5"
@@ -1655,7 +1670,7 @@ bShowRoom5ToBShowRoom4 = new PANOLENS.Infospot(
 );
 arrowSetting(
   bShowRoom5ToBShowRoom4,
-  [-1799.18, -4659.22, 120.02],
+  [-2844.61, -2940.75, 2866.13],
   "",
   false,
   "bshowRoom4"
@@ -1674,7 +1689,7 @@ arrowSetting(
   bShowRoom6ToDevelopment,
   [2316.29, -1946.89, -3977.86],
   "",
-  "fromBShowRoom",
+  true,
   "development"
 );
 // 大展示間6往大展示間1
@@ -1821,7 +1836,7 @@ arrowSetting(
   [4827.1, -1203.29, -469.09],
   ["", 100, 50],
   true,
-  "aisle2"
+  "aisle3"
 );
 
 administrativeImage.add(
@@ -1890,16 +1905,14 @@ var lookAtPositions = [
     // new THREE.Vector3(-5000, -1500, -100),
   ], //administrative_porch
   [
-    new THREE.Vector3(-5000, -1500, 3500),
+    new THREE.Vector3(-4946.15, -603.94, -255.38),
     new THREE.Vector3(4236.66, -963.86, -2464.8),
   ], //administrative
   [new THREE.Vector3(5400, 0, 100)], //meeting
   [
-    new THREE.Vector3(4846.25, -1146.99, 374.44),
+    new THREE.Vector3(3437.82, -254.83, -3609.41),
     new THREE.Vector3(
-      developmentDoorToAisle7.position.x,
-      developmentDoorToAisle7.position.y,
-      developmentDoorToAisle7.position.z
+      3437.82, -254.83, -3609.41
     ),
   ], //developmentDoor
   [new THREE.Vector3(-4000, -250, -1000)], //show_room new THREE.Vector3(800, -1000, 4000)
@@ -1922,17 +1935,17 @@ bShowRoom6Image.add(showRoom6Info1);
 
 var lookAtShowRoom = [
   [
-    new THREE.Vector3(4916.9, -736.96, -513.16),
+    new THREE.Vector3(4988.95, 6.30, 206.08),
     position(bShowRoom1ToBShowRoom6),
   ], //b_show_room1
   [new THREE.Vector3(-2450, -1500, 0), position(bShowRoom2ToBShowRoom1)], //b_show_room2
-  [new THREE.Vector3(-3000, -1300, 0), position(bShowRoom3ToBShowRoom2)], //b_show_room3
+  [new THREE.Vector3(-672.02, -722.87, 4893.81), position(bShowRoom3ToBShowRoom2)], //b_show_room3
   [
-    new THREE.Vector3(-4194.65, -1590.98, 2190.34),
+    new THREE.Vector3(245.35, -493.42, 4959.76),
     position(bShowRoom4ToBShowRoom3),
   ], //b_show_room4
-  [new THREE.Vector3(2000, -600, 0), position(bShowRoom5ToBShowRoom4)], //b_show_room5
-  [new THREE.Vector3(2500, -1000, 1000), position(bShowRoom6ToBShowRoom5)], //b_show_room6
+  [new THREE.Vector3(2000, -600, 0), new THREE.Vector3(-4831.71, -1268.82, -28.47)], //b_show_room5
+  [new THREE.Vector3(-88.97, -630.33, -4951.75), position(bShowRoom6ToBShowRoom5)], //b_show_room6
 ];
 
 function focusBShowRoom(key, index) {
@@ -1980,7 +1993,7 @@ var lookAtAisle = [
   [], //aisle1
   [
     new THREE.Vector3(-3420.9, -167.09, -3631.21),
-    new THREE.Vector3(-3528.78, -349.37, 3513.21),
+    new THREE.Vector3(aisle2ToDoor.position.x, aisle2ToDoor.position.y, aisle2ToDoor.position.z),
   ], //aisle2
   [
     new THREE.Vector3(-3188.56, -339.11, -3825.81),
@@ -2088,11 +2101,12 @@ var lookAtStorehouse = [
   [position(storehouse5toStorhouse4), position(storehouse5toStorhouse6)], //storehouse5
   [
     position(storehouse4toStorhouse3_1),
-    position(storehouse4toStorhouse5),
+    new THREE.Vector3(2693.65, -1804.15, -3799.17),
     new THREE.Vector3(0, 0, 0),
   ], //storehouse4
-  [position(storehouse3toStorhouse1), position(storehouse3toStorhouse3_1)], //storehouse3
-  [position(storehouse2toStorhouse1), new THREE.Vector3(-350, -500, 5000)], //storehouse2
+  [position(storehouse3toStorhouse1), new THREE.Vector3(
+    -825.38, -1388.17, 4721.98)], //storehouse3
+  [position(storehouse2toStorhouse1), new THREE.Vector3(3222.49, -1745.11, -3389.06)], //storehouse2
   [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(0, 0, 500)], //storehouse1
   [position(storehouse3_1toStorhouse3), position(storehouse3_1toStorhouse4)], //storehouse3_1
 ];
