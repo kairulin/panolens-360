@@ -729,7 +729,7 @@ arrowSetting(
   storehouse8toDevelopment,
   [4118.02, -1743.88, 2216.67],
   ["", 100, 50, ""],
-  false,
+  true,
   "development"
 );
 
@@ -1526,7 +1526,7 @@ arrowSetting(
   bShowRoom1ToBShowRoom6,
   [-1858.30, -3237.18, 3323.31],
   "",
-  "fromBShowRoom",
+  false,
   "bshowRoom6"
 );
 bShowRoom1ToDevelopment = new PANOLENS.Infospot(
@@ -1906,7 +1906,7 @@ var lookAtPositions = [
   ], //administrative_porch
   [
     new THREE.Vector3(-4946.15, -603.94, -255.38),
-    new THREE.Vector3(4236.66, -963.86, -2464.8),
+    new THREE.Vector3(4944.94, -607.73, 269.94),
   ], //administrative
   [new THREE.Vector3(5400, 0, 100)], //meeting
   [
@@ -1939,13 +1939,13 @@ var lookAtShowRoom = [
     position(bShowRoom1ToBShowRoom6),
   ], //b_show_room1
   [new THREE.Vector3(-2450, -1500, 0), position(bShowRoom2ToBShowRoom1)], //b_show_room2
-  [new THREE.Vector3(-672.02, -722.87, 4893.81), position(bShowRoom3ToBShowRoom2)], //b_show_room3
+  [new THREE.Vector3(-66.30, -1936.78, 4605.15), position(bShowRoom3ToBShowRoom2)], //b_show_room3
   [
     new THREE.Vector3(245.35, -493.42, 4959.76),
     position(bShowRoom4ToBShowRoom3),
   ], //b_show_room4
-  [new THREE.Vector3(2000, -600, 0), new THREE.Vector3(-4831.71, -1268.82, -28.47)], //b_show_room5
-  [new THREE.Vector3(-88.97, -630.33, -4951.75), position(bShowRoom6ToBShowRoom5)], //b_show_room6
+  [new THREE.Vector3(4297.40, -2537.29, -151.15), new THREE.Vector3(-4831.71, -1268.82, -28.47)], //b_show_room5
+  [new THREE.Vector3(-161.75, -1255.51, -4828.47), new THREE.Vector3(262.38, -2824.00, 4108.12)], //b_show_room6
 ];
 
 function focusBShowRoom(key, index) {
@@ -1997,23 +1997,23 @@ var lookAtAisle = [
   ], //aisle2
   [
     new THREE.Vector3(-3188.56, -339.11, -3825.81),
-    new THREE.Vector3(-3913.59, -484.71, 3059.49),
+    new THREE.Vector3(-225.30, -659.09, 4728.12),
   ], //aisle3
   [
     new THREE.Vector3(3868.27, -58.31, 3153.64),
-    new THREE.Vector3(3523.1, -693.09, -3466.24),
+    new THREE.Vector3(-349.89, -864.34, -4903.76),
   ], //aisle4
   [
     new THREE.Vector3(3848.94, -116.26, 3173.89),
-    new THREE.Vector3(3777.52, -404.12, -3242.66),
+    new THREE.Vector3(-301.85, -664.86, -4885.93),
   ], //aisle5
   [
     new THREE.Vector3(3468.74, -404.71, 3568.79),
-    new THREE.Vector3(3980.31, -821.43, -2908.84),
+    new THREE.Vector3(797.39, -926.71, -4837.25),
   ], //aisle6
   [
     new THREE.Vector3(3679.26, -623.44, -3321.71),
-    new THREE.Vector3(3679.26, -623.44, -3321.71),
+    new THREE.Vector3(553.19, -946.75, -4872.43),
   ], //aisle7
 ];
 function focusAisle(key, index) {
@@ -2107,7 +2107,7 @@ var lookAtStorehouse = [
   [position(storehouse3toStorhouse1), new THREE.Vector3(
     -825.38, -1388.17, 4721.98)], //storehouse3
   [position(storehouse2toStorhouse1), new THREE.Vector3(3222.49, -1745.11, -3389.06)], //storehouse2
-  [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(0, 0, 500)], //storehouse1
+  [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(-4958.20, -451.14, -370.56)], //storehouse1
   [position(storehouse3_1toStorhouse3), position(storehouse3_1toStorhouse4)], //storehouse3_1
 ];
 
