@@ -1908,7 +1908,7 @@ var lookAtPositions = [
     new THREE.Vector3(-4946.15, -603.94, -255.38),
     new THREE.Vector3(4944.94, -607.73, 269.94),
   ], //administrative
-  [new THREE.Vector3(5400, 0, 100)], //meeting
+  [new THREE.Vector3(4981.48, -233.70, -178.12)], //meeting
   [
     new THREE.Vector3(3437.82, -254.83, -3609.41),
     new THREE.Vector3(
@@ -2101,7 +2101,7 @@ var lookAtStorehouse = [
   [position(storehouse5toStorhouse4), position(storehouse5toStorhouse6)], //storehouse5
   [
     position(storehouse4toStorhouse3_1),
-    new THREE.Vector3(2693.65, -1804.15, -3799.17),
+    new THREE.Vector3(245.56, -72.42, -4984.28),
     new THREE.Vector3(0, 0, 0),
   ], //storehouse4
   [position(storehouse3toStorhouse1), new THREE.Vector3(
