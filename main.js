@@ -1941,7 +1941,7 @@ var lookAtShowRoom = [
   [new THREE.Vector3(-2450, -1500, 0), position(bShowRoom2ToBShowRoom1)], //b_show_room2
   [new THREE.Vector3(-66.30, -1936.78, 4605.15), position(bShowRoom3ToBShowRoom2)], //b_show_room3
   [
-    new THREE.Vector3(245.35, -493.42, 4959.76),
+    new THREE.Vector3(141.77, -3106.63, 3905.45),
     position(bShowRoom4ToBShowRoom3),
   ], //b_show_room4
   [new THREE.Vector3(4297.40, -2537.29, -151.15), new THREE.Vector3(-4831.71, -1268.82, -28.47)], //b_show_room5
