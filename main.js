@@ -1039,7 +1039,7 @@ arrowSetting(
   storehouse3toStorhouse1,
   [-472.34, -1463.62, -4753.5],
   ["", -100, 50, "yellow"],
-  true,
+  false,
   "storehouse1"
 );
 storehouse3Image.add(
@@ -1076,7 +1076,7 @@ arrowSetting(
   storehouse2toStorhouse1,
   [298.1, -1652.45, -4700.05],
   ["", -100, 50, "yellow"],
-  true,
+  false,
   "storehouse1"
 );
 
