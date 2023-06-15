@@ -1936,16 +1936,16 @@ bShowRoom6Image.add(showRoom6Info1);
 var lookAtShowRoom = [
   [
     new THREE.Vector3(4988.95, 6.30, 206.08),
-    position(bShowRoom1ToBShowRoom6),
+    new THREE.Vector3(-588.44, -278.74, 4951.12),
   ], //b_show_room1
-  [new THREE.Vector3(-2450, -1500, 0), position(bShowRoom2ToBShowRoom1)], //b_show_room2
-  [new THREE.Vector3(-66.30, -1936.78, 4605.15), position(bShowRoom3ToBShowRoom2)], //b_show_room3
+  [new THREE.Vector3(-2450, -1500, 0), new THREE.Vector3(24.75, -927.33, -4908.27)], //b_show_room2
+  [new THREE.Vector3(-66.30, -1936.78, 4605.15), new THREE.Vector3(217.76, -768.61, -4928.63)], //b_show_room3
   [
     new THREE.Vector3(141.77, -3106.63, 3905.45),
-    position(bShowRoom4ToBShowRoom3),
+    new THREE.Vector3(-82.91, -1550.63, -4748.89),
   ], //b_show_room4
   [new THREE.Vector3(4297.40, -2537.29, -151.15), new THREE.Vector3(-4831.71, -1268.82, -28.47)], //b_show_room5
-  [new THREE.Vector3(-161.75, -1255.51, -4828.47), new THREE.Vector3(262.38, -2824.00, 4108.12)], //b_show_room6
+  [new THREE.Vector3(-161.75, -1255.51, -4828.47), new THREE.Vector3(143.34, -860.93, 4915.26)], //b_show_room6
 ];
 
 function focusBShowRoom(key, index) {
