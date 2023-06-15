@@ -1910,7 +1910,7 @@ var lookAtPositions = [
   ], //administrative
   [new THREE.Vector3(4981.48, -233.70, -178.12)], //meeting
   [
-    new THREE.Vector3(3437.82, -254.83, -3609.41),
+    new THREE.Vector3(4989.09, -51.36, 169.62),
     new THREE.Vector3(
       3437.82, -254.83, -3609.41
     ),
