@@ -2012,8 +2012,8 @@ var lookAtAisle = [
     new THREE.Vector3(797.39, -926.71, -4837.25),
   ], //aisle6
   [
+    new THREE.Vector3(4981.75, 46.25, 313.64),
     new THREE.Vector3(3679.26, -623.44, -3321.71),
-    new THREE.Vector3(553.19, -946.75, -4872.43),
   ], //aisle7
 ];
 function focusAisle(key, index) {
@@ -2106,7 +2106,7 @@ var lookAtStorehouse = [
   ], //storehouse4
   [position(storehouse3toStorhouse1), new THREE.Vector3(
     -825.38, -1388.17, 4721.98)], //storehouse3
-  [position(storehouse2toStorhouse1), new THREE.Vector3(3222.49, -1745.11, -3389.06)], //storehouse2
+  [position(storehouse2toStorhouse1), new THREE.Vector3(2017.76, -1500.71, 4315.59    )], //storehouse2
   [new THREE.Vector3(5000, -500, 0), new THREE.Vector3(-4958.20, -451.14, -370.56)], //storehouse1
   [position(storehouse3_1toStorhouse3), position(storehouse3_1toStorhouse4)], //storehouse3_1
 ];
