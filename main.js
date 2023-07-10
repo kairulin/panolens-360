@@ -2013,7 +2013,7 @@ var lookAtAisle = [
   ], //aisle6
   [
     new THREE.Vector3(4981.75, 46.25, 313.64),
-    new THREE.Vector3(3679.26, -623.44, -3321.71),
+    new THREE.Vector3(579.55, -163.57, -4957.10),
   ], //aisle7
 ];
 function focusAisle(key, index) {
