@@ -34,6 +34,7 @@ function btnFunction(selectDataId, btn) {
 
     let getDom = document.getElementById(selectDataId);
     getDom.classList.toggle("active-menu");
+    console.log('檢查', getDom)
   }
 }
 

@@ -157,7 +157,7 @@ ledInfo = new PANOLENS.Infospot(500);
 infoSetting(
   ledInfo,
   [-5200, -1800, 1400],
-  ["LDE車燈應用資訊", -50, 24, "yellow"],
+  ["LED車燈應用資訊", -50, 24, "yellow"],
   3
 );
 
@@ -216,6 +216,11 @@ infoSetting(
   ["5G-光通訊-光通訊資訊", -50, 24, "yellow"],
   10
 );
+
+// 小展示間腳踏車資訊
+smallRoomBikeInfo = new PANOLENS.Infospot(550);
+infoSetting(smallRoomBikeInfo, [-4799.06, 704.94, -1179.47], "腳踏車", "smallroom");
+
 
 //大展示間1資訊
 TopInfo = new PANOLENS.Infospot(550);
@@ -2260,7 +2265,9 @@ storehouse3F4Image.addEventListener("enter-fade-start", function () {
 showRoomImage.addEventListener("enter-fade-start", function () {
   viewer.tweenControlCenter(lookAtPositions[4][0], 0);
 });
-
+showRoomImage.add(
+  smallRoomBikeInfo
+)
 //行政大樓門廊----------------------------------------------------------------
 // administrativePorchImage.addEventListener("enter-fade-start", function () {
 //   if (lookCheck) {

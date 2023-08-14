@@ -62,7 +62,7 @@
           產品介紹 電動汽車馬達
         </button>
         <button onclick="changeFunction('meeting','led')">
-          產品介紹 LDE車燈應用
+          產品介紹 LED車燈應用
         </button>
         <button onclick="changeFunction('meeting','medical')">
           產品介紹 醫療接著膠材
@@ -699,8 +699,37 @@
             <span>關閉</span>
           </button>
         </div>
+        <!-- 小展示間腳踏車文案 -->
+        <div class="showroom-menu" id="smallroom">
+          <div class="info" id="smallroominfo">
+            <img data-img="./images/show_room/info/bike.png" alt="" />
+
+            <div class="title">腳踏車介紹</div>
+            <p>
+              早期的鐵製或是鋁製自行車的螺絲用的防鬆脫的厭氧螺絲及厭氧軸承固定膠,進展到碳纖維與鋁合金複合車架、前後叉、座管、座墊、輪框與各種金屬部件的接著。
+              永寬與各大廠合作開發了兩年時間後,終於成功打入台中某國際大廠的車架三通五通的接著材料供應鏈同時擴展出前後叉、座管、座墊等等部件的應用直到今日,永寬在此市的市佔率已經高達六成之多,且仍然還在繼續努力的與自行車產業合作開發更高階的電動自行車更具未來性的應用。
+              永寬的在地優勢有:
+              ・特製的拉力測試標準試片與自行車業界同步的基材表面處理
+              能力,可以完全的符合業界的整套測試標準。
+              ・建構好,可以從具備密閉式套箱組,具有低溫-40C高溫達到180°C的萬能拉力測試機。可以試出材料在各種溫度下的剪力拉力的各種強度數據,且公開完整測試過程並呈現在國際級客戶的眼前。
+              ・三台冷熱衝擊機,三台高低溫循環試,三台高溫高濕測試機,一台QUV老化測試機,可以做到最嚴苛的環境老化模擬的測試,帶給客戶安心的接著表現。
+              ・台灣地區的研發技術服務和生產製造,品質管控升級到IATF16949 的汽車業品質管理系統,可依據客戶要求提供技術服務和售後服務。
+              ・2020年開始,技術及供貨服務已經佈局延伸到東南亞區。
+              ・國際大廠的推薦加上高品質服務的保證,讓永寬充滿信心積極來佈局更堅強的研發團隊,相信我們能夠開發出更具有未來優勢的新材料。
+            </p>
+            <img data-img="./images/show_room/info/fork_0.png" alt="" />
+            <img data-img="./images/show_room/info/frame2_0.png" alt="" />
+            <img data-img="./images/show_room/info/saddle_0.png" alt="" />
+            <img data-img="./images/show_room/info/tire_0.png" alt="" />
+
+          </div>
+          <button class="close-btn" onclick="btnFunction('smallroom',true)">
+            <span>關閉</span>
+          </button>
+        </div>
       </div>
 
+      
       <div class="image-container"></div>
     </div>
 
@@ -739,6 +768,8 @@
       observer.observe(document.getElementById("info15"));
       observer.observe(document.getElementById("info17"));
       observer.observe(document.getElementById("info18"));
+      observer.observe(document.getElementById("smallroominfo"));
+
     </script>
 
     <script
