@@ -266,6 +266,18 @@ function changeFunction(img, product) {
       btnFunction(-1, false);
       viewer.setPanorama(storehouse2F7Image);
       break;
+    case "storehouse2F8":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F8Image);
+      break
+    case "storehouse2F9":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F9Image);
+      break
+    case "storehouse2F10":
+      btnFunction(-1, false);
+      viewer.setPanorama(storehouse2F10Image);
+      break
     case "storehouse3F1":
       btnFunction(-1, false);
       viewer.setPanorama(storehouse3F1Image);
@@ -285,6 +297,22 @@ function changeFunction(img, product) {
     case "storehouse3F5":
       btnFunction(-1, false);
       viewer.setPanorama(storehouse3F5Image);
+      break;
+    case "dormitory1":
+      btnFunction(-1, false);
+      viewer.setPanorama(dormitory1Image);
+      break;
+    case "dormitory2":
+      btnFunction(-1, false);
+      viewer.setPanorama(dormitory2Image);
+      break;
+    case "dormitory3":
+      btnFunction(-1, false);
+      viewer.setPanorama(dormitory3Image);
+      break;
+    case "dormitory4":
+      btnFunction(-1, false);
+      viewer.setPanorama(dormitory4Image);
       break;
     default:
       point.style.top = "90%";
