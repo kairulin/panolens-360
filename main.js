@@ -1278,7 +1278,7 @@ storehouse2F3toStroehouse2F2 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F3toStroehouse2F2,
   [-500, -500, 3000],
-  "",
+  [],
   false,
   "storehouse2F2"
 );
@@ -1311,7 +1311,7 @@ storehouse2F4toStroehouse2F3 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F4toStroehouse2F3,
   [100, -500, -3000],
-  ["", -100, 50, "yellow"],
+  ["製成模擬室", -100, 50, "white"],
   false,
   "storehouse2F3"
 );
@@ -1325,7 +1325,7 @@ storehouse2F4toStroehouse3F1 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F4toStroehouse3F1,
   [-800, -500, 3000],
-  ["", -100, 50, "yellow"],
+  ["三樓", -100, 50, "white"],
   "go",
   "storehouse3F1"
 );
@@ -1359,7 +1359,7 @@ storehouse2F5toStroehouse2F4 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F5toStroehouse2F4,
   [-1289.26, -358.48, 125.74],
-  ["小批量工作室", -100, 50, "white"],
+  ["製造二課", -100, 50, "white"],
   true,
   "storehouse2F6"
 );
@@ -1374,7 +1374,7 @@ storehouse2F5toStorehouse3F1 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F5toStorehouse3F1,
   [-2318.96, -2111.96, -3885.51],
-  "",
+  ["藥品室", -100, 50, "white"],
   false,
   "storehouse2F4"
 );
@@ -1394,7 +1394,7 @@ storehouse2F6toStroehouse2F5 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F6toStroehouse2F5,
   [254.53, -1350.58, -4796.80],
-  "",
+  ["出口", -100, 50, "white"],
   false,
   "storehouse2F5"
 );
@@ -1408,7 +1408,7 @@ storehouse2F6toStroehouse2F8 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F6toStroehouse2F8,
   [-107.69, -1287.35, 4822.33],
-  "",
+  ["小批量工作室", -100, 50, "white"],
   true,
   "storehouse2F8"
 );
@@ -1424,7 +1424,7 @@ storehouse2F8toStroehouse2F6 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F8toStroehouse2F6,
   [-663.59, -1490.70, -4718.37],
-  [],
+  ["製造二課", -100, 50, "white"],
   false,
   "storehouse2F6"
 );
@@ -1454,7 +1454,7 @@ storehouse2F9toStroehouse2F8 = new PANOLENS.Infospot(
 arrowSetting(
   storehouse2F9toStroehouse2F8,
   [15.08, -1367.66, -4804.53],
-  [],
+  ["小批量工作室", -100, 50, "white"],
   false,
   "storehouse2F8"
 );
@@ -1544,7 +1544,7 @@ dormitory2toDormitory1 = new PANOLENS.Infospot(
 arrowSetting(
   dormitory2toDormitory1,
   [4138.54, -1605.45, 2288.72],
-  ["", -120, 50, "white"],
+  ["出口", -120, 50, "white"],
   false,
   "dormitory1"
 );
@@ -2419,10 +2419,11 @@ storehouse2Image.addEventListener("enter-fade-start", function () {
 storehouse1Image.addEventListener("enter-fade-start", function () {
   focusStorehouse(lookCheck, 7);
 });
+// -4103.80, -994.75, -2658.10
 //廠區二樓----------------------------------------------------------------------
 var lookAtStorehouse2F = [
   [
-    new THREE.Vector3(700, 300, -2500),
+    new THREE.Vector3(1034.36, -472.32, -4866.40),
     position(storehouse2F1toStorehouse2F2),
     position(storehouse2F1toStorehouse8),
   ], //2F1
@@ -2438,12 +2439,12 @@ var lookAtStorehouse2F = [
     position(storehouse2F4toStroehouse2F5),
     position(storehouse2F4toStroehouse2F3),
   ], //2F
-  [new THREE.Vector3(0, -500, -3000), new THREE.Vector3(-3090.41, -707.20, -3854.72)], //2F5
+  [new THREE.Vector3(-4103.80, -994.75, -2658.10), new THREE.Vector3(-4103.80, -994.75, -2658.10)], //2F5
   [new THREE.Vector3(-94.54, -165.66, 4988.54),new THREE.Vector3(142.68, -1334.27, -4798.91) ], //2F6
   [new THREE.Vector3(2008.37, -391.92, 4560.97)], //視聽教室
   [new THREE.Vector3(-107.69, -1287.35, 4822.33), new THREE.Vector3(-622.59, -1426.67, -4727.35)], //2F8
   [new THREE.Vector3(-107.69, -1287.35, 4822.33), new THREE.Vector3(15.08, -1367.66, -4804.53)], //2F9
-  [new THREE.Vector3(-3009.51, -890.92, -3881.03)], //2F10
+  [new THREE.Vector3(3352.98, -351.86, 3688.88)], //2F10
 ];
 function focusStorehouse2F(key, index) {
   switch (key) {
@@ -2528,7 +2529,7 @@ storehouse3F4Image.addEventListener("enter-fade-start", function () {
   focusStorehouse3F(lookCheck, 2);
 });
 var lookAtDormitory = [
-  [new THREE.Vector3(-3000, -500, 0),new THREE.Vector3(1516.70, -2155.36, -4239.75),],
+  [new THREE.Vector3(-3000, -500, 0),new THREE.Vector3(-227.07, -595.66, -4948.62),],
   [new THREE.Vector3(-3000, -500, 0),new THREE.Vector3(4138.54, -1605.45, 2288.72),],
   [new THREE.Vector3(-3000, -500, 0),new THREE.Vector3(4984.56, -264.25, -96.55),],
   [new THREE.Vector3(-3000, -500, 0),new THREE.Vector3(-3000, -500, 0),],
